@@ -34,6 +34,8 @@ module Ninshiki
     class_attribute :harvester
     # Validator class must inherit from Ninshiki::Engine::Parser
     class_attribute :parser
+    # Schema that should be used to validate output of a given harvester
+    class_attribute :schema
     # Validator class must inherit from Ninshiki::Engine::Settings
     class_attribute :settings
 
@@ -54,10 +56,9 @@ module Ninshiki
     # @return [Hash] hash with all the validation data
     def call(*args)
       @params = Params.new(*args)
-      @buffer = {}
-      process
-      validate!(@buffer)
-      @buffer.to_h
+      buffer = process
+      validate!(buffer)
+      buffer
     ensure
       # This is a cleanup to remove validation configuration in case
       # something (anything) went wrong during the validation process
@@ -66,11 +67,8 @@ module Ninshiki
 
     private
 
-    # Performs processing with parser and harvester
-    # @note Output of this method is irrelevant since, output data is being stored
-    #   in the buffer
     def process
-      buffer[self.class.to_s.split('::')[2].underscore.to_sym] = self.class.parser.new.call(
+      self.class.parser.new.call(
         self.class.harvester.new.call(params)
       )
     end
@@ -81,12 +79,9 @@ module Ninshiki
     # @raise [Ninshiki::Errors::InvalidAttributes] raised when our hash does not meet requirements
     #   from the schema
     def validate!(results)
-      schema.call(results)
-    end
-
-    # @return [Class] schema against which we should validate the output data
-    def schema
-      Ninshiki::Schemas::Result
+      Array(results).each do |result|
+        self.class.schema.call(result)
+      end
     end
   end
 end
