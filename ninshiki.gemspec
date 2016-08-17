@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Maciej Mensfeld']
   spec.email         = %w( maciej@mensfeld.pl )
   spec.homepage      = 'https://coditsu.com'
-  spec.summary       = %q{ Data gathering engine for Coditsu Quality Assurance tool }
-  spec.description   = %q{ Data gathering engine for Coditsu Quality Assurance tool }
+  spec.summary       = %q{ Insight data harvesting engine for Coditsu Quality Assurance tool }
+  spec.description   = %q{ Insight data harvesting engine for Coditsu Quality Assurance tool }
   spec.license       = 'Trade secret'
 
   spec.add_development_dependency 'bundler'

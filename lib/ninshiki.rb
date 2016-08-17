@@ -18,14 +18,13 @@
   active_support/inflector
 ).each { |lib| require lib }
 
-# Coditsu validations Engine responsible for checking code quality
-# It returns data defined in Ninshiki::Schema. All validators must match those
-# requirements all the time
+# Coditsu analytics Engine responsible for gathering insight about the code and how it is being
+# developed
 module Ninshiki
   class << self
     # @return [Array<Class>] all engines that inherit from Ninshiki::Engine
     # @example
-    #   Ninshiki.engines #=> [Ninshiki::Ruby::Yard::Engine, Ninshiki::Ruby::Yaml::Engine, ...]
+    #   Ninshiki.engines #=> [Ninshiki::Harvesters::RepositoryAuthors, ...]
     def engines
       Ninshiki::Engine
         .descendants
