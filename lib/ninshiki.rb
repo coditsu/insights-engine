@@ -10,6 +10,7 @@
   digest/md5
   dry-validation
   require_all
+  rugged
   active_support/core_ext/class/subclasses
   active_support/core_ext/class/attribute
   active_support/core_ext/hash/conversions

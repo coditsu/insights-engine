@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 require './lib/ninshiki.rb'
 
-build_path = '/home/mencio/Software/Senpuu'
+build_path = '/home/mencio/Software/Coditsu/Ninshiki'
 
-results = Ninshiki::Harvesters::RepositoryAuthors::Engine.new.call(
+results = Ninshiki::Harvesters::HeadDetails::Engine.new.call(
   build_path: build_path
 )
 

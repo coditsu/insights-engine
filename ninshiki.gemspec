@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler'
 
   spec.add_dependency 'git'
+  spec.add_dependency 'rugged'
   spec.add_dependency 'require_all'
   spec.add_dependency 'multi_json'
   spec.add_dependency 'i18n'

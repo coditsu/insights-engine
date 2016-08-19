@@ -79,7 +79,8 @@ module Ninshiki
     # @raise [Ninshiki::Errors::InvalidAttributes] raised when our hash does not meet requirements
     #   from the schema
     def validate!(results)
-      Array(results).each do |result|
+      data = results.is_a?(Array) ? results : [results]
+      data.each do |result|
         self.class.schema.call(result)
       end
     end
