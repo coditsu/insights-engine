@@ -5,9 +5,9 @@ module Ninshiki
     module HeadDetails
       class Parser < Engine::Parser
         REGEXPS = {
-          files_changed: /(\d) files changed/,
-          insertions: /(\d) insertions/,
-          deletions: /(\d) deletions/
+          files_changed: /(\d*) files changed/,
+          insertions: /(\d*) insertions/,
+          deletions: /(\d*) deletions/
         }
 
         def process
