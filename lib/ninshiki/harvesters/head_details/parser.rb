@@ -24,9 +24,9 @@ module Ninshiki
               name: target.author[:name],
               email: target.author[:email]
             },
-            files_changed: lines_stats.match(REGEXPS[:files_changed])[1].to_i,
-            insertions: lines_stats.match(REGEXPS[:insertions])[1].to_i,
-            deletions: lines_stats.match(REGEXPS[:deletions])[1].to_i
+            files_changed: (lines_stats.match(REGEXPS[:files_changed]) || [])[1].to_i,
+            insertions: (lines_stats.match(REGEXPS[:insertions]) || [])[1].to_i,
+            deletions: (lines_stats.match(REGEXPS[:deletions]) || [])[1].to_i
           }
         end
       end
