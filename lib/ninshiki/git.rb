@@ -41,6 +41,14 @@ module Ninshiki
         shell(build_path, :blame, "'#{location}' #{options}")
       end
 
+      def name_rev(build_path)
+        shell(build_path, :'name-rev', '--name-only HEAD')
+      end
+
+      def shortstat(build_path)
+        shell(build_path, :log, '--shortstat -n1')
+      end
+
       private
 
       # Executes a given git command in build_path location

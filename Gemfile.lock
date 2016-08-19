@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ninshiki (0.2.1)
+    ninshiki (0.2.2)
       activesupport
       dry-validation
       git

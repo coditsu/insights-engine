@@ -12,6 +12,9 @@ module Ninshiki
           required(:branch).filled(:str?)
           required(:author).filled(Ninshiki::Schemas::Author)
           required(:authored_at).filled(:date_time?)
+          required(:files_changed).filled(:int?, gteq?: 0)
+          required(:insertions).filled(:int?, gteq?: 0)
+          required(:deletions).filled(:int?, gteq?: 0)
         end
       end
     end
