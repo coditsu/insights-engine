@@ -8,7 +8,11 @@ module Ninshiki
 
         def process
           repo = Rugged::Repository.new(params.build_path)
-          raw(repo.head.target)
+          branch = run("cd #{params.build_path} && git name-rev --name-only HEAD")[:stdout]
+          raw(
+            target: repo.head.target,
+            branch: branch
+          )
         end
       end
     end

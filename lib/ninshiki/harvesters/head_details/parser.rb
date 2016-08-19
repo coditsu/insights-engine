@@ -6,15 +6,17 @@ module Ninshiki
       class Parser < Engine::Parser
 
         def process
-          result = raw[:stdout]
+          target = raw.dig(:stdout, :target)
+          branch = raw.dig(:stdout, :branch)
 
           {
-            id: result.oid,
-            message: result.message,
-            authored_at: result.author[:time].to_datetime,
+            id: target.oid,
+            message: target.message,
+            authored_at: target.author[:time].to_datetime,
+            branch: branch,
             author: {
-              name: result.author[:name],
-              email: result.author[:email]
+              name: target.author[:name],
+              email: target.author[:email]
             }
           }
         end
