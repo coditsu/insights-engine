@@ -12,14 +12,13 @@ module Ninshiki
 
         def process
           target = raw.dig(:stdout, :target)
-          branch = raw.dig(:stdout, :branch)
+
           lines_stats = raw.dig(:stdout, :lines_stats).last
 
           {
             id: target.oid,
             message: target.message,
             authored_at: target.author[:time].to_datetime,
-            branch: branch.join("\n"),
             author: {
               name: target.author[:name],
               email: target.author[:email]

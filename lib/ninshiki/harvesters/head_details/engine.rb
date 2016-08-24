@@ -9,7 +9,6 @@ module Ninshiki
         self.schema = Dry::Validation.Schema(Ninshiki::Schemas::Base) do
           required(:id).filled(:str?)
           required(:message).filled(:str?)
-          required(:branch).filled(:str?)
           required(:author).filled(Ninshiki::Schemas::Author)
           required(:authored_at).filled(:date_time?)
           required(:files_changed).filled(:int?, gteq?: 0)

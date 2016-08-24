@@ -41,8 +41,9 @@ module Ninshiki
         shell(build_path, :blame, "'#{location}' #{options}")
       end
 
-      def name_rev(build_path)
-        shell(build_path, :'name-rev', '--name-only HEAD')
+      def branch(build_path)
+        sha = shell(build_path, :'rev-parse', 'HEAD').first
+        shell(build_path, :branch, "--contains #{sha}")
       end
 
       def shortstat(build_path)
