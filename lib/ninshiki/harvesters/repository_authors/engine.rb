@@ -6,10 +6,7 @@ module Ninshiki
       class Engine < Ninshiki::Engine
         self.parser = RepositoryAuthors::Parser
         self.harvester = RepositoryAuthors::Harvester
-        self.schema = Dry::Validation.Schema(Ninshiki::Schemas::Base) do
-          required(:name).filled(:str?)
-          required(:email).filled(:str?)
-        end
+        self.schema = Ninshiki::Schemas::Author
       end
     end
   end
