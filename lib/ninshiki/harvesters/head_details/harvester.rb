@@ -8,7 +8,7 @@ module Ninshiki
 
         def process
           repo = Rugged::Repository.new(params.build_path)
-          lines_stats = Git.shortstat(params.build_path)
+          lines_stats = Git.shortstat(params.build_path, 1)
 
           raw(
             target: repo.head.target,

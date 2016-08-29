@@ -17,5 +17,7 @@ module Ninshiki
     class InvalidResponse < Base; end
     # Raised when we receiver argument with an invalid value
     class InvalidArgumentValue < Base; end
+    # Raised when we want details about commit but we cannot find any
+    class UnmatchedCommit < Base; end
   end
 end

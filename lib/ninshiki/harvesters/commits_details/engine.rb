@@ -2,10 +2,10 @@
 module Ninshiki
   # Namespace for validators
   module Harvesters
-    module HeadDetails
+    module CommitsDetails
       class Engine < Ninshiki::Engine
-        self.parser = HeadDetails::Parser
-        self.harvester = HeadDetails::Harvester
+        self.parser = CommitsDetails::Parser
+        self.harvester = CommitsDetails::Harvester
         self.schema = Dry::Validation.Schema(Ninshiki::Schemas::Base) do
           required(:id).filled(:str?)
           required(:message).filled(:str?)

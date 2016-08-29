@@ -46,8 +46,14 @@ module Ninshiki
         shell(build_path, :branch, "--contains #{sha}")
       end
 
-      def shortstat(build_path)
-        shell(build_path, :log, '--shortstat -n1')
+      def shortstat(build_path, limit = nil, commit = nil)
+        options = []
+        options << '--shortstat'
+        options << '--format="oneline"'
+        options << "-n#{limit}" if limit
+        options << commit if commit
+
+        shell(build_path, :log, options.join(' '))
       end
 
       private
