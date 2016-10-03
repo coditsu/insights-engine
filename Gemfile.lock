@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ninshiki (0.3.1)
+    insights_engine (0.3.2)
       activesupport
       byebug
       dry-validation
@@ -19,7 +19,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    byebug (9.0.5)
+    byebug (9.0.6)
     concurrent-ruby (1.0.2)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -28,34 +28,34 @@ GEM
     dry-container (0.5.0)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1, >= 0.1.3)
+    dry-core (0.1.0)
+      concurrent-ruby (~> 1.0)
     dry-equalizer (0.2.0)
-    dry-logic (0.3.0)
+    dry-logic (0.4.0)
       dry-container (~> 0.2, >= 0.2.6)
+      dry-core (~> 0.1)
       dry-equalizer (~> 0.2)
-    dry-monads (0.1.1)
-      dry-equalizer
-    dry-types (0.8.1)
+    dry-types (0.9.0)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1)
       dry-container (~> 0.3)
+      dry-core (~> 0.1)
       dry-equalizer (~> 0.2)
-      dry-logic (~> 0.3, >= 0.3.0)
-      dry-monads (>= 0.0.1)
-      ice_nine (~> 0.11)
+      dry-logic (~> 0.4, >= 0.4.0)
       inflecto (~> 0.0.0, >= 0.0.2)
-    dry-validation (0.9.5)
+    dry-validation (0.10.3)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1, >= 0.1.3)
       dry-container (~> 0.2, >= 0.2.8)
+      dry-core (~> 0.1)
       dry-equalizer (~> 0.2)
-      dry-logic (~> 0.3, >= 0.3.0)
-      dry-types (~> 0.8, >= 0.8.1)
+      dry-logic (~> 0.4, >= 0.4.0)
+      dry-types (~> 0.9, >= 0.9.0)
     git (1.3.0)
     i18n (0.7.0)
-    ice_nine (0.11.2)
     inflecto (0.0.2)
     json (2.0.2)
-    minitest (5.9.0)
+    minitest (5.9.1)
     multi_json (1.12.1)
     require_all (1.3.3)
     rspec (3.5.0)
@@ -87,10 +87,10 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
-  ninshiki!
+  insights_engine!
   rspec
   simplecov
   timecop
 
 BUNDLED WITH
-   1.12.5
+   1.13.2

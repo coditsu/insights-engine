@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   class Engine
     # OpenStruct object that holds parameters of a given validation process
     class Params < OpenStruct

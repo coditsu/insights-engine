@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   module Schemas
     # Schema used to describe authors
     # This is populated based on the git details and git provides author name and his email

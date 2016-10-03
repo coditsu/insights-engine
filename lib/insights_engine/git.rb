@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   # Wrapper for executing git commands
   # @note You should not run any git commands directly. Always use this wrapper
   # @note Methods that are here don't format return values in any way, except
@@ -11,7 +11,7 @@ module Ninshiki
       # @param build_path [String] path of a current repository build
       # @return [Array<String>] Lines returned by the git shortlog command
       # @example
-      #   Ninshiki::Git.shortlog('./') #=> ["    13\tMaciej Mensfeld <maciej@mensfeld.pl>"]
+      #   InsightsEngine::Git.shortlog('./') #=> ["    13\tMaciej Mensfeld <maciej@mensfeld.pl>"]
       def shortlog(build_path)
         shell(build_path, :shortlog, '-sn -e --all')
       end
@@ -23,7 +23,7 @@ module Ninshiki
       # @param location [String] location of a file (without build_path)
       # @return [Array<String>] Lines returned by the git log command
       # @example
-      #   Ninshiki::Git.log('./', 'Gemfile') #=> ["commit 68c066bb5e0dc3ef5", "Author: M..."]
+      #   InsightsEngine::Git.log('./', 'Gemfile') #=> ["commit 68c066bb5e0dc3ef5", "Author: M..."]
       def log(build_path, location)
         shell(build_path, :log, "-n 1 --word-diff=porcelain --date=raw '#{location}'")
       end
@@ -34,7 +34,7 @@ module Ninshiki
       # @param location_line [Integer] line that we want to blame against
       # @return [Array<String>] Lines returned by the git blame command
       # @example
-      #   Ninshiki::Git.blame('./', 'Gemfile', 2) #=> ["68c066bb5e0dc... 2 2 1", "author Maciej"]
+      #   InsightsEngine::Git.blame('./', 'Gemfile', 2) #=> ["68c066bb5e0dc... 2 2 1", "author Maciej"]
       def blame(build_path, location, location_line)
         options = "-t -L #{location_line},#{location_line} --incremental --porcelain"
 
@@ -62,7 +62,7 @@ module Ninshiki
       # @param build_path [String] path of a current repository build
       # @param command [Symbol] name of a git command that we want to execute
       # @param arguments [String] all arguments accepted by this git command
-      # @raise [Ninshiki::Errors::FailedGitCommand] raised when git command didn't run with success
+      # @raise [InsightsEngine::Errors::FailedGitCommand] raised when git command didn't run with success
       # @example
       #   shell('/home/builds/91', :log, "-n 1 --word-diff=porcelain --date=raw #{location}")
       def shell(build_path, command, arguments)

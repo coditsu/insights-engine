@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   module Schemas
     # Schema describing incoming parameters
     # We use it to validate input that we get from the outside of this gem

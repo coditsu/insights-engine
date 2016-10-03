@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   # Namespace for validators
   module Harvesters
     module HeadDetails

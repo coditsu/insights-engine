@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   # Wrapper for executing shell commands
   # @example Run ls
-  #   Ninshiki::Shell.('ls') => { stdout: "test.rb\n", stderr: '', exit_code: 0}
+  #   InsightsEngine::Shell.('ls') => { stdout: "test.rb\n", stderr: '', exit_code: 0}
   class Shell
     # Allows to execute shell commands and handle errors, etc later (won't raise any errors but
     #   instead will catch all things)
@@ -10,7 +10,7 @@ module Ninshiki
     #   and options
     # @return [Hash] hash with 3 keys describing output (stdout, stderr, exit_code)
     # @example Run ls
-    #   Ninshiki::Shell.('ls') => { stdout: "test.rb\n", stderr: '', exit_code: 0}
+    #   InsightsEngine::Shell.('ls') => { stdout: "test.rb\n", stderr: '', exit_code: 0}
     def self.call(command_with_options)
       stdout_str, stderr_str, status = Open3.capture3(command_with_options)
 

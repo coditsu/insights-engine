@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   # All internal gem errors
   module Errors
     #  Base error class for all other errors

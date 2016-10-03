@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   # Namespace for validators
   module Harvesters
     module RepositoryAuthors
@@ -14,7 +14,7 @@ module Ninshiki
         # @example
         #   process('/build/path') #=> [{ name: 'Maciej', email: 'maciej@...' }]
         def process
-          Ninshiki::Git.shortlog(params.build_path)
+          InsightsEngine::Git.shortlog(params.build_path)
         end
       end
     end

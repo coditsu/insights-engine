@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   class Engine
     # Base populator from which all other populators should inherit
     # Populators are used to populate the buffer structure with data
@@ -9,8 +9,8 @@ module Ninshiki
       # any other place
       class_attribute :fetcher
 
-      # @param params [Ninshiki::Engine::Params] build process params details
-      # @param buffer [Ninshiki::Engine::Buffer] engine's buffer
+      # @param params [InsightsEngine::Engine::Params] build process params details
+      # @param buffer [InsightsEngine::Engine::Buffer] engine's buffer
       def call(params, buffer)
         @params = params
         @buffer = buffer
@@ -23,9 +23,9 @@ module Ninshiki
       attr_reader :buffer
 
       # This method needs to be implemented in a subclass
-      # @raise [Ninshiki::Errors::ImplementationMissing]
+      # @raise [InsightsEngine::Errors::ImplementationMissing]
       def process
-        raise Ninshiki::Errors::ImplementationMissing
+        raise InsightsEngine::Errors::ImplementationMissing
       end
 
       # @return [Ejin::Engine::Fetcher] populator fetcher instance

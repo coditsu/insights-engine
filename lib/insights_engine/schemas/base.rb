@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   module Schemas
     # Base schema from which all other should inherit
     # By default Dry schemas don't raise errors, but we wan't to fail it anything goes wrong
@@ -11,7 +11,7 @@ module Ninshiki
     class Base < Dry::Validation::Schema
       configure do
         config.messages_file = File.join(
-          Ninshiki.gem_root,
+          InsightsEngine.gem_root,
           'config',
           'locales',
           I18n.locale.to_s,
@@ -21,7 +21,7 @@ module Ninshiki
       end
 
       # @param args [Array] all the arguments that the Dry::Validation::Schema#call method accepts
-      # @raise [Ninshiki::Errors::InvalidAttributes] raised when our incoming data does not fit into
+      # @raise [InsightsEngine::Errors::InvalidAttributes] raised when our incoming data does not fit into
       #   our schema
       def call(*args)
         result = super

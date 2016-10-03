@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   class Engine
     # Parser base class
     # Parsers are used to parse the validator output into a "workable" format for example
@@ -17,9 +17,9 @@ module Ninshiki
       attr_reader :raw
 
       # This method needs to be implemented in a subclass
-      # @raise [Ninshiki::Errors::ImplementationMissing]
+      # @raise [InsightsEngine::Errors::ImplementationMissing]
       def process
-        raise Ninshiki::Errors::ImplementationMissing
+        raise InsightsEngine::Errors::ImplementationMissing
       end
     end
   end

@@ -21,20 +21,20 @@
 
 # Coditsu analytics Engine responsible for gathering insight about the code and how it is being
 # developed
-module Ninshiki
+module InsightsEngine
   class << self
-    # @return [Array<Class>] all engines that inherit from Ninshiki::Engine
+    # @return [Array<Class>] all engines that inherit from InsightsEngine::Engine
     # @example
-    #   Ninshiki.engines #=> [Ninshiki::Harvesters::RepositoryAuthors, ...]
+    #   InsightsEngine.engines #=> [InsightsEngine::Harvesters::RepositoryAuthors, ...]
     def engines
-      Ninshiki::Engine
+      InsightsEngine::Engine
         .descendants
         .sort { |c1, c2| c1.to_s <=> c2.to_s }
     end
 
     # @return [String] root path to this gem
     # @example
-    #   Ninshiki.gem_root #=> '/home/user/.gems/Ninshiki'
+    #   InsightsEngine.gem_root #=> '/home/user/.gems/InsightsEngine'
     def gem_root
       File.expand_path('../..', __FILE__)
     end
@@ -47,7 +47,7 @@ require_all File.dirname(__FILE__) + '/**/*.rb'
 # @note This will use language that is defined in the main Rails app
 I18n.load_path += Dir[
   File.join(
-    Ninshiki.gem_root, 'config', 'locales', '**', '*.yml'
+    InsightsEngine.gem_root, 'config', 'locales', '**', '*.yml'
   )
 ]
 # We need to set language and load translations explicitely if we use

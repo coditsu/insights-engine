@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   # Namespace for validators
   module Harvesters
     module RepositoryAuthors
@@ -20,7 +20,7 @@ module Ninshiki
         # @example
         #   authors('/build/path') #=> ["    20\tMaciej Mensfeld <maciej@mensfeld.pl>"]
         def authors(build_path)
-          Ninshiki::Git.shortlog(build_path)
+          InsightsEngine::Git.shortlog(build_path)
         end
 
         # Extracts author details from a git shortlog raw string

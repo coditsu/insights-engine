@@ -32,9 +32,9 @@ RSpec.configure do |config|
   end
 end
 
-require 'Ninshiki'
+require 'InsightsEngine'
 
 # We remove this because we test each validator also on the repository source code
-FileUtils.rm_rf(File.join(Ninshiki.gem_root, 'coverage'))
-FileUtils.rm_rf(File.join(Ninshiki.gem_root, '.yardoc'))
-FileUtils.rm_rf(File.join(Ninshiki.gem_root, 'doc'))
+FileUtils.rm_rf(File.join(InsightsEngine.gem_root, 'coverage'))
+FileUtils.rm_rf(File.join(InsightsEngine.gem_root, '.yardoc'))
+FileUtils.rm_rf(File.join(InsightsEngine.gem_root, 'doc'))

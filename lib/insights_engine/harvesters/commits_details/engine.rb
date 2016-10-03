@@ -1,16 +1,16 @@
 # frozen_string_literal: true
-module Ninshiki
+module InsightsEngine
   # Namespace for validators
   module Harvesters
-    module HeadDetails
-      class Engine < Ninshiki::Engine
-        self.parser = HeadDetails::Parser
-        self.harvester = HeadDetails::Harvester
-        self.schema = Dry::Validation.Schema(Ninshiki::Schemas::Base) do
+    module CommitsDetails
+      class Engine < InsightsEngine::Engine
+        self.parser = CommitsDetails::Parser
+        self.harvester = CommitsDetails::Harvester
+        self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
           required(:id).filled(:str?)
           required(:message).filled(:str?)
-          required(:author).filled(Ninshiki::Schemas::Author)
-          required(:committer).filled(Ninshiki::Schemas::Author)
+          required(:author).filled(InsightsEngine::Schemas::Author)
+          required(:committer).filled(InsightsEngine::Schemas::Author)
           required(:authored_at).filled(:date_time?)
           required(:committed_at).filled(:date_time?)
           required(:files_changed).filled(:int?, gteq?: 0)

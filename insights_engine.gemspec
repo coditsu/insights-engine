@@ -1,17 +1,17 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'ninshiki/version'
+require 'insights_engine/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'ninshiki'
-  spec.version       = ::Ninshiki::VERSION
+  spec.name          = 'insights_engine'
+  spec.version       = ::InsightsEngine::VERSION
   spec.platform      = Gem::Platform::RUBY
   spec.authors       = ['Maciej Mensfeld']
   spec.email         = %w( maciej@mensfeld.pl )
   spec.homepage      = 'https://coditsu.com'
-  spec.summary       = %q{ Insight data harvesting engine for Coditsu Quality Assurance tool }
-  spec.description   = %q{ Insight data harvesting engine for Coditsu Quality Assurance tool }
+  spec.summary       = %q{ Insight engine for Coditsu Quality Assurance tool }
+  spec.description   = %q{ Insight engine for Coditsu Quality Assurance tool }
   spec.license       = 'Trade secret'
 
   spec.add_development_dependency 'bundler'
