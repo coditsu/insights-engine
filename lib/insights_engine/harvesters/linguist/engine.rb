@@ -7,7 +7,7 @@ module InsightsEngine
         self.parser = Linguist::Parser
         self.harvester = Linguist::Harvester
         self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
-          required(:languages).filled(:hash?)
+          required(:languages).value(:hash?)
         end
       end
     end

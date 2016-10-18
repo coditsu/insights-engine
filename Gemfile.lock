@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    insights_engine (0.4.0)
+    insights_engine (0.4.1)
       activesupport
       dry-validation
       git
