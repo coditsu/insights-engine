@@ -8,6 +8,8 @@ module InsightsEngine
         self.harvester = Linguist::Harvester
         self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
           required(:languages).value(:hash?)
+          required(:statistics).value(:hash?)
+          required(:total_lines).value(gteq?: 0)
         end
       end
     end
