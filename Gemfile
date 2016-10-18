@@ -6,4 +6,5 @@ group :development, :test do
   gem 'rspec'
   gem 'simplecov'
   gem 'timecop'
+  gem 'byebug'
 end
