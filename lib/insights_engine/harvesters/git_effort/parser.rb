@@ -5,7 +5,7 @@ module InsightsEngine
     module GitEffort
       class Parser < Engine::Parser
         CLASSIFIER = /\A\s{2}\e\[\d{2};?\d?m/
-        NUMBERS_MATCHER = /.*\s(\d+)\s{8}.*\s(\d+)\e\[0m/
+        NUMBERS_MATCHER = /.*\s(\d+)\s{2,20}.*\s(\d+)\e\[0m/
         PATH_MATCHER = /(.*)\s\d+\s/
         DOTS_MATCHER = /\.+\Z/
 
