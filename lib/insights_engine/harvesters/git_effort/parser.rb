@@ -14,13 +14,13 @@ module InsightsEngine
         def process
           selected_lines.map do |line|
             line = line.gsub(CLASSIFIER, '')
-            path = line.match(PATH_MATCHER).captures.first.gsub(DOTS_MATCHER, '')
+            location = line.match(PATH_MATCHER).captures.first.gsub(DOTS_MATCHER, '')
             numbers = line.match(NUMBERS_MATCHER).captures
             commits_count = numbers.first.to_i
             active_days_count = numbers.last.to_i
 
             {
-              path: path,
+              location: location,
               commits_count: commits_count,
               active_days_count: active_days_count
             }
