@@ -56,6 +56,13 @@ module InsightsEngine
         shell(build_path, :log, options.join(' '))
       end
 
+      def effort(build_path, above = 10)
+        options = []
+        options << "--above #{above}"
+        options << '| sort -rn -k 2'
+        shell(build_path, :effort, options.join(' '))
+      end
+
       private
 
       # Executes a given git command in build_path location
