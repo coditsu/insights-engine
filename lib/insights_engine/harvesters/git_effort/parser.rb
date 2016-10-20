@@ -16,13 +16,13 @@ module InsightsEngine
             line = line.gsub(CLASSIFIER, '')
             location = line.match(PATH_MATCHER).captures.first.gsub(DOTS_MATCHER, '')
             numbers = line.match(NUMBERS_MATCHER).captures
-            commits_count = numbers.first.to_i
-            active_days_count = numbers.last.to_i
+            commits = numbers.first.to_i
+            active_days = numbers.last.to_i
 
             {
               location: location,
-              commits_count: commits_count,
-              active_days_count: active_days_count
+              commits: commits,
+              active_days: active_days
             }
           end
         end

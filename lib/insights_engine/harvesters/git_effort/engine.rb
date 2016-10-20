@@ -8,8 +8,8 @@ module InsightsEngine
         self.harvester = GitEffort::Harvester
         self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
           required(:location).filled(:str?)
-          required(:commits_count).filled(:int?, gteq?: 10)
-          required(:active_days_count).filled(:int?, gt?: 0)
+          required(:commits).filled(:int?, gteq?: 10)
+          required(:active_days).filled(:int?, gt?: 0)
         end
       end
     end
