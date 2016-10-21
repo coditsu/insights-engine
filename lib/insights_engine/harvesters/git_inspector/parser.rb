@@ -16,6 +16,7 @@ module InsightsEngine
 
         def process
           {
+            extensions: build_extensions,
             metadata: build_metadata,
             statistics: build_statistics,
             responsibilities: build_responsibilities
@@ -26,12 +27,15 @@ module InsightsEngine
           @git_inspector ||= MultiJson.load(raw[:stdout])['gitinspector']
         end
 
+        def build_extensions
+          git_inspector['extensions']['used']
+        end
+
         def build_metadata
           {
             version: git_inspector['version'],
             repository: git_inspector['repository'],
-            report_date: Date.parse(git_inspector['report_date']),
-            extensions: git_inspector['extensions']['used']
+            report_date: Date.parse(git_inspector['report_date'])
           }
         end
 
@@ -53,8 +57,6 @@ module InsightsEngine
           git_inspector.dig('blame', 'authors').each do |author_data|
             email = author_data['email']
             author = authors[email]
-            author[:occurences] ||= 0
-            author[:occurences] += 1
 
             BLAME_STATISTICS.each do |metric|
               author[metric.to_sym] = author_data[metric]
@@ -65,25 +67,17 @@ module InsightsEngine
         end
 
         def build_responsibilities
-          responsibilities = {}
-
-          git_inspector.dig('responsibilities', 'authors').each do |author_data|
+          git_inspector.dig('responsibilities', 'authors').flat_map do |author_data|
             email = author_data['email']
-            respo = responsibilities[email] = {}
-            respo[:occurences] ||= 0
-            respo[:occurences] += 1
-            respo[:email] = email
-            respo[:files] = []
 
-            author_data['files'].each do |file|
-              respo[:files] << {
+            author_data['files'].map do |file|
+              {
+                email: email,
                 location: file['name'],
                 rows: file['rows']
               }
             end
           end
-
-          responsibilities.values
         end
       end
     end

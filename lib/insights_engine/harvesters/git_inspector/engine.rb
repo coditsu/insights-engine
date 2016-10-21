@@ -11,8 +11,9 @@ module InsightsEngine
             required(:version).filled
             required(:repository).filled
             required(:report_date).filled(:date?)
-            required(:extensions).each(:str?)
           end
+
+          required(:extensions).each(:str?)
 
           required(:statistics).each do
             required(:name)
@@ -21,17 +22,12 @@ module InsightsEngine
             required(:insertions).value(gteq?: 0)
             required(:deletions).value(gteq?: 0)
             required(:percentage_of_changes).value(gteq?: 0, lteq?: 100)
-            required(:occurences).value(eql?: 1)
           end
 
           required(:responsibilities).each do
             required(:email).filled(:str?)
-            required(:occurences).value(eql?: 1)
-
-            required(:files).each do
-              required(:location).filled(:str?)
-              required(:rows).value(gteq?: 0)
-            end
+            required(:location).filled(:str?)
+            required(:rows).value(gteq?: 0)
           end
         end
       end
