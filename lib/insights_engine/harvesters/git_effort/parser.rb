@@ -9,10 +9,12 @@ module InsightsEngine
         PATH_MATCHER = /(.*)\s\d+\s/
         DOTS_MATCHER = /\.+\Z/
 
+        EFFORTS_LIMIT = 20
+
         private
 
         def process
-          selected_lines.map do |line|
+          selected_lines.first(EFFORTS_LIMIT).map do |line|
             line = line.gsub(CLASSIFIER, '')
             location = line.match(PATH_MATCHER).captures.first.gsub(DOTS_MATCHER, '')
             numbers = line.match(NUMBERS_MATCHER).captures
