@@ -20,7 +20,7 @@ module InsightsEngine
             lines_stats = seek(shortstat, commit.oid)
 
             results << {
-              id: commit.oid,
+              commit_hash: commit.oid,
               message: commit.message,
               authored_at: commit.author[:time].to_datetime,
               committed_at: commit.committer[:time].to_datetime,

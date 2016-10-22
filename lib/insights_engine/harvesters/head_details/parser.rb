@@ -15,7 +15,7 @@ module InsightsEngine
           lines_stats = raw.dig(:stdout, :lines_stats).last
 
           {
-            id: target.oid,
+            commit_hash: target.oid,
             message: target.message,
             authored_at: target.author[:time].to_datetime,
             committed_at: target.committer[:time].to_datetime,

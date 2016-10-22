@@ -7,7 +7,7 @@ module InsightsEngine
         self.parser = CommitsDetails::Parser
         self.harvester = CommitsDetails::Harvester
         self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
-          required(:id).filled(:str?)
+          required(:commit_hash).filled(:str?)
           required(:message).filled(:str?)
           required(:author).filled(InsightsEngine::Schemas::Author)
           required(:committer).filled(InsightsEngine::Schemas::Author)
