@@ -14,7 +14,7 @@ module InsightsEngine
           options << '--hard'
           options << '-l -r'
 
-          Shell.call "#{encoding} gitinspector.py #{options.join(' ')} #{params.build_path}"
+          run "#{encoding} gitinspector.py #{options.join(' ')} #{params.build_path}"
         end
       end
     end

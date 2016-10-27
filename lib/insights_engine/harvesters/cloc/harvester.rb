@@ -7,6 +7,7 @@ module InsightsEngine
         private
 
         def process
+          run "cloc --yaml --quiet --progress-rate=0 #{params.build_path}"
         end
       end
     end
