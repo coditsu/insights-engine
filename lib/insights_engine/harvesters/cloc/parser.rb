@@ -9,7 +9,7 @@ module InsightsEngine
         def process
           languages = []
 
-          cloc.each do |language, data|
+          (cloc || []).each do |language, data|
             next if language == 'header'
 
             languages << {
