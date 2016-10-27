@@ -28,7 +28,7 @@ module InsightsEngine
         end
 
         def build_extensions
-          git_inspector['extensions']['used']
+          git_inspector['extensions']['used'] - ['*']
         end
 
         def build_metadata
