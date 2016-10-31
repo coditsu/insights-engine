@@ -3,6 +3,6 @@ require './lib/insights_engine.rb'
 
 build_path = '/home/mencio/Software/Connective/automater'
 
-p InsightsEngine::Harvesters::GitInspector::Engine.new.call(
+p InsightsEngine::Harvesters::TrackedFiles::Engine.new.call(
   build_path: build_path
 )
