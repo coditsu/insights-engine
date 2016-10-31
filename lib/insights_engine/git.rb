@@ -63,6 +63,10 @@ module InsightsEngine
         shell(build_path, :effort, options.join(' '))
       end
 
+      def ls_files(build_path)
+        shell(build_path, 'ls-files', '| wc -l')
+      end
+
       private
 
       # Executes a given git command in build_path location

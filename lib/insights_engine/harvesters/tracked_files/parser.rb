@@ -6,7 +6,7 @@ module InsightsEngine
         private
 
         def process
-          { tracked_files: raw[:stdout].to_i }
+          { tracked_files: raw.first.to_i }
         end
       end
     end

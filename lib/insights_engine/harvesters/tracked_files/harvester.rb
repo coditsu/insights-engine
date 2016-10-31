@@ -6,7 +6,7 @@ module InsightsEngine
         private
 
         def process
-          run "cd #{params.build_path} && git ls-files | wc -l"
+          InsightsEngine::Git.ls_files(params.build_path)
         end
       end
     end
