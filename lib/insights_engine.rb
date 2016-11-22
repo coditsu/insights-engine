@@ -30,7 +30,7 @@ module InsightsEngine
     def engines
       InsightsEngine::Engine
         .descendants
-        .sort { |c1, c2| c1.to_s <=> c2.to_s }
+        .sort_by(&:to_s)
     end
 
     # @return [String] root path to this gem

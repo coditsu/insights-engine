@@ -17,7 +17,7 @@ module InsightsEngine
               files: data['nFiles'],
               blank: data['blank'],
               comment: data['comment'],
-              code: data['code'],
+              code: data['code']
             }
           end
 

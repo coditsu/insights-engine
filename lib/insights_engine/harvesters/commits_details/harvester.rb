@@ -13,10 +13,7 @@ module InsightsEngine
           commits = walker.to_a
           shortstat = Git.shortstat(params.build_path)
 
-          raw({
-            commits: commits,
-            shortstat: shortstat
-          })
+          raw(commits: commits, shortstat: shortstat)
         end
       end
     end

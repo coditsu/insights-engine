@@ -8,7 +8,7 @@ module InsightsEngine
           files_changed: /(\d*) files changed/,
           insertions: /(\d*) insertions/,
           deletions: /(\d*) deletions/
-        }
+        }.freeze
 
         def process
           commits = raw.dig(:stdout, :commits)
@@ -48,7 +48,7 @@ module InsightsEngine
 
           log_details.each_with_index do |detail, line|
             current_line = line
-            return log_details[line+1] if detail.start_with? commit
+            return log_details[line + 1] if detail.start_with? commit
           end
 
           raise Errors::UnmatchedCommit, commit

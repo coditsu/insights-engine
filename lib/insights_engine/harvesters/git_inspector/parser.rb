@@ -8,11 +8,11 @@ module InsightsEngine
 
         CHANGES_STATISTICS = %w(
           commits insertions deletions percentage_of_changes
-        )
+        ).freeze
 
         BLAME_STATISTICS = %w(
           rows stability age percentage_in_comments
-        )
+        ).freeze
 
         def process
           {

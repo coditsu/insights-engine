@@ -8,7 +8,7 @@ module InsightsEngine
           files_changed: /(\d*) files changed/,
           insertions: /(\d*) insertions/,
           deletions: /(\d*) deletions/
-        }
+        }.freeze
 
         def process
           target = raw.dig(:stdout, :target)
