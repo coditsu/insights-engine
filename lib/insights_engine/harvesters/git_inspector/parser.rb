@@ -40,16 +40,13 @@ module InsightsEngine
         end
 
         def build_statistics
-          authors = {}
+          authors = build_authors
 
           git_inspector.dig('changes', 'authors').each do |author_data|
             email = author_data['email']
-            author = (authors[email] ||= {})
-            author[:name] = author_data['name']
-            author[:email] = author_data['email']
+            author = authors[email]
 
             CHANGES_STATISTICS.each do |metric|
-              author[metric.to_sym] ||= 0
               author[metric.to_sym] += author_data[metric]
             end
           end
@@ -64,6 +61,32 @@ module InsightsEngine
           end
 
           authors.values
+        end
+
+        def build_authors
+          authors = {}
+
+          git_inspector.dig('changes', 'authors').each do |author_data|
+            email = author_data['email']
+            author = (authors[email] ||= {})
+            author[:name] = author_data['name']
+            author[:email] = author_data['email']
+          end
+
+          git_inspector.dig('blame', 'authors').each do |author_data|
+            email = author_data['email']
+            author = (authors[email] ||= {})
+            author[:name] = author_data['name']
+            author[:email] = author_data['email']
+          end
+
+          authors.each do |email, author|
+            (BLAME_STATISTICS + CHANGES_STATISTICS).each do |metric|
+              author[metric.to_sym] = 0
+            end
+          end
+
+          authors
         end
 
         def build_responsibilities
