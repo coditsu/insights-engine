@@ -48,6 +48,10 @@ module InsightsEngine
 
             CHANGES_STATISTICS.each do |metric|
               author[metric.to_sym] += author_data[metric]
+              # Sometimes gitinspector gets crazy and returns values less than 0
+              # which should not happen for metrics - that's why we set it to
+              # 0 if it goes below
+              author[metric.to_sym] = 0 if author[metric.to_sym] < 0
             end
           end
 
@@ -57,6 +61,10 @@ module InsightsEngine
 
             BLAME_STATISTICS.each do |metric|
               author[metric.to_sym] = author_data[metric]
+              # Sometimes gitinspector gets crazy and returns values less than 0
+              # which should not happen for metrics - that's why we set it to
+              # 0 if it goes below
+              author[metric.to_sym] = 0 if author[metric.to_sym] < 0
             end
           end
 

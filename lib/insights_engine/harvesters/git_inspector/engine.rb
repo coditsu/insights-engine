@@ -18,16 +18,20 @@ module InsightsEngine
           required(:statistics).each do
             required(:name)
             required(:email).filled(:str?)
-            required(:commits).value(gteq?: 0)
-            required(:insertions).value(gteq?: 0)
-            required(:deletions).value(gteq?: 0)
+            required(:commits).value(:int?, gteq?: 0)
+            required(:insertions).value(:int?, gteq?: 0)
+            required(:deletions).value(:int?, gteq?: 0)
             required(:percentage_of_changes).value(gteq?: 0, lteq?: 100)
+            required(:age).value(gteq?: 0)
+            required(:stability).value(gteq?: 0)
+            required(:percentage_in_comments).value(gteq?: 0)
+            required(:rows).value(:int?, gteq?: 0)
           end
 
           required(:responsibilities).each do
             required(:email).filled(:str?)
             required(:location).filled(:str?)
-            required(:rows).value(gteq?: 0)
+            required(:rows).value(:int?, gteq?: 0)
           end
         end
       end
