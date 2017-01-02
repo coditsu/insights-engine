@@ -3,7 +3,6 @@
 **.war
 *.rbc
 *.sassc
-.rspec
 .byebug_history
 .redcar/
 .sass-cache
