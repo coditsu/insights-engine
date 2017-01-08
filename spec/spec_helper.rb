@@ -5,7 +5,6 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 %w(
   rubygems
   simplecov
-  rake
   timecop
 ).each do |lib|
   require lib
@@ -32,7 +31,7 @@ RSpec.configure do |config|
   end
 end
 
-require 'InsightsEngine'
+require 'insights_engine'
 
 # We remove this because we test each validator also on the repository source code
 FileUtils.rm_rf(File.join(InsightsEngine.gem_root, 'coverage'))

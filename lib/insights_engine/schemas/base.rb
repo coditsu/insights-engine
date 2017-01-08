@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 module InsightsEngine
+  # Namespace for internal schemas for ensuring data integrity
   module Schemas
     # Base schema from which all other should inherit
     # By default Dry schemas don't raise errors, but we wan't to fail it anything goes wrong
