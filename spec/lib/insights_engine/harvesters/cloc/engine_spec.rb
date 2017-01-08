@@ -17,4 +17,86 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Engine do
       expect { result }.not_to raise_error
     end
   end
+
+  describe '#schema' do
+    context 'no data' do
+      let(:input) { {} }
+
+      it { expect { described_class.schema.call(input) }.not_to raise_error }
+    end
+
+    context 'valid' do
+      let(:input) do
+        {
+          languages: [
+            { language: 'Ruby', files: 18, blank: 167, comment: 21, code: 672 }
+          ]
+        }
+      end
+
+      it { expect { described_class.schema.call(input) }.not_to raise_error }
+    end
+
+    context 'invalid' do
+      context 'language not str' do
+        let(:input) do
+          {
+            languages: [
+              { language: nil, files: 18, blank: 167, comment: 21, code: 672 }
+            ]
+          }
+        end
+
+        it { expect { described_class.schema.call(input) }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      end
+
+      context 'files negative' do
+        let(:input) do
+          {
+            languages: [
+              { language: 'Ruby', files: -1, blank: 167, comment: 21, code: 672 }
+            ]
+          }
+        end
+
+        it { expect { described_class.schema.call(input) }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      end
+
+      context 'blank negative' do
+        let(:input) do
+          {
+            languages: [
+              { language: 'Ruby', files: 18, blank: -1, comment: 21, code: 672 }
+            ]
+          }
+        end
+
+        it { expect { described_class.schema.call(input) }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      end
+
+      context 'comment negative' do
+        let(:input) do
+          {
+            languages: [
+              { language: 'Ruby', files: 18, blank: 167, comment: -1, code: 672 }
+            ]
+          }
+        end
+
+        it { expect { described_class.schema.call(input) }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      end
+
+      context 'code negative' do
+        let(:input) do
+          {
+            languages: [
+              { language: 'Ruby', files: 18, blank: 167, comment: 21, code: -1 }
+            ]
+          }
+        end
+
+        it { expect { described_class.schema.call(input) }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      end
+    end
+  end
 end
