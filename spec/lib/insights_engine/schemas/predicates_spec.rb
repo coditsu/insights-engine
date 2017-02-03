@@ -20,19 +20,31 @@ RSpec.describe InsightsEngine::Schemas::Predicates do
     context 'nil sources path' do
       let(:build_path) { nil }
 
-      it { expect { schema_result }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
     end
 
     context 'local sources path' do
       let(:build_path) { './' }
 
-      it { expect { schema_result }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
     end
 
     context 'absolute but non existing' do
       let(:build_path) { "/#{rand}" }
 
-      it { expect { schema_result }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
     end
   end
 end

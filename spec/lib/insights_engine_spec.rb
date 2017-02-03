@@ -10,7 +10,9 @@ RSpec.describe InsightsEngine do
     end
 
     it 'expect to pick all the engines' do
-      expect(valid_engines.count).to eq InsightsEngine::VERSION.split('.')[1].to_i
+      expect(
+        valid_engines.count
+      ).to eq InsightsEngine::VERSION.split('.')[1].to_i
     end
 
     it 'expect them to be sorted' do
@@ -25,7 +27,9 @@ RSpec.describe InsightsEngine do
 
   describe '#gem_root' do
     it 'expect to point to root of the gem' do
-      expect(insights_engine.gem_root).to eq File.expand_path('../../..', __FILE__)
+      expect(
+        insights_engine.gem_root
+      ).to eq File.expand_path('../../..', __FILE__)
     end
   end
 end

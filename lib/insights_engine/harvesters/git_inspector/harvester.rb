@@ -7,14 +7,20 @@ module InsightsEngine
         private
 
         def process
-          encoding = 'PYTHONIOENCODING=utf8'
+          run "#{encoding} gitinspector.py #{options} #{params.build_path}"
+        end
+
+        def encoding
+          'PYTHONIOENCODING=utf8'
+        end
+
+        def options
           options = []
           options << '--format=json'
-          options << '-w -f \'**\''
+          options << "-w -f '**'"
           options << '--hard'
           options << '-l -r'
-
-          run "#{encoding} gitinspector.py #{options.join(' ')} #{params.build_path}"
+          options.join(' ')
         end
       end
     end

@@ -16,19 +16,31 @@ RSpec.describe InsightsEngine::Schemas::Params do
     context 'when it is not a string' do
       before { input[:build_path] = rand }
 
-      it { expect { schema_result }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
     end
 
     context 'when it is not an absolute path' do
       before { input[:build_path] = "./#{rand}" }
 
-      it { expect { schema_result }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
     end
 
     context 'when it is a non existing absolute path' do
       before { input[:build_path] = "/#{rand}" }
 
-      it { expect { schema_result }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
     end
   end
 end

@@ -5,13 +5,21 @@ RSpec.describe InsightsEngine::Schemas::Author do
   context 'no data' do
     let(:input) { {} }
 
-    it { expect { schema_result }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+    it do
+      expect do
+        schema_result
+      end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+    end
   end
 
   context 'invalid types' do
     let(:input) { { name: rand, email: rand } }
 
-    it { expect { schema_result }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+    it do
+      expect do
+        schema_result
+      end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+    end
   end
 
   context 'valid types' do
@@ -30,7 +38,11 @@ RSpec.describe InsightsEngine::Schemas::Author do
     describe '#email' do
       let(:input) { { name: rand.to_s } }
 
-      it { expect { schema_result }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
     end
   end
 
@@ -44,7 +56,11 @@ RSpec.describe InsightsEngine::Schemas::Author do
     describe '#email' do
       let(:input) { { name: rand.to_s, email: '' } }
 
-      it { expect { schema_result }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
     end
   end
 
@@ -52,13 +68,21 @@ RSpec.describe InsightsEngine::Schemas::Author do
     describe '#name' do
       let(:input) { { email: rand.to_s, name: rand } }
 
-      it { expect { schema_result }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
     end
 
     describe '#email' do
       let(:input) { { name: rand.to_s, email: rand } }
 
-      it { expect { schema_result }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
     end
   end
 end

@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 RSpec.describe InsightsEngine::Engine::Params do
   let(:settings_content) { rand.to_s }
-  let(:args) { { build_path: InsightsEngine.gem_root, settings_content: settings_content } }
+  let(:args) do
+    { build_path: InsightsEngine.gem_root, settings_content: settings_content }
+  end
 
   describe '#initialize' do
     subject(:params) { described_class.new(args) }
@@ -9,7 +11,11 @@ RSpec.describe InsightsEngine::Engine::Params do
     context 'when schema is invalid' do
       let(:args) { {} }
 
-      it { expect { params }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
+      it do
+        expect do
+          params
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
     end
 
     context 'when schema is valid' do
@@ -22,7 +28,7 @@ RSpec.describe InsightsEngine::Engine::Params do
     subject(:settings) { described_class.new(args).settings }
 
     it 'expect to have settings_content content' do
-      expect(settings).to eq YAML.load(settings_content)
+      expect(settings).to eq YAML.safe_load(settings_content)
     end
   end
 

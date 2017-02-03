@@ -7,6 +7,8 @@ RSpec.describe InsightsEngine do
   end
 
   it 'expect to have a version that matches number of engines' do
-    expect(valid_engines.count).to eq described_class::VERSION.split('.')[1].to_i
+    expect(
+      valid_engines.count
+    ).to eq described_class::VERSION.split('.')[1].to_i
   end
 end

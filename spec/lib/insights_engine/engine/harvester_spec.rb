@@ -49,7 +49,7 @@ RSpec.describe InsightsEngine::Engine::Harvester do
   end
 
   describe '#raw' do
-    subject(:result) { described_class.new.send(:raw, stdout, stderr, exit_code) }
+    subject(:result) { harvester.send(:raw, stdout, stderr, exit_code) }
 
     let(:stdout) { rand.to_s }
     let(:stderr) { '' }

@@ -2,8 +2,8 @@
 module InsightsEngine
   class Engine
     # Parser base class
-    # Parsers are used to parse the validator output into a "workable" format for example
-    # fro JSON into a Ruby hash
+    # Parsers are used to parse the validator output into a "workable" format
+    # for example from JSON into a Ruby hash
     class Parser
       # @param raw [Hash] hash with raw validator results output
       # @return [Hash] hash with data based on which we will build final results

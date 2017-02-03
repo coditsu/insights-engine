@@ -48,26 +48,39 @@ RSpec.describe InsightsEngine::Git do
   end
 
   describe '#blame' do
+    let(:command) do
+      "git -C #{build_path} blame '#{location}' -t -L " \
+        "#{location_line},#{location_line} --incremental --porcelain"
+    end
+
     it 'expect to pass to shell command with proper arguments' do
       expect(InsightsEngine::Shell)
         .to receive(:call)
-        .with("git -C #{build_path} blame #{"'#{location}' -t -L #{location_line},#{location_line} --incremental --porcelain"}")
+        .with(command)
         .and_return(stdout: result, exit_code: 0)
 
-      expect(git_class.blame(build_path, location, location_line)).to eq result.split("\n")
+      expect(
+        git_class.blame(build_path, location, location_line)
+      ).to eq result.split("\n")
     end
 
     it 'expect to run a blame and return results in array' do
-      expect(git_class.blame(build_path, location, location_line)).to be_a(Array)
+      expect(
+        git_class.blame(build_path, location, location_line)
+      ).to be_a(Array)
     end
 
     it 'expect to include a single result' do
-      expect(git_class.blame(build_path, location, location_line).count).to eq 12
+      expect(
+        git_class.blame(build_path, location, location_line).count
+      ).to eq 12
     end
   end
 
   describe '#shell' do
-    subject(:result) { described_class.send(:shell, build_path, command, arguments) }
+    subject(:result) do
+      described_class.send(:shell, build_path, command, arguments)
+    end
 
     context 'when everything is ok' do
       let(:command) { :status }
@@ -87,7 +100,9 @@ RSpec.describe InsightsEngine::Git do
       let(:arguments) { rand }
 
       it 'expect to raise error' do
-        expect { result }.to raise_error(InsightsEngine::Errors::FailedGitCommand)
+        expect do
+          result
+        end.to raise_error(InsightsEngine::Errors::FailedGitCommand)
       end
     end
 
@@ -97,7 +112,9 @@ RSpec.describe InsightsEngine::Git do
       let(:arguments) { '' }
 
       it 'expect to raise error' do
-        expect { result }.to raise_error(InsightsEngine::Errors::FailedGitCommand)
+        expect do
+          result
+        end.to raise_error(InsightsEngine::Errors::FailedGitCommand)
       end
     end
   end

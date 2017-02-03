@@ -4,33 +4,12 @@ module InsightsEngine
   module Harvesters
     module HeadDetails
       class Parser < Engine::Parser
-        REGEXPS = {
-          files_changed: /(\d*) files changed/,
-          insertions: /(\d*) insertions/,
-          deletions: /(\d*) deletions/
-        }.freeze
+        include InsightsEngine::Harvesters::CommitsDetails::ParserHelper
 
         def process
           target = raw.dig(:stdout, :target)
           lines_stats = raw.dig(:stdout, :lines_stats).last
-
-          {
-            commit_hash: target.oid,
-            message: target.message,
-            authored_at: target.author[:time].to_datetime,
-            committed_at: target.committer[:time].to_datetime,
-            author: {
-              name: target.author[:name],
-              email: target.author[:email]
-            },
-            committer: {
-              name: target.committer[:name],
-              email: target.committer[:email]
-            },
-            files_changed: (lines_stats.match(REGEXPS[:files_changed]) || [])[1].to_i,
-            insertions: (lines_stats.match(REGEXPS[:insertions]) || [])[1].to_i,
-            deletions: (lines_stats.match(REGEXPS[:deletions]) || [])[1].to_i
-          }
+          prepare(target, lines_stats)
         end
       end
     end

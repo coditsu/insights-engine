@@ -9,7 +9,8 @@ module InsightsEngine
       # any other place
       class_attribute :fetcher
 
-      # @param params [InsightsEngine::Engine::Params] build process params details
+      # @param params [InsightsEngine::Engine::Params] build process params
+      #   details
       # @param buffer [InsightsEngine::Engine::Buffer] engine's buffer
       def call(params, buffer)
         @params = params

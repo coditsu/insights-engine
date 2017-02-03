@@ -12,20 +12,24 @@ module InsightsEngine
           (cloc || []).each do |language, data|
             next if language == 'header'
 
-            languages << {
-              language: language,
-              files: data['nFiles'],
-              blank: data['blank'],
-              comment: data['comment'],
-              code: data['code']
-            }
+            languages << prepare(language, data)
           end
 
           { languages: languages }
         end
 
         def cloc
-          @cloc ||= YAML.load(raw[:stdout])
+          @cloc ||= YAML.safe_load(raw[:stdout])
+        end
+
+        def prepare(language, data)
+          {
+            language: language,
+            files: data['nFiles'],
+            blank: data['blank'],
+            comment: data['comment'],
+            code: data['code']
+          }
         end
       end
     end

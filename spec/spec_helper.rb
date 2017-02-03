@@ -6,6 +6,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
   rubygems
   simplecov
   timecop
+  byebug
 ).each do |lib|
   require lib
 end
@@ -33,7 +34,8 @@ end
 
 require 'insights_engine'
 
-# We remove this because we test each validator also on the repository source code
+# We remove this because we test each validator also on
+# the repository source code
 FileUtils.rm_rf(File.join(InsightsEngine.gem_root, 'coverage'))
 FileUtils.rm_rf(File.join(InsightsEngine.gem_root, '.yardoc'))
 FileUtils.rm_rf(File.join(InsightsEngine.gem_root, 'doc'))

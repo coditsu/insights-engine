@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 RSpec.describe InsightsEngine::Harvesters::Cloc::Engine do
   let(:scope) { InsightsEngine::Harvesters::Cloc }
+  let(:params) { { build_path: InsightsEngine.gem_root } }
 
   specify { expect(described_class).to be < InsightsEngine::Engine }
   specify { expect(described_class.harvester).to eq scope::Harvester }
@@ -18,47 +19,33 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Engine do
     end
   end
 
+  let(:input) do
+    described_class.parser.new.call(
+      described_class.harvester.new.call(
+        InsightsEngine::Engine::Params.new(params)
+      )
+    )
+  end
+
   describe '#schema' do
+    context 'default data' do
+      it { expect { described_class.schema.call(input) }.not_to raise_error }
+    end
+
     context 'no data' do
       let(:input) { {} }
 
       it { expect { described_class.schema.call(input) }.not_to raise_error }
     end
 
-    context 'valid' do
-      let(:input) do
-        {
-          languages: [
-            { language: 'Ruby', files: 18, blank: 167, comment: 21, code: 672 }
-          ]
-        }
-      end
-
-      it { expect { described_class.schema.call(input) }.not_to raise_error }
-    end
-
     context 'invalid' do
-      let(:input) do
-        {
-          languages: [
-            { language: 'Ruby', files: -1, blank: 167, comment: 21, code: 672 }
-          ]
-        }
-      end
-
-      context 'language not str' do
-        before { input[:languages][0][:language] = nil }
-        it { expect { described_class.schema.call(input) }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
-      end
-
-      %w(files blank comment code).each do |key|
-        [-1, nil].each do |value|
-          context "#{key} negative" do
-            before { input[:languages][0][key] = value }
-            it { expect { described_class.schema.call(input) }.to raise_error(InsightsEngine::Errors::InvalidAttributes) }
-          end
-        end
-      end
+      it_behaves_like :schemas_spec_first, languages: {
+        language: [:required, :filled, :str?],
+        files: [:required, :filled, :int?, gteq?: 0],
+        blank: [:required, :filled, :int?, gteq?: 0],
+        comment: [:required, :filled, :int?, gteq?: 0],
+        code: [:required, :filled, :int?, gteq?: 0]
+      }
     end
   end
 end

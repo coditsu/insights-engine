@@ -20,13 +20,15 @@
   active_support/inflector
 ).each { |lib| require lib }
 
-# Coditsu analytics Engine responsible for gathering insight about the code and how it is being
-# developed
+# Coditsu analytics Engine is responsible for gathering insight about the code
+# and how it is being developed
 module InsightsEngine
   class << self
-    # @return [Array<Class>] all engines that inherit from InsightsEngine::Engine
+    # @return [Array<Class>] all engines that inherit from
+    #   InsightsEngine::Engine
     # @example
-    #   InsightsEngine.engines #=> [InsightsEngine::Harvesters::RepositoryAuthors, ...]
+    #   InsightsEngine.engines #=>
+    #   [InsightsEngine::Harvesters::RepositoryAuthors, ...]
     def engines
       InsightsEngine::Engine
         .descendants

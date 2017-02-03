@@ -42,53 +42,38 @@ module InsightsEngine
         def build_statistics
           authors = build_authors
 
-          git_inspector.dig('changes', 'authors').each do |author_data|
+          map_metrics('changes', authors)
+          map_metrics('blame', authors)
+
+          authors.values
+        end
+
+        def map_metrics(key, authors)
+          dig(key).each do |author_data|
             email = author_data['email']
             author = authors[email]
 
-            CHANGES_STATISTICS.each do |metric|
+            statistic_keys(key).each do |metric|
               author[metric.to_sym] += author_data[metric]
               # Sometimes gitinspector gets crazy and returns values less than 0
               # which should not happen for metrics - that's why we set it to
               # 0 if it goes below
-              author[metric.to_sym] = 0 if author[metric.to_sym] < 0
+              author[metric.to_sym] = 0 if author[metric.to_sym].negative?
             end
           end
+        end
 
-          git_inspector.dig('blame', 'authors').each do |author_data|
-            email = author_data['email']
-            author = authors[email]
-
-            BLAME_STATISTICS.each do |metric|
-              author[metric.to_sym] = author_data[metric]
-              # Sometimes gitinspector gets crazy and returns values less than 0
-              # which should not happen for metrics - that's why we set it to
-              # 0 if it goes below
-              author[metric.to_sym] = 0 if author[metric.to_sym] < 0
-            end
-          end
-
-          authors.values
+        def statistic_keys(key)
+          self.class.const_get("#{key.upcase}_STATISTICS")
         end
 
         def build_authors
           authors = {}
 
-          git_inspector.dig('changes', 'authors').each do |author_data|
-            email = author_data['email']
-            author = (authors[email] ||= {})
-            author[:name] = author_data['name']
-            author[:email] = author_data['email']
-          end
+          map_authors('changes', authors)
+          map_authors('blame', authors)
 
-          git_inspector.dig('blame', 'authors').each do |author_data|
-            email = author_data['email']
-            author = (authors[email] ||= {})
-            author[:name] = author_data['name']
-            author[:email] = author_data['email']
-          end
-
-          authors.each do |email, author|
+          authors.each do |_email, author|
             (BLAME_STATISTICS + CHANGES_STATISTICS).each do |metric|
               author[metric.to_sym] = 0
             end
@@ -97,18 +82,29 @@ module InsightsEngine
           authors
         end
 
-        def build_responsibilities
-          git_inspector.dig('responsibilities', 'authors').flat_map do |author_data|
+        def map_authors(key, authors)
+          dig(key).each do |author_data|
             email = author_data['email']
+            author = (authors[email] ||= {})
+            author[:name] = author_data['name']
+            author[:email] = author_data['email']
+          end
+        end
 
+        def build_responsibilities
+          dig('responsibilities').flat_map do |author_data|
             author_data['files'].map do |file|
               {
-                email: email,
+                email: author_data['email'],
                 location: file['name'],
                 rows: file['rows']
               }
             end
           end
+        end
+
+        def dig(key)
+          git_inspector.dig(key, 'authors')
         end
       end
     end
