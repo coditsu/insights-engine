@@ -17,6 +17,7 @@ RSpec.describe InsightsEngine::Harvesters::RepositoryAuthors::Harvester do
     let(:output) { harvester.send(:process) }
 
     it { expect(output).to be_an_instance_of(Array) }
-    it { expect(output.count).to eq(2) }
+    # we expect at least two authors for the repository
+    it { expect(output.count).to be >= 2 }
   end
 end
