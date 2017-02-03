@@ -20,6 +20,6 @@ RSpec.describe InsightsEngine::Harvesters::TrackedFiles::Parser do
     it { expect(output).to be_an_instance_of(Hash) }
     it { expect(output.count).to eq(1) }
     it { expect(output).to have_key(:tracked_files) }
-    it { expect(output[:tracked_files]).to be_an_instance_of(Fixnum) }
+    it { expect(output[:tracked_files]).to be_an_instance_of(Integer) }
   end
 end
