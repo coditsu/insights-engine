@@ -1,6 +1,6 @@
 module SchemasSpec
   class Predicate
-    class Fixnum
+    class Integer
       CONFIG = {
         lt?: {
           success: {
