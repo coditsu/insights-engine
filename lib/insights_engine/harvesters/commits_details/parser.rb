@@ -14,7 +14,8 @@ module InsightsEngine
 
           commits.each do |commit|
             lines_stats = seek(shortstat, commit.oid)
-            results << prepare(commit, lines_stats)
+            # This can be nil on the last log_details line (that is empty)
+            results << prepare(commit, lines_stats) if lines_stats
           end
 
           results
