@@ -7,8 +7,11 @@ module InsightsEngine
         self.parser = CommitsDetails::Parser
         self.harvester = CommitsDetails::Harvester
         self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
+          # There's an option to add a commit without a message by doing like so:
+          # git commit  -a --allow-empty-message -m '' that's why we don't require
+          # it to be filled
+          required(:message) { filled? > str? }
           required(:commit_hash).filled(:str?)
-          required(:message).filled(:str?)
           required(:author).filled(InsightsEngine::Schemas::Author)
           required(:committer).filled(InsightsEngine::Schemas::Author)
           required(:authored_at).filled(:date_time?)
