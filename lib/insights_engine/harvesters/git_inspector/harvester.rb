@@ -18,7 +18,9 @@ module InsightsEngine
           options = []
           options << '--format=json'
           options << "-w -f '**'"
-          options << '--hard'
+          # Disabled because takes a looot of cpu power to calculate
+          # @see https://github.com/ejwa/gitinspector/wiki/Documentation
+          # options << '--hard'
           options << '-l -r'
           options.join(' ')
         end
