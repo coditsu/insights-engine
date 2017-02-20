@@ -107,7 +107,7 @@ module InsightsEngine
         end
 
         def dig(key)
-          git_inspector.dig(key, 'authors')
+          git_inspector.dig(key, 'authors') || []
         end
       end
     end
