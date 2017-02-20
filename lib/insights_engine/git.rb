@@ -61,10 +61,13 @@ module InsightsEngine
         shell(build_path, :log, options.join(' '))
       end
 
-      def effort(build_path, threshold, above = 10)
-        base_date = Time.parse(shell(build_path, :log, '-1 --format=%cd')[0])
-        since = base_date - threshold
+      # @param build_path [String] path of a current repository build
+      # @return [DateTime] datetime of a head commit
+      def head_committed_at(build_path)
+        Time.parse(shell(build_path, :log, '-1 --format=%cd')[0])
+      end
 
+      def effort(build_path, since, above = 10)
         options = []
         options << "--above #{above}"
         options << '--'

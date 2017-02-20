@@ -121,4 +121,12 @@ RSpec.describe InsightsEngine::Git do
       end
     end
   end
+
+  describe '#effort' do
+    pending
+  end
+
+  describe '#head_committed_at' do
+    pending
+  end
 end

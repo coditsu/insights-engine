@@ -4,17 +4,21 @@ module InsightsEngine
   module Harvesters
     module GitInspector
       class Harvester < Engine::Harvester
+        THRESHOLD = 1.month
+
         private
 
         def process
-          run "#{encoding} gitinspector.py #{options} #{params.build_path}"
+          run "#{encoding} gitinspector.py #{options(params)} #{params.build_path}"
         end
 
         def encoding
           'PYTHONIOENCODING=utf8'
         end
 
-        def options
+        def options(params)
+          head_committed_at = Git.head_committed_at(params.build_path)
+
           options = []
           options << '--format=json'
           options << "-w -f '**'"
@@ -22,6 +26,7 @@ module InsightsEngine
           # @see https://github.com/ejwa/gitinspector/wiki/Documentation
           # options << '--hard'
           options << '-l -r'
+          options << "--since=\"#{head_committed_at - THRESHOLD}\""
           options.join(' ')
         end
       end

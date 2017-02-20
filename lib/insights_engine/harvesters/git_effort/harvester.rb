@@ -10,7 +10,8 @@ module InsightsEngine
         private
 
         def process
-          raw(Git.effort(params.build_path, THRESHOLD, ABOVE))
+          head_committed_at = Git.head_committed_at(params.build_path)
+          raw(Git.effort(params.build_path, head_committed_at - THRESHOLD, ABOVE))
         end
       end
     end
