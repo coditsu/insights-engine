@@ -28,6 +28,9 @@ module InsightsEngine
         end
 
         def build_extensions
+          return [] unless git_inspector['extensions']
+          return [] unless git_inspector['extensions']['used']
+
           git_inspector['extensions']['used'] - ['*']
         end
 
