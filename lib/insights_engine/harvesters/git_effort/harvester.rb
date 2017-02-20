@@ -4,12 +4,13 @@ module InsightsEngine
   module Harvesters
     module GitEffort
       class Harvester < Engine::Harvester
-        ABOVE = 10
+        ABOVE = 5
+        THRESHOLD = 1.month
 
         private
 
         def process
-          raw(Git.effort(params.build_path, ABOVE))
+          raw(Git.effort(params.build_path, THRESHOLD, ABOVE))
         end
       end
     end

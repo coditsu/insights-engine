@@ -61,9 +61,15 @@ module InsightsEngine
         shell(build_path, :log, options.join(' '))
       end
 
-      def effort(build_path, above = 10)
+      def effort(build_path, threshold, above = 10)
+        base_date = Time.parse(shell(build_path, :log, '-1 --format=%cd')[0])
+        since = base_date - threshold
+
         options = []
         options << "--above #{above}"
+        options << '--'
+        options << "--since=\"#{since}\""
+
         # Remove all the colors from output
         options << '| sed "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
         options << '| sort -rn -k 2'

@@ -5,14 +5,18 @@ RSpec.describe InsightsEngine::Harvesters::GitEffort::Parser do
   subject(:parser) { described_class.new }
 
   let(:stdout) do
-    InsightsEngine::Harvesters::GitEffort::Harvester.new.call(
-      InsightsEngine::Engine::Params.new(
-        build_path: InsightsEngine.gem_root
-      )
-    )
+    [
+      '  F1.......... 30          15',
+      '  config/locaf 10          8',
+      '  tables.scss. 10          6',
+      '  path         commits    active days',
+      "\e[H\e[2J ",
+      "\e[?25l",
+      "\e[?12;25h\e(B\e[m"
+    ]
   end
 
-  before { parser.instance_variable_set(:'@raw', stdout) }
+  before { parser.instance_variable_set(:'@raw', { stdout: stdout }) }
 
   describe '#process' do
     let(:output) { parser.send(:process) }
