@@ -13,8 +13,6 @@ module InsightsEngine
             required(:report_date).filled(:date?)
           end
 
-          required(:extensions).each(:str?)
-
           required(:statistics).each do
             required(:name)
             required(:email).filled(:str?)

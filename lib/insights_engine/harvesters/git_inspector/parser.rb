@@ -16,7 +16,6 @@ module InsightsEngine
 
         def process
           {
-            extensions: build_extensions,
             metadata: build_metadata,
             statistics: build_statistics,
             responsibilities: build_responsibilities
@@ -25,13 +24,6 @@ module InsightsEngine
 
         def git_inspector
           @git_inspector ||= MultiJson.load(raw[:stdout])['gitinspector']
-        end
-
-        def build_extensions
-          return [] unless git_inspector['extensions']
-          return [] unless git_inspector['extensions']['used']
-
-          git_inspector['extensions']['used'] - ['*']
         end
 
         def build_metadata
