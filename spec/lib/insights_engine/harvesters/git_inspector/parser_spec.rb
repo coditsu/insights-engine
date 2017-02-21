@@ -19,8 +19,7 @@ RSpec.describe InsightsEngine::Harvesters::GitInspector::Parser do
 
     it { expect(output).not_to be_empty }
     it { expect(output).to be_an_instance_of(Hash) }
-    it { expect(output.count).to eq(4) }
-    it { expect(output).to have_key(:extensions) }
+    it { expect(output.count).to eq(3) }
     it { expect(output).to have_key(:metadata) }
     it { expect(output).to have_key(:statistics) }
     it { expect(output).to have_key(:responsibilities) }
