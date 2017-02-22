@@ -10,7 +10,6 @@ module InsightsEngine
 
         private
 
-        # @param build_path [String] path of a current repository build
         # @return [Array<Hash>] array with details of all people that authored
         #   code in a given repo
         # @example

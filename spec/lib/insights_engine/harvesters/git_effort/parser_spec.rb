@@ -16,7 +16,7 @@ RSpec.describe InsightsEngine::Harvesters::GitEffort::Parser do
     ]
   end
 
-  before { parser.instance_variable_set(:'@raw', { stdout: stdout }) }
+  before { parser.instance_variable_set(:'@raw', stdout: stdout) }
 
   describe '#process' do
     let(:output) { parser.send(:process) }

@@ -1,11 +1,15 @@
+# frozen_string_literal: true
 RSpec.shared_examples :schemas_spec_with_scope do |scope, name, *predicates|
   include_context :schemas_spec_loop, scope, name, predicates
 end
 
 RSpec.shared_examples :schemas_spec_loop do |scope, name, predicates|
-  context "#{name}" do
+  context name.to_s do
     predicates.each do |predicate|
-      include_context :schemas_spec_validation, SchemasSpec::Options.prepare(name, predicates, predicate, scope)
+      include_context(
+        :schemas_spec_validation,
+        SchemasSpec::Options.prepare(name, predicates, predicate, scope)
+      )
     end
   end
 end

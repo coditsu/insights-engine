@@ -18,7 +18,7 @@ RSpec.describe InsightsEngine::Harvesters::GitEffort::Engine do
   end
 
   let(:input) do
-    described_class.parser.new.call({
+    described_class.parser.new.call(
       stdout: [
         '  F1.......... 30          15',
         '  config/locaf 10          8',
@@ -28,7 +28,7 @@ RSpec.describe InsightsEngine::Harvesters::GitEffort::Engine do
         "\e[?25l",
         "\e[?12;25h\e(B\e[m"
       ]
-    }).first
+    ).first
   end
 
   describe '#schema' do
