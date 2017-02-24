@@ -8,7 +8,7 @@ module InsightsEngine
         self.harvester = HeadDetails::Harvester
         self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
           required(:commit_hash).filled(:str?)
-          required(:message).filled(:str?)
+          required(:message) { filled? > str? }
           required(:author).filled(InsightsEngine::Schemas::Author)
           required(:committer).filled(InsightsEngine::Schemas::Author)
           required(:authored_at).filled(:date_time?)
