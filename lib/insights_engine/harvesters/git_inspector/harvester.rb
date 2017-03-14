@@ -8,6 +8,7 @@ module InsightsEngine
 
         private
 
+        # @return [Hash] hash with raw result data
         def process
           run "#{encoding} gitinspector.py #{options(params)} #{params.build_path}"
         end

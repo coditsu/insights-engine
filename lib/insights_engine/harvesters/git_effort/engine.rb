@@ -2,10 +2,14 @@
 module InsightsEngine
   # Namespace for validators
   module Harvesters
+    # Namespace of a GitEffort harvester
     module GitEffort
+      # GitEffort engine
+      # @see https://github.com/tj/git-extras
       class Engine < InsightsEngine::Engine
         self.parser = GitEffort::Parser
         self.harvester = GitEffort::Harvester
+        # Schema for final results format validation
         self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
           required(:location).filled(:str?)
           required(:commits).filled(:int?, gteq?: 2)

@@ -2,10 +2,12 @@
 module InsightsEngine
   # Namespace for validators
   module Harvesters
+    # Namespace of a CommitsDetails harvester
     module CommitsDetails
       class Engine < InsightsEngine::Engine
         self.parser = CommitsDetails::Parser
         self.harvester = CommitsDetails::Harvester
+        # Schema for final results format validation
         self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
           # There's an option to add a commit without a message by doing like so:
           # git commit  -a --allow-empty-message -m '' that's why we don't require

@@ -5,6 +5,7 @@ module InsightsEngine
       class Harvester < Engine::Harvester
         private
 
+        # @return [Hash] hash with raw result data
         def process
           cmd = []
           cmd << "find #{params.build_path}"

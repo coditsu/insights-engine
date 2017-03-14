@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module SchemasSpec
   class Predicate
+    # Integer predicate schema test builder
     class Integer
       CONFIG = {
         lt?: {

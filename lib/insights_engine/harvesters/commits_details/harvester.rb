@@ -6,6 +6,7 @@ module InsightsEngine
       class Harvester < Engine::Harvester
         private
 
+        # @return [Hash] hash with raw result data
         def process
           repo = Rugged::Repository.new(params.build_path)
           walker = Rugged::Walker.new(repo)

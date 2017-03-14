@@ -3,9 +3,11 @@ module InsightsEngine
   # Namespace for validators
   module Harvesters
     module HeadDetails
+      # Harvester used to get commit details of a head (current) commit
       class Harvester < Engine::Harvester
         private
 
+        # @return [Hash] hash with raw result data
         def process
           repo = Rugged::Repository.new(params.build_path)
           lines_stats = Git.shortstat(params.build_path, 1)

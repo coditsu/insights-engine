@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module SchemasSpec
   class Predicate
+    # Maybe predicate schema test builder
     class Maybe
       class << self
         def build!(hash, predicates)

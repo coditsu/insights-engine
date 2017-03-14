@@ -2,10 +2,13 @@
 module InsightsEngine
   # Namespace for validators
   module Harvesters
+    # Namespace of a HeadDetails harvester
     module HeadDetails
+      # Engine that extracts head commit details of a given repository
       class Engine < InsightsEngine::Engine
         self.parser = HeadDetails::Parser
         self.harvester = HeadDetails::Harvester
+        # Schema for final results format validation
         self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
           required(:commit_hash).filled(:str?)
           required(:message) { filled? > str? }

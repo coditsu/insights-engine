@@ -2,10 +2,14 @@
 module InsightsEngine
   # Namespace for validators
   module Harvesters
+    # Namespace of a GitInspector harvester
     module GitInspector
+      # Git inspector engine for getting data out of git inspector software
+      # @see https://github.com/ejwa/gitinspector
       class Engine < InsightsEngine::Engine
         self.parser = GitInspector::Parser
         self.harvester = GitInspector::Harvester
+        # Schema for final results format validation
         self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
           required(:metadata).schema do
             required(:version).filled
