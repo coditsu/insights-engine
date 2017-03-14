@@ -3,8 +3,11 @@ module InsightsEngine
   # Namespace for validators
   module Harvesters
     module CommitsDetails
+      # Parser for extracting commits details out of raw results
       class Parser < Engine::Parser
         include ParserHelper
+
+        private
 
         def process
           commits = raw.dig(:stdout, :commits)
@@ -20,8 +23,6 @@ module InsightsEngine
 
           results
         end
-
-        private
 
         def seek(log_details, commit)
           current_line = 0

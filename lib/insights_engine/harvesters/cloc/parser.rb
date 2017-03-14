@@ -3,9 +3,14 @@ module InsightsEngine
   # Namespace for validators
   module Harvesters
     module Cloc
+      # Parser for extracting count lines of code details out of raw results
       class Parser < Engine::Parser
         private
 
+        # Extracts cloc details from raw input
+        # @return [Hash] hash with languages distribution
+        # @note Due to schema validator, we had to nest hash results
+        #   inside of a hash with :languages key
         def process
           languages = []
 
@@ -18,10 +23,15 @@ module InsightsEngine
           { languages: languages }
         end
 
+        # @return [Hash] parsed yaml cloc results
         def cloc
           @cloc ||= YAML.safe_load(raw[:stdout])
         end
 
+        # @param language [String] language for which we have data
+        # @param data [Hash] language usage in repo details
+        # @return [Hash] hash with all the details about lines of code
+        #   of a particular language per lines in repo
         def prepare(language, data)
           {
             language: language,

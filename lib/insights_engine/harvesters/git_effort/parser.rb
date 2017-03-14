@@ -3,6 +3,7 @@ module InsightsEngine
   # Namespace for validators
   module Harvesters
     module GitEffort
+      # Parser for extracting git effort details out of raw results
       class Parser < Engine::Parser
         NUMBERS_MATCHER = /.*\s(\d+)\s{2,20}.*\s(\d+)/
         PATH_MATCHER = /(.*)\s\d+\s/

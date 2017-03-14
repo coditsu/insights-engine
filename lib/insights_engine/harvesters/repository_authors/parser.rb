@@ -3,18 +3,21 @@ module InsightsEngine
   # Namespace for validators
   module Harvesters
     module RepositoryAuthors
+      # Parser for extracting repository authors details out of raw results
       class Parser < Engine::Parser
         # Regexp that matches author name and email from the git shortlog raw
         # output
         MATCH_REGEXP = /\t(.*) <(.*)>/
 
+        private
+
+        # @return [Array<Hash>] array with hashes, where each hash represents
+        #   a single author extracted details
         def process
           raw.map do |author_string|
             extract(author_string)
           end
         end
-
-        private
 
         # Extracts author details from a git shortlog raw string
         # @param author_string [String] raw string with author details
