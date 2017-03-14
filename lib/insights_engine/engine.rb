@@ -73,6 +73,9 @@ module InsightsEngine
 
     private
 
+    # Runs a given harvester than uses parser to extract and return properly
+    # formatted data
+    # @return Parsed results
     def process
       self.class.parser.new.call(
         self.class.harvester.new.call(params)

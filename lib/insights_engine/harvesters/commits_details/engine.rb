@@ -4,6 +4,7 @@ module InsightsEngine
   module Harvesters
     # Namespace of a CommitsDetails harvester
     module CommitsDetails
+      # Engine for gathring details about all the commits in repository
       class Engine < InsightsEngine::Engine
         self.parser = CommitsDetails::Parser
         self.harvester = CommitsDetails::Harvester

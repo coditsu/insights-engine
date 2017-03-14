@@ -3,8 +3,11 @@ module InsightsEngine
   # Namespace for validators
   module Harvesters
     module GitEffort
+      # Harvester used to get git effort details
       class Harvester < Engine::Harvester
+        # Level above which we want to get efforts
         ABOVE = 5
+        # How long back in history do we calculate effort
         THRESHOLD = 1.month
 
         private

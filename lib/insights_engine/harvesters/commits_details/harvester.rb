@@ -3,6 +3,7 @@ module InsightsEngine
   # Namespace for validators
   module Harvesters
     module CommitsDetails
+      # Harvester used to get commits details data
       class Harvester < Engine::Harvester
         private
 

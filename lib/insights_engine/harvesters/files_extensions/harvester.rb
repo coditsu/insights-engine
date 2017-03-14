@@ -2,6 +2,7 @@
 module InsightsEngine
   module Harvesters
     module FilesExtensions
+      # Harvester used to get files extensions count
       class Harvester < Engine::Harvester
         private
 

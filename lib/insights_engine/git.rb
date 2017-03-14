@@ -51,6 +51,18 @@ module InsightsEngine
         shell(build_path, :blame, "'#{location}' #{options}")
       end
 
+      # Runs a git log with --shortstats option
+      # @param build_path [String] path of a current repository build
+      # @param limit [Integer, nil] number of lines that we want
+      # @param commit [String, nil] commit name or nil if we want shortstat for all
+      #   commits
+      # @return [Array<String>] Lines returned by the git log --shortstat command
+      # @example
+      #   InsightsEngine::Git.blame('./', 2) #=>
+      #   [
+      #     '4 files changed, 13 insertions(+), 36 deletions(-)',
+      #     'ab7928cc003e2306c9d7ec729fb1d87e808337c0 ninshiki'
+      #   ]
       def shortstat(build_path, limit = nil, commit = nil)
         options = []
         options << '--shortstat'
@@ -67,19 +79,37 @@ module InsightsEngine
         Time.parse(shell(build_path, :log, '-1 --format=%cd')[0])
       end
 
+      # Runs git effort
+      # @see https://github.com/tj/git-extras
+      # @note We remove all the colors and sort before returning results
+      # @param build_path [String] path of a current repository build
+      # @param since [String] since when we want to check offerts
+      # @param above [Integer] above what effort level we expect results. It is useless
+      #   to get all of them as it takes a lot of time and most of the time, the most interesting
+      #   once are those with higher rank
+      # @return [Array<String>] array with blame results
+      # @example InsightsEngine::Git.blame('./', '2017-02-01', 5) #=>
+      # [
+      #   "  Gemfile.lock................................. 8           7",
+      #   "  path      ..."
+      # ]
       def effort(build_path, since, above = 10)
         options = []
         options << "--above #{above}"
         options << '--'
         options << "--since=\"#{since}\""
 
-        # Remove all the colors from output
+        # Remove all the colors from the output
         options << '| sed "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
         options << '| sort -rn -k 2'
         options << '| uniq'
         shell(build_path, :effort, options.join(' '))
       end
 
+      # Runs git ls-files and counts those lines, so we can get number of files in this repo
+      # that are tracked using git
+      # @param build_path [String] path of a current repository build
+      # @return [Array<String>] Array with ls-files count results
       def ls_files(build_path)
         shell(build_path, 'ls-files', '| wc -l')
       end

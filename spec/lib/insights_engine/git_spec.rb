@@ -129,4 +129,8 @@ RSpec.describe InsightsEngine::Git do
   describe '#head_committed_at' do
     pending
   end
+
+  describe '#shortstat' do
+    pending
+  end
 end
