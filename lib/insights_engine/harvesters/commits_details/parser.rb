@@ -9,6 +9,9 @@ module InsightsEngine
 
         private
 
+        # Parser raw data and converts it into our internal format
+        # @return [Array<Hash>] Array with hashes that (each of them)
+        #   contain details about each commit from repository
         def process
           commits = raw.dig(:stdout, :commits)
           shortstat = raw.dig(:stdout, :shortstat)
@@ -24,6 +27,11 @@ module InsightsEngine
           results
         end
 
+        # Seeks in raw git log stuff details on a given commit
+        # @param log_details [Array<String>] git log results splitted by new line
+        # @param commit [String] id of a commit
+        # @raise [InsightsEngine::Errors::UnmatchedCommit] raised when we could not match
+        #   commit with any data (should never happen)
         def seek(log_details, commit)
           current_line = 0
 
