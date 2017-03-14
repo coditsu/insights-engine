@@ -42,7 +42,7 @@ module InsightsEngine
         end
 
         # Extracts file path from an effort line
-        # @param [String] single effort line
+        # @param line [String] single effort line
         # @return [String] extracted file path from an effort line
         # @example
         #   location_from_line('  tables.scss. 10          6') #=> 'tables.scss'
@@ -50,7 +50,7 @@ module InsightsEngine
           line.match(PATH_MATCHER).captures.first.gsub(DOTS_MATCHER, '').strip
         end
 
-        # @param [String] single effort line
+        # @param line [String] single effort line
         # @return [Array<String>] matched effort numbers
         # @example
         #   numbers_from_line('  tables.scss. 10          6') #=> ['10', '6']
