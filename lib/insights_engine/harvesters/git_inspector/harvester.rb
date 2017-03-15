@@ -34,9 +34,9 @@ module InsightsEngine
           options = []
           options << '--format=json'
           options << "-w -f '**'"
-          # Disabled because takes a looot of cpu power to calculate
+          # Note that hard takes a looot of cpu power to calculate
           # @see https://github.com/ejwa/gitinspector/wiki/Documentation
-          # options << '--hard'
+          options << '--hard'
           options << '-l -r'
           options << "--since=\"#{head_committed_at - THRESHOLD}\""
           options.join(' ')

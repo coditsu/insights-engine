@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    insights_engine (0.9.0)
+    insights_engine (0.9.1)
       activesupport
       dry-validation
       git
@@ -81,7 +81,7 @@ GEM
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
     rugged (0.25.1.1)
-    simplecov (0.13.0)
+    simplecov (0.14.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
