@@ -36,7 +36,7 @@ module InsightsEngine
           options << "-w -f '**'"
           # Note that hard takes a looot of cpu power to calculate
           # @see https://github.com/ejwa/gitinspector/wiki/Documentation
-          # options << '--hard'
+          options << '--hard'
           options << '-l -r'
           options << "--since=\"#{head_committed_at - THRESHOLD}\""
           options.join(' ')
