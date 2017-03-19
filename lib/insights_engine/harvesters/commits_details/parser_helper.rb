@@ -9,9 +9,9 @@ module InsightsEngine
       module ParserHelper
         # Regexps map for details extraction and matching
         REGEXPS = {
-          files_changed: /(\d*) files changed/,
-          insertions: /(\d*) insertions/,
-          deletions: /(\d*) deletions/
+          files_changed: /(\d*) file.? changed/,
+          insertions: /(\d*) insertion.?/,
+          deletions: /(\d*) deletion.?/
         }.freeze
 
         # Prepares commit details based on commit data
