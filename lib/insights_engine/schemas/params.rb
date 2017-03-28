@@ -7,6 +7,7 @@ module InsightsEngine
       configure { predicates(Schemas::Predicates) }
 
       required(:build_path).filled(:str?, :absolute_path?)
+      optional(:settings_content).maybe
     end
   end
 end

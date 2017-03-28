@@ -21,6 +21,7 @@ module InsightsEngine
           'dry-validations.yml'
         )
         config.predicates = Schemas::Predicates
+        config.input_processor = :sanitizer
       end
 
       # @param args [Array] all the arguments that the
