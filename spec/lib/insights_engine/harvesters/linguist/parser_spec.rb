@@ -16,6 +16,7 @@ RSpec.describe InsightsEngine::Harvesters::Linguist::Parser do
 
   describe '#process' do
     let(:output) { parser.send(:process) }
+
     it { expect(output).to be_an_instance_of(Hash) }
     it { expect(output.size).to eq(1) }
     it { expect(output).to have_key(:languages) }

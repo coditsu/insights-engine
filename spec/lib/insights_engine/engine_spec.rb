@@ -19,8 +19,8 @@ RSpec.describe InsightsEngine::Engine do
 
   describe 'instance elements' do
     subject(:engine) { engine_class.new }
-    let(:engine_class) { described_class }
 
+    let(:engine_class) { described_class }
     let(:valid_params) { { build_path: '/tmp' } }
     let(:params) { instance_double(InsightsEngine::Engine::Params) }
     let(:parser) { instance_double(InsightsEngine::Engine::Parser) }

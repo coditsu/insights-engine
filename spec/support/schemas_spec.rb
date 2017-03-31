@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-RSpec.shared_examples :schemas_spec_with_scope do |scope, name, *predicates|
+RSpec.shared_context :schemas_spec_with_scope do |scope, name, *predicates|
   include_context :schemas_spec_loop, scope, name, predicates
 end
 
@@ -14,7 +14,7 @@ RSpec.shared_examples :schemas_spec_loop do |scope, name, predicates|
   end
 end
 
-RSpec.shared_examples :schemas_spec do |name, *predicates|
+RSpec.shared_context :schemas_spec do |name, *predicates|
   include_context :schemas_spec_loop, nil, name, predicates
 end
 

@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 RSpec.describe InsightsEngine::Engine::Harvester do
   subject(:harvester) { harvester_class.new }
-  let(:harvester_class) { described_class }
 
+  let(:harvester_class) { described_class }
   let(:build_path) { '/tmp' }
+  let(:params) { object_double(params_base, build_path: build_path) }
   let(:params_base) do
     InsightsEngine::Engine::Params.new(
       build_path: build_path
     )
   end
-
-  let(:params) { object_double(params_base, build_path: build_path) }
 
   describe '#call' do
     let(:harvester_class) do
@@ -29,6 +28,7 @@ RSpec.describe InsightsEngine::Engine::Harvester do
 
   describe '#process' do
     let(:error) { InsightsEngine::Errors::ImplementationMissing }
+
     it { expect { harvester.send(:process) }.to raise_error(error) }
   end
 

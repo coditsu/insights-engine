@@ -17,6 +17,7 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Parser do
 
   describe '#process' do
     let(:output) { parser.send(:process) }
+
     it { expect(output).not_to be_empty }
     it { expect(output).to be_an_instance_of(Hash) }
     it { expect(output.keys.count).to eq(9) }

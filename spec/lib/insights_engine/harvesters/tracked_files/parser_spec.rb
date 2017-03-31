@@ -16,6 +16,7 @@ RSpec.describe InsightsEngine::Harvesters::TrackedFiles::Parser do
 
   describe '#process' do
     let(:output) { parser.send(:process) }
+
     it { expect(output).not_to be_empty }
     it { expect(output).to be_an_instance_of(Hash) }
     it { expect(output.count).to eq(1) }

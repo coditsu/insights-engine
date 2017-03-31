@@ -9,7 +9,6 @@ RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Parser do
       build_path: InsightsEngine.gem_root
     )
   end
-
   let(:stdout) do
     InsightsEngine::Harvesters::CommitsDetails::Harvester.new.call(params)
   end
@@ -19,6 +18,7 @@ RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Parser do
   describe '#process' do
     context 'when exit code is 0' do
       let(:output) { parser.send(:process) }
+
       it { expect(output).not_to be_empty }
       it { expect(output).to be_an_instance_of(Array) }
 

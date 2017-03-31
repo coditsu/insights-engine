@@ -5,6 +5,7 @@ RSpec.describe InsightsEngine::Engine::Populator do
 
     describe '#fetcher' do
       let(:value) { rand }
+
       after { populator_class.fetcher = nil }
 
       it 'expect fetcher to be assignable' do
@@ -16,8 +17,8 @@ RSpec.describe InsightsEngine::Engine::Populator do
 
   describe 'instance elements' do
     subject(:populator) { populator_class.new }
-    let(:populator_class) { described_class }
 
+    let(:populator_class) { described_class }
     let(:params) { instance_double(InsightsEngine::Engine::Params) }
     let(:buffer) { { rand => rand } }
 
@@ -39,6 +40,7 @@ RSpec.describe InsightsEngine::Engine::Populator do
 
     describe '#process' do
       let(:error) { InsightsEngine::Errors::ImplementationMissing }
+
       it { expect { populator.send(:process) }.to raise_error(error) }
     end
 

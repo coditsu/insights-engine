@@ -2,6 +2,19 @@
 RSpec.describe InsightsEngine::Harvesters::GitEffort::Engine do
   let(:scope) { InsightsEngine::Harvesters::GitEffort }
   let(:params) { { build_path: InsightsEngine.gem_root } }
+  let(:input) do
+    described_class.parser.new.call(
+      stdout: [
+        '  F1.......... 30          15',
+        '  config/locaf 10          8',
+        '  tables.scss. 10          6',
+        '  path         commits    active days',
+        "\e[H\e[2J ",
+        "\e[?25l",
+        "\e[?12;25h\e(B\e[m"
+      ]
+    ).first
+  end
 
   specify { expect(described_class).to be < InsightsEngine::Engine }
   specify { expect(described_class.harvester).to eq scope::Harvester }
@@ -17,20 +30,6 @@ RSpec.describe InsightsEngine::Harvesters::GitEffort::Engine do
     end
   end
 
-  let(:input) do
-    described_class.parser.new.call(
-      stdout: [
-        '  F1.......... 30          15',
-        '  config/locaf 10          8',
-        '  tables.scss. 10          6',
-        '  path         commits    active days',
-        "\e[H\e[2J ",
-        "\e[?25l",
-        "\e[?12;25h\e(B\e[m"
-      ]
-    ).first
-  end
-
   describe '#schema' do
     context 'default data' do
       it { expect { described_class.schema.call(input) }.not_to raise_error }
@@ -38,6 +37,7 @@ RSpec.describe InsightsEngine::Harvesters::GitEffort::Engine do
 
     context 'no data' do
       let(:input) { {} }
+
       it do
         expect do
           described_class.schema.call(input)

@@ -16,6 +16,7 @@ RSpec.describe InsightsEngine::Harvesters::RepositoryAuthors::Parser do
 
   describe '#process' do
     let(:output) { parser.send(:process) }
+
     it { expect(output).not_to be_empty }
     it { expect(output).to be_an_instance_of(Array) }
     # we expect at least two authors for the repository

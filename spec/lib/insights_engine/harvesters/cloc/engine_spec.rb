@@ -2,6 +2,13 @@
 RSpec.describe InsightsEngine::Harvesters::Cloc::Engine do
   let(:scope) { InsightsEngine::Harvesters::Cloc }
   let(:params) { { build_path: InsightsEngine.gem_root } }
+  let(:input) do
+    described_class.parser.new.call(
+      described_class.harvester.new.call(
+        InsightsEngine::Engine::Params.new(params)
+      )
+    )
+  end
 
   specify { expect(described_class).to be < InsightsEngine::Engine }
   specify { expect(described_class.harvester).to eq scope::Harvester }
@@ -17,14 +24,6 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Engine do
     it 'expect not to throw any errors' do
       expect { result }.not_to raise_error
     end
-  end
-
-  let(:input) do
-    described_class.parser.new.call(
-      described_class.harvester.new.call(
-        InsightsEngine::Engine::Params.new(params)
-      )
-    )
   end
 
   describe '#schema' do

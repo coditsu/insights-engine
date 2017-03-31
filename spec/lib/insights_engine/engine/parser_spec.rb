@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 RSpec.describe InsightsEngine::Engine::Parser do
   subject(:parser) { parser_class.new }
-  let(:parser_class) { described_class }
 
+  let(:parser_class) { described_class }
   let(:raw) { {} }
 
   describe '#call' do
@@ -22,6 +22,7 @@ RSpec.describe InsightsEngine::Engine::Parser do
 
   describe '#process' do
     let(:error) { InsightsEngine::Errors::ImplementationMissing }
+
     it { expect { parser.send(:process) }.to raise_error(error) }
   end
 end

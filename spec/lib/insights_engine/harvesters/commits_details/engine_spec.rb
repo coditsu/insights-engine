@@ -2,27 +2,24 @@
 RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Engine do
   let(:scope) { InsightsEngine::Harvesters::CommitsDetails }
   let(:params) { { build_path: InsightsEngine.gem_root } }
-
-  specify { expect(described_class).to be < InsightsEngine::Engine }
-  specify { expect(described_class.harvester).to eq scope::Harvester }
-  specify { expect(described_class.parser).to eq scope::Parser }
-
-  describe 'integration' do
-    subject(:result) do
-      described_class.new.call(params)
-    end
-
-    it 'expect not to throw any errors' do
-      expect { result }.not_to raise_error
-    end
-  end
-
   let(:input) do
     described_class.parser.new.call(
       described_class.harvester.new.call(
         InsightsEngine::Engine::Params.new(params)
       )
     ).first
+  end
+
+  specify { expect(described_class).to be < InsightsEngine::Engine }
+  specify { expect(described_class.harvester).to eq scope::Harvester }
+  specify { expect(described_class.parser).to eq scope::Parser }
+
+  describe 'integration' do
+    subject(:result) { described_class.new.call(params) }
+
+    it 'expect not to throw any errors' do
+      expect { result }.not_to raise_error
+    end
   end
 
   describe '#schema' do

@@ -2,6 +2,13 @@
 RSpec.describe InsightsEngine::Harvesters::GitInspector::Engine do
   let(:scope) { InsightsEngine::Harvesters::GitInspector }
   let(:params) { { build_path: InsightsEngine.gem_root } }
+  let(:input) do
+    described_class.parser.new.call(
+      described_class.harvester.new.call(
+        InsightsEngine::Engine::Params.new(params)
+      )
+    )
+  end
 
   specify { expect(described_class).to be < InsightsEngine::Engine }
   specify { expect(described_class.harvester).to eq scope::Harvester }
@@ -17,14 +24,6 @@ RSpec.describe InsightsEngine::Harvesters::GitInspector::Engine do
     end
   end
 
-  let(:input) do
-    described_class.parser.new.call(
-      described_class.harvester.new.call(
-        InsightsEngine::Engine::Params.new(params)
-      )
-    )
-  end
-
   describe '#schema' do
     context 'valid' do
       it { expect { described_class.schema.call(input) }.not_to raise_error }
@@ -32,6 +31,7 @@ RSpec.describe InsightsEngine::Harvesters::GitInspector::Engine do
 
     context 'no data' do
       let(:input) { {} }
+
       it do
         expect do
           described_class.schema.call(input)
