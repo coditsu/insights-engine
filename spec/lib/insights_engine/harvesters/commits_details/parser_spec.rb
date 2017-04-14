@@ -28,8 +28,8 @@ RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Parser do
         :message,
         :authored_at,
         :committed_at,
-        { author: %i(name email) },
-        { committer: %i(name email) },
+        { author: %i[name email] },
+        { committer: %i[name email] },
         :files_changed,
         :insertions,
         :deletions

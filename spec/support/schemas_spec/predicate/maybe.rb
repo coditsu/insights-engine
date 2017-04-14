@@ -8,7 +8,7 @@ module SchemasSpec
         def build!(hash, predicates)
           return unless predicates.include?(:maybe)
 
-          %i(str? int? date_time?).each do |key|
+          %i[str? int? date_time?].each do |key|
             next unless hash.key?(key)
             hash[key][:error].delete(nil)
           end

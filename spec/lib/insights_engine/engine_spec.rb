@@ -6,9 +6,9 @@ RSpec.describe InsightsEngine::Engine do
 
     let(:value) { rand }
 
-    %i(
+    %i[
       harvester parser schema settings
-    ).each do |class_attribute|
+    ].each do |class_attribute|
       after { engine_class.public_send(:"#{class_attribute}=", nil) }
 
       it "expect #{class_attribute} to be assignable" do

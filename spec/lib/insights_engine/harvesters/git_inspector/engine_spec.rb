@@ -42,14 +42,14 @@ RSpec.describe InsightsEngine::Harvesters::GitInspector::Engine do
 
     context 'invalid' do
       it_behaves_like :schemas_spec_nested, metadata: {
-        version: [:required, :filled],
-        repository: [:required, :filled],
-        report_date: [:required, :filled, :date]
+        version: %i[required filled],
+        repository: %i[required filled],
+        report_date: %i[required filled date]
       }
 
       it_behaves_like :schemas_spec_nested, statistics: {
-        name: [:required],
-        email: [:required, :filled, :str?],
+        name: %i[required],
+        email: %i[required filled str?],
         commits: [:required, :int?, gteq?: 0],
         insertions: [:required, :int?, gteq?: 0],
         deletions: [:required, :int?, gteq?: 0],
@@ -60,8 +60,8 @@ RSpec.describe InsightsEngine::Harvesters::GitInspector::Engine do
       }
 
       it_behaves_like :schemas_spec_first, responsibilities: {
-        email: [:required, :filled, :str?],
-        location: [:required, :filled, :str?],
+        email: %i[required filled str?],
+        location: %i[required filled str?],
         rows: [:required, :int?, gteq?: 0]
       }
     end

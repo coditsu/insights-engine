@@ -3,12 +3,12 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
-%w(
+%w[
   rubygems
   simplecov
   timecop
   byebug
-).each do |lib|
+].each do |lib|
   require lib
 end
 

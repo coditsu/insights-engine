@@ -6,28 +6,27 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Parser do
   subject(:parser) { described_class.new }
 
   let(:stdout) do
-    <<-EOS
-
----
-# github.com/AlDanial/cloc
-header :
-  cloc_url           : github.com/AlDanial/cloc
-  cloc_version       : 1.70
-  elapsed_seconds    : 0.0635077953338623
-  n_files            : 18
-  n_lines            : 860
-  files_per_second   : 283.429772760548
-  lines_per_second   : 13541.6446985595
-Ruby :
-  nFiles: 18
-  blank: 167
-  comment: 21
-  code: 672
-SUM:
-  blank: 167
-  comment: 21
-  code: 672
-  nFiles: 18
+    <<~EOS
+      ---
+      # github.com/AlDanial/cloc
+      header :
+        cloc_url           : github.com/AlDanial/cloc
+        cloc_version       : 1.70
+        elapsed_seconds    : 0.0635077953338623
+        n_files            : 18
+        n_lines            : 860
+        files_per_second   : 283.429772760548
+        lines_per_second   : 13541.6446985595
+      Ruby :
+        nFiles: 18
+        blank: 167
+        comment: 21
+        code: 672
+      SUM:
+        blank: 167
+        comment: 21
+        code: 672
+        nFiles: 18
     EOS
   end
 

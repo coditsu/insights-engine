@@ -40,7 +40,7 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Engine do
 
     context 'invalid' do
       it_behaves_like :schemas_spec_first, languages: {
-        language: [:required, :filled, :str?],
+        language: %i[required filled str?],
         files: [:required, :filled, :int?, gteq?: 0],
         blank: [:required, :filled, :int?, gteq?: 0],
         comment: [:required, :filled, :int?, gteq?: 0],

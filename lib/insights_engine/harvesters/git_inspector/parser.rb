@@ -8,15 +8,15 @@ module InsightsEngine
       class Parser < Engine::Parser
         # Changes statistics key names
         # (under those keys in input hash we have changes related data)
-        CHANGES_STATISTICS = %w(
+        CHANGES_STATISTICS = %w[
           commits insertions deletions percentage_of_changes
-        ).freeze
+        ].freeze
 
         # Blame statistics key names
         # (under those keys in input hash we have blame related data)
-        BLAME_STATISTICS = %w(
+        BLAME_STATISTICS = %w[
           rows stability age percentage_in_comments
-        ).freeze
+        ].freeze
 
         private
 
