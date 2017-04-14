@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module InsightsEngine
   module Schemas
     # Custom predicates that validate outgoing data for schemas

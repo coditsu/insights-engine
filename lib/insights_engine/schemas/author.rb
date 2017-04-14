@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module InsightsEngine
   module Schemas
     # Schema used to describe authors

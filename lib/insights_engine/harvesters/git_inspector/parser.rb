@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module InsightsEngine
   # Namespace for validators
   module Harvesters

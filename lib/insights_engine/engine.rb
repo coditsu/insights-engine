@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module InsightsEngine
   # Engine base class for other engines
   # Each engine is consisted from following parts:

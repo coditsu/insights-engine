@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.shared_context :schemas_spec_with_scope do |scope, name, *predicates|
   include_context :schemas_spec_loop, scope, name, predicates
 end

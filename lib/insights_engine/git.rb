@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module InsightsEngine
   # Wrapper for executing git commands
   # @note You should not run any git commands directly. Always use this wrapper

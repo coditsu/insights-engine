@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe InsightsEngine::Engine::Params do
   let(:settings_content) { rand.to_s }
   let(:args) do

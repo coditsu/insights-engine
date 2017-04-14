@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module InsightsEngine
   class Engine
     # Harvester base class for engine Harvesters

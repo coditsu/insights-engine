@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe InsightsEngine::Harvesters::GitInspector::Parser do
   specify { expect(described_class).to be < InsightsEngine::Engine::Parser }
 

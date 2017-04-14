@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module InsightsEngine
   # All internal gem errors
   module Errors

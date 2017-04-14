@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe InsightsEngine::Engine::Harvester do
   subject(:harvester) { harvester_class.new }
 

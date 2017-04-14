@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe InsightsEngine::Engine::Parser do
   subject(:parser) { parser_class.new }
 

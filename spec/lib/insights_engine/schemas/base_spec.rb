@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe InsightsEngine::Schemas::Base do
   subject(:schema_result) { described_class.new.call(input) }
 

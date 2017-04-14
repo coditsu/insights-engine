@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module InsightsEngine
   # Wrapper for executing shell commands
   # @example Run ls

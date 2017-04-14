@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe InsightsEngine::Shell do
   describe '#call' do
     subject(:shell_result) { described_class.call(command_with_options) }

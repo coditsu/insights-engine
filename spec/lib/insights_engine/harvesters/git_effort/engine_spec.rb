@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe InsightsEngine::Harvesters::GitEffort::Engine do
   let(:scope) { InsightsEngine::Harvesters::GitEffort }
   let(:params) { { build_path: InsightsEngine.gem_root } }

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe InsightsEngine::Schemas::Predicates do
   # We test it on something that includes our predicates
   subject(:schema_result) { InsightsEngine::Schemas::Params.call(input) }

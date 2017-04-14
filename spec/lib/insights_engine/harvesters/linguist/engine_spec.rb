@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe InsightsEngine::Harvesters::Linguist::Engine do
   let(:scope) { InsightsEngine::Harvesters::Linguist }
   let(:params) { { build_path: InsightsEngine.gem_root } }

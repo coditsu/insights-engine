@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe InsightsEngine do
   let(:valid_engines) do
     described_class::Engine

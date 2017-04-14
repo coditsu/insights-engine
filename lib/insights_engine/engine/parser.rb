@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module InsightsEngine
   class Engine
     # Parser base class

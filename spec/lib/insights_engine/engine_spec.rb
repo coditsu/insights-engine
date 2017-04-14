@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe InsightsEngine::Engine do
   describe 'class elements' do
     subject(:engine_class) { described_class }

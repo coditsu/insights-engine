@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe InsightsEngine::Harvesters::TrackedFiles::Engine do
   let(:scope) { InsightsEngine::Harvesters::TrackedFiles }
   let(:params) { { build_path: InsightsEngine.gem_root } }

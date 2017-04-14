@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module InsightsEngine
   class Engine
     # Base populator from which all other populators should inherit
