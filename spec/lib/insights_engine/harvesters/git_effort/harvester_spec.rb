@@ -19,7 +19,7 @@ RSpec.describe InsightsEngine::Harvesters::GitEffort::Harvester do
 
     it { expect(output).to have_key(:stdout) }
     it { expect(output[:stdout]).to be_an_instance_of(Array) }
-    it { expect(output[:stdout].count).to eq(4) }
+    it { expect(output[:stdout].count).to eq(3) }
     it { expect(output).to have_key(:stderr) }
     it { expect(output[:stderr]).to be_empty }
     it { expect(output).to have_key(:exit_code) }
