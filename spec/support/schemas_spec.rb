@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Set of helpers to test Dry::Validation::Schema
+module SchemasSpec; end
+
 RSpec.shared_context :schemas_spec_with_scope do |scope, name, *predicates|
   include_context :schemas_spec_loop, scope, name, predicates
 end
