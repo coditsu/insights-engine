@@ -11,7 +11,7 @@ module InsightsEngine
         def process
           cmd = []
           cmd << "find #{params.build_path}"
-          cmd << '-path ./.git -prune -o -type f' # ignore .git and files only
+          cmd << '-name ".git" -prune -o -type f' # ignore .git and files only
           cmd << '| sed \'s|.*/|./|\'' # emove dir path from build path
           cmd << '| sed -e \'s/.*\././\'' # Remove paths
           cmd << '| grep -v \'./\'' # Remove files without extensions
