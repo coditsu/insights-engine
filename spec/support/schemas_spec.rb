@@ -43,21 +43,19 @@ RSpec.shared_examples :schemas_spec_validation do |options|
   if predicates.key?(options[:predicate])
     predicates[options[:predicate]].each do |key, values|
       values.each do |value|
-        it "#{options[:predicate]}(#{options[:predicate_value]}) #{value}" do
-          if key == :success
+        if key == :success
+          it "#{options[:predicate]}(#{options[:predicate_value]}) #{value}" do
             expect do
               described_class.schema.call(
-                SchemasSpec::Input.change(
-                  options.merge(input: input, value: value)
-                )
+                SchemasSpec::Input.change(options.merge(input: input, value: value))
               )
             end.not_to raise_error
-          else
+          end
+        else
+          it "#{options[:predicate]}(#{options[:predicate_value]}) #{value}" do
             expect do
               described_class.schema.call(
-                SchemasSpec::Input.change(
-                  options.merge(input: input, value: value)
-                )
+                SchemasSpec::Input.change(options.merge(input: input, value: value))
               )
             end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
           end

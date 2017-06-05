@@ -57,15 +57,15 @@ RSpec.describe InsightsEngine::Git do
         "#{location_line},#{location_line} --incremental --porcelain"
     end
 
-    it 'expect to pass to shell command with proper arguments' do
-      expect(InsightsEngine::Shell)
-        .to receive(:call)
-        .with(command)
-        .and_return(stdout: result, exit_code: 0)
+    context 'expect to pass to shell command with proper arguments' do
+      before do
+        expect(InsightsEngine::Shell)
+          .to receive(:call)
+          .with(command)
+          .and_return(stdout: result, exit_code: 0)
+      end
 
-      expect(
-        git_class.blame(build_path, location, location_line)
-      ).to eq result.split("\n")
+      it { expect(git_class.blame(build_path, location, location_line)).to eq result.split("\n") }
     end
 
     it 'expect to run a blame and return results in array' do

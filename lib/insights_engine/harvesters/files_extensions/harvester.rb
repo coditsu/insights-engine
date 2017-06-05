@@ -11,13 +11,20 @@ module InsightsEngine
         def process
           cmd = []
           cmd << "find #{params.build_path}"
-          cmd << '-name ".git" -prune -o -type f' # ignore .git and files only
-          cmd << '| sed \'s|.*/|./|\'' # emove dir path from build path
-          cmd << '| sed -e \'s/.*\././\'' # Remove paths
-          cmd << '| grep -v \'./\'' # Remove files without extensions
-          cmd << '| sed -e \'s/.*\///\'' # Remove unnecessary chars
-          cmd << '| sed -e \'s/\.//\'' # Remove . from extension
-          cmd << '| sort | uniq -c | sort -rn' # sort and count
+          # ignore .git folder
+          cmd << "-not \\( -path '#{File.join(params.build_path, '.git')}' -prune \\) -type f"
+          # remove dir path from build path
+          cmd << '| sed \'s|.*/|./|\''
+          # remove paths
+          cmd << '| sed -e \'s/.*\././\''
+          # remove files without extensions
+          cmd << '| grep -v \'./\''
+          # remove unnecessary chars
+          cmd << '| sed -e \'s/.*\///\''
+          # remove . from extension
+          cmd << '| sed -e \'s/\.//\''
+          # sort and count
+          cmd << '| sort | uniq -c | sort -rn'
 
           run cmd.join(' ')
         end
