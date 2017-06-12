@@ -44,7 +44,6 @@ RSpec.describe InsightsEngine::Engine::Harvester do
     end
 
     it 'expect tu run shell commands in a sources path context' do
-
       harvester.send(:run, command_with_options)
     end
   end
