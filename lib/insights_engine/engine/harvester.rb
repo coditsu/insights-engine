@@ -37,7 +37,22 @@ module InsightsEngine
       # @see InsightsEngine::Shell class documentation
       # @return [Hash] InsightsEngine::Shell execution hash
       def run(command_with_options)
-        Shell.call(command_with_options)
+        SupportEngine::Shell.call(
+          command_with_options,
+          raise_on_invalid_exit: false
+        )
+      end
+
+      # Executes a given yarn command
+      # @param command [String] shell command that we want to execute
+      # @param options [String] options for command
+      # @return [Hash] SupportEngine::Shell execution hash
+      def yarn_run(command, options)
+        SupportEngine::Shell::Yarn.call(
+          command,
+          options,
+          raise_on_invalid_exit: false
+        )
       end
 
       # Builds a raw hash that can be used for further processing

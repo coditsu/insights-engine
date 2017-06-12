@@ -15,8 +15,14 @@ module InsightsEngine
 
         # @return [Hash] hash with raw result data
         def process
-          head_committed_at = Git.head_committed_at(params.build_path)
-          raw(Git.effort(params.build_path, head_committed_at - THRESHOLD, ABOVE))
+          head_committed_at = SupportEngine::Git::Log.head_committed_at(params.build_path)
+          raw(
+            SupportEngine::Git::Extras.effort(
+              params.build_path,
+              head_committed_at - THRESHOLD,
+              ABOVE
+            )
+          )
         end
       end
     end

@@ -10,7 +10,7 @@ module InsightsEngine
         # Transforms raw tracked files results into our internal format
         # @return [Hash] hash with tracked files details
         def process
-          { tracked_files: raw.first.to_i }
+          { tracked_files: raw }
         end
       end
     end

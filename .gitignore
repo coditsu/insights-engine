@@ -19,3 +19,4 @@
 .yardoc
 /coverage
 /.yard
+node_modules

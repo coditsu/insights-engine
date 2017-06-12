@@ -17,7 +17,7 @@ module InsightsEngine
         # @example
         #   process('/build/path') #=> [{ name: 'Maciej', email: 'maciej@...' }]
         def process
-          InsightsEngine::Git.shortlog(params.build_path)
+          SupportEngine::Git::Log.shortlog(params.build_path)
         end
       end
     end

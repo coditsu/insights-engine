@@ -38,12 +38,12 @@ RSpec.describe InsightsEngine::Engine::Harvester do
 
     before do
       harvester.instance_variable_set(:'@params', params)
+      expect(SupportEngine::Shell)
+        .to receive(:call)
+        .with(command_with_options, raise_on_invalid_exit: false)
     end
 
     it 'expect tu run shell commands in a sources path context' do
-      expect(InsightsEngine::Shell)
-        .to receive(:call)
-        .with(command_with_options)
 
       harvester.send(:run, command_with_options)
     end

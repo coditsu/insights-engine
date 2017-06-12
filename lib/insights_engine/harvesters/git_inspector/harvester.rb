@@ -30,7 +30,7 @@ module InsightsEngine
         #   params details
         # @return [String] git inspector shell params
         def options(params)
-          head_committed_at = Git.head_committed_at(params.build_path)
+          head_committed_at = SupportEngine::Git::Log.head_committed_at(params.build_path)
 
           options = []
           options << '--format=json'

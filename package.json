@@ -1,0 +1,11 @@
+{
+  "name": "insights-engine",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://nijikonpg@bitbucket.org/coditsu/insights-engine.git",
+  "author": "Tomasz Pajor <tomek@polishgeeks.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cloc": "^2.2.0"
+  }
+}

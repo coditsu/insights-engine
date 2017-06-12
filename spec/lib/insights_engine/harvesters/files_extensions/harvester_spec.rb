@@ -6,9 +6,8 @@ RSpec.describe InsightsEngine::Harvesters::FilesExtensions::Harvester do
   subject(:harvester) { described_class.new }
 
   let(:scope) { InsightsEngine::Harvesters::FilesExtensions }
-  let(:params) do
-    InsightsEngine::Engine::Params.new(build_path: InsightsEngine.gem_root)
-  end
+  let(:path) { SupportEngine::Git::RepoBuilder::Master.location }
+  let(:params) { InsightsEngine::Engine::Params.new(build_path: path) }
 
   before { harvester.instance_variable_set(:'@params', params) }
 
@@ -22,16 +21,8 @@ RSpec.describe InsightsEngine::Harvesters::FilesExtensions::Harvester do
     it { expect(output[:stderr]).to be_empty }
     it { expect(output).to have_key(:exit_code) }
     it { expect(output[:exit_code]).to eq(0) }
-    it { expect(stdout.size).to eq(10) }
-    it { expect(stdout).to include('92 rb') }
-    it { expect(stdout).to include('1 yml') }
-    it { expect(stdout).to include('1 ruby-version') }
-    it { expect(stdout).to include('1 ruby-gemset') }
-    it { expect(stdout).to include('1 md') }
-    it { expect(stdout).to include('1 lock') }
-    it { expect(stdout).to include('1 gitignore') }
-    it { expect(stdout).to include('1 gemspec') }
-    it { expect(stdout).to include('1 byebug_history') }
+    it { expect(stdout.size).to eq(1) }
+    it { expect(stdout).to include('1 rb') }
     it { expect(stdout).not_to include('1 git') }
   end
 end

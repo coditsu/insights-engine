@@ -10,7 +10,7 @@ module InsightsEngine
 
         # @return [Array<String>] array with unparsed stringified number of tracked files
         def process
-          InsightsEngine::Git.ls_files(params.build_path)
+          SupportEngine::Git.tracked_files_count(params.build_path)
         end
       end
     end

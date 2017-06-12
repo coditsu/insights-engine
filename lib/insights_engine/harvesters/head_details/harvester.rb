@@ -11,7 +11,7 @@ module InsightsEngine
         # @return [Hash] hash with raw result data
         def process
           repo = Rugged::Repository.new(params.build_path)
-          lines_stats = Git.shortstat(params.build_path, 1)
+          lines_stats = SupportEngine::Git::Log.shortstat(params.build_path, 1)
 
           raw(
             target: repo.head.target,

@@ -8,6 +8,8 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
   simplecov
   timecop
   byebug
+  support_engine
+  support_engine/git/repo_builder
 ].each do |lib|
   require lib
 end
@@ -30,6 +32,18 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+
+  config.before(:suite) do
+    # In order to check that mirroring works, we need to bootstrap a dummy repository
+    # with some commits in master and non-master branch to ensure that mirroring works
+    SupportEngine::Git::RepoBuilder.bootstrap
+  end
+
+  config.after(:suite) do
+    # Cleanup of dummy repo and test tmp sources path so we don't leave behind
+    # garbage cloned test repositories
+    SupportEngine::Git::RepoBuilder.destroy
   end
 end
 

@@ -10,7 +10,11 @@ module InsightsEngine
 
         # @return [Hash] hash with raw result data
         def process
-          run "cloc --yaml --quiet --progress-rate=0 #{params.build_path}"
+          options = []
+          options << '--yaml --quiet --progress-rate=0'
+          options << params.build_path
+
+          yarn_run('cloc', options.join(' '))
         end
       end
     end

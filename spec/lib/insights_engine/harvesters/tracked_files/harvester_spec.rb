@@ -5,19 +5,16 @@ RSpec.describe InsightsEngine::Harvesters::TrackedFiles::Harvester do
 
   subject(:harvester) { described_class.new }
 
+  let(:path) { SupportEngine::Git::RepoBuilder::Master.location }
   let(:scope) { InsightsEngine::Harvesters::TrackedFiles }
-  let(:params) do
-    InsightsEngine::Engine::Params.new(
-      build_path: InsightsEngine.gem_root
-    )
-  end
+  let(:params) { InsightsEngine::Engine::Params.new(build_path: path) }
 
   before { harvester.instance_variable_set(:'@params', params) }
 
   describe '#process' do
     let(:output) { harvester.send(:process) }
 
-    it { expect(output).to be_an_instance_of(Array) }
-    it { expect(output.count).to eq(1) }
+    it { expect(output).to be_an_instance_of(Integer) }
+    it { expect(output).to eq(1) }
   end
 end

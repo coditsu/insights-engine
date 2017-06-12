@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 %w[
-  open3
   ostruct
   yaml
   date
@@ -19,6 +18,7 @@
   active_support/core_ext/hash/indifferent_access
   active_support/descendants_tracker
   active_support/inflector
+  support_engine
 ].each { |lib| require lib }
 
 # Coditsu analytics Engine is responsible for gathering insight about the code
