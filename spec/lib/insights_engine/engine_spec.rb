@@ -7,7 +7,7 @@ RSpec.describe InsightsEngine::Engine do
     let(:value) { rand }
 
     %i[
-      harvester parser schema settings
+      harvester parser schema
     ].each do |class_attribute|
       after { engine_class.public_send(:"#{class_attribute}=", nil) }
 
@@ -28,7 +28,6 @@ RSpec.describe InsightsEngine::Engine do
     let(:harvester) { instance_double(InsightsEngine::Engine::Harvester) }
     let(:schema) { instance_double(InsightsEngine::Schemas::Base) }
     let(:buffer) { {} }
-    let(:settings_file) { Tempfile.new }
 
     describe '#call' do
       before do
@@ -51,11 +50,6 @@ RSpec.describe InsightsEngine::Engine do
           expect(parser).to receive(:call) { params }
 
           expect(described_class.schema).to receive(:call) { true }
-
-          expect(params).to receive(:settings_file)
-            .and_return(settings_file)
-
-          expect(settings_file).to receive(:unlink)
         end
 
         it 'expect to run without problems' do
@@ -68,30 +62,6 @@ RSpec.describe InsightsEngine::Engine do
           expect do
             engine.call({})
           end.to raise_error InsightsEngine::Errors::InvalidAttributes
-        end
-      end
-
-      context 'when something went wrong' do
-        let(:engine_class) do
-          Class.new(described_class) do
-            def process
-              raise StandardError
-            end
-
-            self
-          end
-        end
-
-        before do
-          expect(InsightsEngine::Engine::Params)
-            .to receive(:new)
-            .and_return(params)
-        end
-
-        it 'expect to unlink settings' do
-          expect(params).to receive(:settings_file).and_return(settings_file)
-          expect(settings_file).to receive(:unlink)
-          expect { engine.call(valid_params) }.to raise_error(StandardError)
         end
       end
     end

@@ -6,8 +6,7 @@ RSpec.describe InsightsEngine::Schemas::Predicates do
 
   let(:input) do
     {
-      build_path: build_path,
-      settings_content: rand.to_s
+      build_path: build_path
     }
   end
 

@@ -7,11 +7,6 @@ module InsightsEngine
   #   - parser - class responsible for parsing results into a format easier to
   #     work with (for example from string into YARD)
   #   - populators - array that should consist populators classes
-  #   - settings - class that represents settings that should be applied into
-  #     each validation settings are not used directly inside the gem, they are
-  #     used to describe default settings for the UI so optionally used can
-  #     change them. Settings with which a given validation is performed lie
-  #     under params.settings_content key
   #
   # @note Each engine needs to implement all the attributes
   #   (even if they just inherit)
@@ -24,7 +19,6 @@ module InsightsEngine
   # @example Example engine
   #   class Engine < InsightsEngine::Engine
   #     self.parser = ExampleEngine::Parser
-  #     self.settings = ExampleEngine::Settings
   #     self.validator = ExampleEngine::Validator
   #     self.populators = [
   #       ExampleEngine::Populators::Metadata,
@@ -40,11 +34,9 @@ module InsightsEngine
     class_attribute :parser
     # Schema that should be used to validate output of a given harvester
     class_attribute :schema
-    # Validator class must inherit from InsightsEngine::Engine::Settings
-    class_attribute :settings
 
     # Input parameters that are provided from the outside of the engine and are
-    # shared for all the engines. They include build_path and settings_content
+    # shared for all the engines. They include build_path and additional details
     # and need to be valid with InsightsEngine::Schemas::Params validation
     # schema
     attr_reader :params
@@ -66,10 +58,6 @@ module InsightsEngine
       buffer = process
       validate!(buffer)
       buffer
-    ensure
-      # This is a cleanup to remove validation configuration in case
-      # something (anything) went wrong during the validation process
-      @params.settings_file.unlink if @params
     end
 
     private
