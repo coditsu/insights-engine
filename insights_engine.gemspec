@@ -5,6 +5,15 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'insights_engine/version'
 
+Gem.post_install do
+  # This would be executed multiple times if not this check
+  unless @installed
+    success = system "cd #{File.expand_path('../', __FILE__)} && yarn"
+    raise Gem::DependencyError unless success
+    @installed = true
+  end
+end
+
 Gem::Specification.new do |spec|
   spec.name         = 'insights_engine'
   spec.version      = ::InsightsEngine::VERSION
