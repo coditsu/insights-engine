@@ -23,8 +23,8 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Harvester do
     end
 
     before do
-      expect(SupportEngine::Shell::Utf8).to receive(:call)
-        .with(command, raise_on_invalid_exit: false)
+      expect(SupportEngine::Shell::Utf8).to receive(:call_in_path)
+        .with(InsightsEngine.gem_root, command, raise_on_invalid_exit: false)
         .and_return(stdout: '', stderr: '', exit_code: 0)
     end
 

@@ -48,7 +48,8 @@ module InsightsEngine
       # @param options [String] options for command
       # @return [Hash] SupportEngine::Shell execution hash
       def yarn_run(command, options)
-        SupportEngine::Shell::Yarn.call(
+        SupportEngine::Shell::Yarn.call_in_path(
+          InsightsEngine.gem_root,
           command,
           options,
           raise_on_invalid_exit: false

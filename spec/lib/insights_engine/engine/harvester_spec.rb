@@ -48,6 +48,22 @@ RSpec.describe InsightsEngine::Engine::Harvester do
     end
   end
 
+  describe '#yarn_run' do
+    let(:command) { rand.to_s }
+    let(:options) { rand.to_s }
+
+    before do
+      harvester.instance_variable_set(:'@params', params)
+      expect(SupportEngine::Shell::Yarn)
+        .to receive(:call_in_path)
+        .with(InsightsEngine.gem_root, command, options, raise_on_invalid_exit: false)
+    end
+
+    it 'expect tu run yarn commands in a sources path context' do
+      harvester.send(:yarn_run, command, options)
+    end
+  end
+
   describe '#raw' do
     subject(:result) { harvester.send(:raw, stdout, stderr, exit_code) }
 
