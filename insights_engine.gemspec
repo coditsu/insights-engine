@@ -6,11 +6,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'insights_engine/version'
 
 Gem.post_install do
+  name = :insights_engine
+  @post_install_hooks ||= {}
   # This would be executed multiple times if not this check
-  unless @installed
+  unless @post_install_hooks[name]
     success = system "cd #{File.expand_path('../', __FILE__)} && yarn"
-    raise Gem::DependencyError unless success
-    @installed = true
+    raise Gem::DependencyError, name unless success
+    @post_install_hooks[name] = true
   end
 end
 
