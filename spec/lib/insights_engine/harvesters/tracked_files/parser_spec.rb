@@ -8,7 +8,8 @@ RSpec.describe InsightsEngine::Harvesters::TrackedFiles::Parser do
   let(:stdout) do
     InsightsEngine::Harvesters::TrackedFiles::Harvester.new.call(
       InsightsEngine::Engine::Params.new(
-        build_path: InsightsEngine.gem_root
+        build_path: InsightsEngine.gem_root,
+        snapshotted_at: Date.today
       )
     )
   end

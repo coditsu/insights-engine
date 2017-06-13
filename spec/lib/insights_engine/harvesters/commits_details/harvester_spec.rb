@@ -8,7 +8,8 @@ RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Harvester do
   let(:scope) { InsightsEngine::Harvesters::CommitsDetails }
   let(:params) do
     InsightsEngine::Engine::Params.new(
-      build_path: InsightsEngine.gem_root
+      build_path: InsightsEngine.gem_root,
+      snapshotted_at: Date.today
     )
   end
 

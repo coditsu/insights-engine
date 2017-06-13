@@ -8,7 +8,8 @@ RSpec.describe InsightsEngine::Engine::Harvester do
   let(:params) { object_double(params_base, build_path: build_path) }
   let(:params_base) do
     InsightsEngine::Engine::Params.new(
-      build_path: build_path
+      build_path: build_path,
+      snapshotted_at: Date.today
     )
   end
 

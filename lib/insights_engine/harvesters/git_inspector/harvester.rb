@@ -10,7 +10,7 @@ module InsightsEngine
         # Analyzing whole history takes a lot of time and cpu power and
         # returned data is accurate in terms of overall details but it does not
         # reflect short period changes (especially for new authors), so we
-        # always dig 1 month back from a current commit on which we are checkout
+        # always dig 1 month back from the snapshot date
         THRESHOLD = 1.month
 
         private
@@ -30,8 +30,6 @@ module InsightsEngine
         #   params details
         # @return [String] git inspector shell params
         def options(params)
-          head_committed_at = SupportEngine::Git::Log.head_committed_at(params.build_path)
-
           options = []
           options << '--format=json'
           options << "-w -f '**'"
@@ -39,7 +37,7 @@ module InsightsEngine
           # @see https://github.com/ejwa/gitinspector/wiki/Documentation
           options << '--hard'
           options << '-l -r'
-          options << "--since=\"#{head_committed_at - THRESHOLD}\""
+          options << "--since=\"#{params.snapshotted_at - THRESHOLD}\""
           options.join(' ')
         end
       end

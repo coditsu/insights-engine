@@ -2,7 +2,7 @@
 
 RSpec.describe InsightsEngine::Harvesters::Cloc::Engine do
   let(:scope) { InsightsEngine::Harvesters::Cloc }
-  let(:params) { { build_path: InsightsEngine.gem_root } }
+  let(:params) { { build_path: InsightsEngine.gem_root, snapshotted_at: Date.today } }
   let(:input) do
     described_class.parser.new.call(
       described_class.harvester.new.call(
@@ -17,9 +17,7 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Engine do
 
   describe 'integration' do
     subject(:result) do
-      described_class.new.call(
-        build_path: InsightsEngine.gem_root
-      )
+      described_class.new.call(params)
     end
 
     it 'expect not to throw any errors' do

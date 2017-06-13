@@ -2,7 +2,7 @@
 
 RSpec.describe InsightsEngine::Harvesters::HeadDetails::Engine do
   let(:scope) { InsightsEngine::Harvesters::HeadDetails }
-  let(:params) { { build_path: InsightsEngine.gem_root } }
+  let(:params) { { build_path: InsightsEngine.gem_root, snapshotted_at: Date.today } }
   let(:input) do
     described_class.parser.new.call(
       described_class.harvester.new.call(

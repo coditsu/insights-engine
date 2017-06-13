@@ -2,8 +2,9 @@
 
 require './lib/insights_engine.rb'
 
-build_path = '/home/mencio/Software/Coditsu/Kabe'
+build_path = '/home/mencio/Software/Coditsu/Apps/Kabe'
 
-p InsightsEngine::Harvesters::Linguist::Engine.new.call(
-  build_path: build_path
+p InsightsEngine::Harvesters::GitInspector::Engine.new.call(
+  build_path: build_path,
+  snapshotted_at: Date.today
 )

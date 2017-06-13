@@ -2,7 +2,10 @@
 
 RSpec.describe InsightsEngine::Engine::Params do
   let(:args) do
-    { build_path: InsightsEngine.gem_root }
+    {
+      build_path: InsightsEngine.gem_root,
+      snapshotted_at: Date.today
+    }
   end
 
   describe '#initialize' do

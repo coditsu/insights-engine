@@ -8,7 +8,10 @@ RSpec.describe InsightsEngine::Harvesters::FilesExtensions::Parser do
   let(:path) { SupportEngine::Git::RepoBuilder::Master.location }
   let(:stdout) do
     InsightsEngine::Harvesters::FilesExtensions::Harvester.new.call(
-      InsightsEngine::Engine::Params.new(build_path: path)
+      InsightsEngine::Engine::Params.new(
+        build_path: path,
+        snapshotted_at: Date.today
+      )
     )
   end
 

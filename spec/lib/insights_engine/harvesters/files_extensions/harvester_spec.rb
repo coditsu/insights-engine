@@ -7,7 +7,12 @@ RSpec.describe InsightsEngine::Harvesters::FilesExtensions::Harvester do
 
   let(:scope) { InsightsEngine::Harvesters::FilesExtensions }
   let(:path) { SupportEngine::Git::RepoBuilder::Master.location }
-  let(:params) { InsightsEngine::Engine::Params.new(build_path: path) }
+  let(:params) do
+    InsightsEngine::Engine::Params.new(
+      build_path: path,
+      snapshotted_at: Date.today
+    )
+  end
 
   before { harvester.instance_variable_set(:'@params', params) }
 

@@ -2,7 +2,12 @@
 
 RSpec.describe InsightsEngine::Harvesters::GitEffort::Engine do
   let(:scope) { InsightsEngine::Harvesters::GitEffort }
-  let(:params) { { build_path: InsightsEngine.gem_root } }
+  let(:params) do
+    {
+      build_path: InsightsEngine.gem_root,
+      snapshotted_at: Date.today
+    }
+  end
   let(:input) do
     described_class.parser.new.call(
       stdout: [

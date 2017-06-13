@@ -4,7 +4,10 @@ RSpec.describe InsightsEngine::Schemas::Params do
   subject(:schema_result) { described_class.call(input) }
 
   let(:valid_input) do
-    { build_path: InsightsEngine.gem_root }
+    {
+      build_path: InsightsEngine.gem_root,
+      snapshotted_at: Date.today
+    }
   end
 
   let(:input) { valid_input }

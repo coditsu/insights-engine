@@ -6,7 +6,8 @@ RSpec.describe InsightsEngine::Schemas::Predicates do
 
   let(:input) do
     {
-      build_path: build_path
+      build_path: build_path,
+      snapshotted_at: Date.today
     }
   end
 

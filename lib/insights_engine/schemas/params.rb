@@ -7,7 +7,13 @@ module InsightsEngine
     Params = Dry::Validation.Schema(Base) do
       configure { predicates(Schemas::Predicates) }
 
+      # Location of sources for which we want to build statistics
       required(:build_path).filled(:str?, :absolute_path?)
+      # Date for which we want to get current state of code
+      # @note This might differ from the current commit date, because we might build statistics
+      # on a different date that commit was made (for example when we have a repo that is not
+      # frequently updated)
+      required(:snapshotted_at).filled(:date?)
     end
   end
 end
