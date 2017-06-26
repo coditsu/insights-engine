@@ -1,6 +1,6 @@
 GIT
   remote: git@bitbucket.org:coditsu/support-engine.git
-  revision: ca9dffc4734573126e645f224cdd7b4803ab6aa4
+  revision: f36b0134287e228ca7b9e4f6783eaf6469df762e
   branch: master
   specs:
     support_engine (0.1.0)
@@ -96,7 +96,7 @@ GEM
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.1)
     thread_safe (0.3.6)
-    timecop (0.8.1)
+    timecop (0.9.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
 
