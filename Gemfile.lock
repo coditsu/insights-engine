@@ -1,6 +1,6 @@
 GIT
   remote: git@bitbucket.org:coditsu/support-engine.git
-  revision: f36b0134287e228ca7b9e4f6783eaf6469df762e
+  revision: 520e0e1188ea09c7efd681d9beb97bb61381ffa5
   branch: master
   specs:
     support_engine (0.1.0)
@@ -67,7 +67,7 @@ GEM
       escape_utils (~> 1.1.0)
       mime-types (>= 1.19)
       rugged (>= 0.25.1)
-    i18n (0.8.4)
+    i18n (0.8.6)
     inflecto (0.0.2)
     json (2.1.0)
     mime-types (3.1)
@@ -89,14 +89,14 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
-    rugged (0.25.1.1)
+    rugged (0.26.0)
     simplecov (0.14.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.1)
     thread_safe (0.3.6)
-    timecop (0.9.0)
+    timecop (0.9.1)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
 
