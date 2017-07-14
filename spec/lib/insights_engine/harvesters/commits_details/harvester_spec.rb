@@ -28,7 +28,9 @@ RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Harvester do
     end
     it { expect(output[:stdout]).to have_key(:shortstat) }
     it { expect(output[:stdout][:shortstat]).not_to be_empty }
+    it { expect(output[:stdout][:branches]).not_to be_empty }
     it { expect(output[:stdout][:shortstat]).to be_an_instance_of(Array) }
+    it { expect(output[:stdout][:branches]).to be_an_instance_of(Array) }
     it { expect(output).to have_key(:stderr) }
     it { expect(output[:stderr]).to be_empty }
     it { expect(output).to have_key(:exit_code) }

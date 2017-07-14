@@ -12,6 +12,7 @@ module InsightsEngine
         # Schema for final results format validation
         self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
           required(:commit_hash).filled(:str?)
+          required(:branch).filled(:str?)
           required(:message) { filled? > str? }
           required(:author).filled(InsightsEngine::Schemas::Author)
           required(:committer).filled(InsightsEngine::Schemas::Author)

@@ -12,9 +12,11 @@ module InsightsEngine
 
         # @return [Hash] hash with head commit details
         def process
-          target = raw.dig(:stdout, :target)
-          lines_stats = raw.dig(:stdout, :lines_stats).last
-          prepare(target, lines_stats)
+          prepare(
+            raw.dig(:stdout, :target),
+            raw.dig(:stdout, :lines_stats).last,
+            raw.dig(:stdout, :branch)
+          )
         end
       end
     end

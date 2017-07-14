@@ -18,15 +18,17 @@ module InsightsEngine
         # Prepares commit details based on commit data
         # @param commit [Rugged::Commit] rugged commit object
         # @param lines_stats [String] statistics about given lines
+        # @param branch [String] name of branch of a given commit
         # @return [Hash] hash with commit details
         # @example
         #   prepare(commit, lines_stats).keys #=> [:commit_hash, :message, ...]
-        def prepare(commit, lines_stats)
+        def prepare(commit, lines_stats, branch)
           hash = {}
           hash.merge!(prepare_commit_details(commit))
           hash.merge!(prepare_commit_author(commit))
           hash.merge!(prepare_commit_committer(commit))
           hash.merge!(prepare_lines_stats(lines_stats))
+          hash.merge!(branch: branch)
         end
 
         # Extracts commit details that are stored in rugged object

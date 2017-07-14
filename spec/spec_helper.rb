@@ -24,6 +24,7 @@ SimpleCov.start do
 end
 
 Timecop.safe_mode = true
+Time.zone = 'UTC'
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 

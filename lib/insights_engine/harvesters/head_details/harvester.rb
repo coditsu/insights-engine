@@ -12,10 +12,12 @@ module InsightsEngine
         def process
           repo = Rugged::Repository.new(params.build_path)
           lines_stats = SupportEngine::Git::Log.shortstat(params.build_path, limit: 1)
+          branch = SupportEngine::Git::Commits.all(params.build_path, limit: 1).first[:branch]
 
           raw(
             target: repo.head.target,
-            lines_stats: lines_stats
+            lines_stats: lines_stats,
+            branch: branch
           )
         end
       end

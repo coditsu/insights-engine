@@ -16,6 +16,7 @@ module InsightsEngine
           # it to be filled
           required(:message) { filled? > str? }
           required(:commit_hash).filled(:str?)
+          required(:branch).filled(:str?)
           required(:author).filled(InsightsEngine::Schemas::Author)
           required(:committer).filled(InsightsEngine::Schemas::Author)
           required(:authored_at).filled(:date_time?)
