@@ -45,8 +45,8 @@ module InsightsEngine
           walker.push(repo.last_commit)
 
           walker.each do |commit|
-            commits << commit
             break if commits.count >= amount
+            commits << commit
           end
 
           commits
