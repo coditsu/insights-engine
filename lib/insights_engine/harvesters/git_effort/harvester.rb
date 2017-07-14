@@ -19,8 +19,8 @@ module InsightsEngine
           raw(
             SupportEngine::Git::Extras.effort(
               params.build_path,
-              head_committed_at - THRESHOLD,
-              ABOVE
+              since: head_committed_at - THRESHOLD,
+              above: ABOVE
             )
           )
         end

@@ -14,6 +14,7 @@ module InsightsEngine
           walker = Rugged::Walker.new(repo)
           walker.push(repo.last_commit)
           commits = walker.to_a
+
           shortstat = SupportEngine::Git::Log.shortstat(params.build_path)
 
           raw(commits: commits, shortstat: shortstat)
