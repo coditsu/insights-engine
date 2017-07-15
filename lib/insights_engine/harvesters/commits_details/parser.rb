@@ -47,7 +47,7 @@ module InsightsEngine
 
         # Converts an array with commits into a hash where the key is the commit and
         # the value is its branch, so we can easier pick branch info when we know the commit
-        # @param [Array<commits_branches>] commits with their branches
+        # @param commits_branches [Array<commits_branches>] commits with their branches
         # @return [Hash] hash with map of commits and branches
         def branches_hash(commits_branches)
           map = commits_branches.map do |commit|
