@@ -10,9 +10,9 @@ module InsightsEngine
 
         # @return [Hash] hash with raw result data
         def process
-          # We take shortstats for 1 day earlier just not to care about timezones
+          # We take shortstats for 2 days earlier just not to care about timezones
           # etc. Way more convenient
-          since = params.snapshotted_at - 1.day
+          since = params.snapshotted_at - 2.days
 
           shortstat_data = shortstat(since)
 
