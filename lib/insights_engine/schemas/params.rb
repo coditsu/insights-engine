@@ -14,6 +14,9 @@ module InsightsEngine
       # on a different date that commit was made (for example when we have a repo that is not
       # frequently updated)
       required(:snapshotted_at).filled(:date?)
+      # Date from which we want to fetch git data. It is optional as it will fallback to
+      # snapshotted_at - 2.days but sometimes we want to get an explicit range
+      optional(:since).filled(:date?)
     end
   end
 end

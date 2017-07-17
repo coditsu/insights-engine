@@ -10,18 +10,13 @@ module InsightsEngine
 
         # @return [Hash] hash with raw result data
         def process
-          # We take shortstats for 2 days earlier than the most recent commit just to be
-          # sure that we don't omit any commits
-          repo = Rugged::Repository.new(params.build_path)
-          # We need to find last day with a commit and use this + offset to fetch
-          # data. We can't use snapshotted_at, because there might not be any commits and
-          # data for a given timeframe
-          since = repo.last_commit.time - 2.days
+          since = params.since || (params.snapshotted_at - 1.day)
+
           shortstat_data = shortstat(since)
 
           raw(
             # We divide by 2, because we get 2 lines of shortstats for each commit
-            commits: commits(repo, shortstat_data.count / 2),
+            commits: commits(shortstat_data.count / 2),
             shortstat: shortstat_data,
             branches: branches(since)
           )
@@ -36,14 +31,14 @@ module InsightsEngine
           )
         end
 
-        # @param repo [Rugged::Repository] handler to rugged repo object
         # @param amount [Integer] how many commits (desc order) we want
         # @note This needs to match the number from other commands so we have
         #   exactly the same amount of details on all the commits that we fetch
         # @return [Array<Rugged::Commit>] rugged commits details
-        def commits(repo, amount)
+        def commits(amount)
           commits = []
 
+          repo = Rugged::Repository.new(params.build_path)
           walker = Rugged::Walker.new(repo)
           walker.push(repo.last_commit)
 
