@@ -21,6 +21,7 @@ module InsightsEngine
           required(:files_changed).filled(:int?, gteq?: 0)
           required(:insertions).filled(:int?, gteq?: 0)
           required(:deletions).filled(:int?, gteq?: 0)
+          required(:external_pull_request).filled(:bool?)
         end
       end
     end

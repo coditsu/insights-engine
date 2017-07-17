@@ -22,7 +22,7 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Parser do
 
     it { expect(output).not_to be_empty }
     it { expect(output).to be_an_instance_of(Hash) }
-    it { expect(output.keys.count).to eq(10) }
+    it { expect(output.keys.count).to eq(11) }
 
     [
       :commit_hash,
@@ -34,7 +34,8 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Parser do
       { committer: %i[name email] },
       :files_changed,
       :insertions,
-      :deletions
+      :deletions,
+      :external_pull_request
     ].each do |k|
       if k.instance_of?(Hash)
         k.each do |kk, v|
