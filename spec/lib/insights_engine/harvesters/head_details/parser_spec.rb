@@ -35,7 +35,7 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Parser do
       { committer: %i[name email] },
       :files_changed,
       :insertions,
-      :deletions,
+      :deletions
     ].each do |k|
       if k.instance_of?(Hash)
         k.each do |kk, v|
