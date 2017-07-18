@@ -23,6 +23,7 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Parser do
     it { expect(output).not_to be_empty }
     it { expect(output).to be_an_instance_of(Hash) }
     it { expect(output.keys.count).to eq(10) }
+    it { expect(output[:branch]).to eq 'master' }
 
     [
       :commit_hash,

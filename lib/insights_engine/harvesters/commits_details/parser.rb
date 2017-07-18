@@ -16,14 +16,13 @@ module InsightsEngine
         def process
           commits = raw.dig(:stdout, :commits)
           shortstat = raw.dig(:stdout, :shortstat)
-          branches_stats = branches_hash(raw.dig(:stdout, :branches))
 
           results = []
 
           commits.each do |commit|
             lines_stats = seek(shortstat, commit.oid)
             # This can be nil on the last log_details line (that is empty)
-            results << prepare(commit, lines_stats, branches_stats[commit.oid]) if lines_stats
+            results << prepare(commit, lines_stats) if lines_stats
           end
 
           results
@@ -43,23 +42,6 @@ module InsightsEngine
           end
 
           raise Errors::UnmatchedCommit, commit
-        end
-
-        # Converts an array with commits into a hash where the key is the commit and
-        # the value is its branch, so we can easier pick branch info when we know the commit
-        # @param commits_branches [Array<commits_branches>] commits with their branches
-        # @return [Hash] hash with map of commits and branches
-        def branches_hash(commits_branches)
-          map = commits_branches.map do |commit|
-            [
-              commit[:commit_hash],
-              {
-                branch: commit[:branch]
-              }
-            ]
-          end
-
-          Hash[map]
         end
       end
     end

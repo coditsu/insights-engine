@@ -17,8 +17,7 @@ module InsightsEngine
           raw(
             # We divide by 2, because we get 2 lines of shortstats for each commit
             commits: commits(shortstat_data.count / 2),
-            shortstat: shortstat_data,
-            branches: branches(since)
+            shortstat: shortstat_data
           )
         end
 
@@ -48,15 +47,6 @@ module InsightsEngine
           end
 
           commits
-        end
-
-        # @param [Date] since when we want to get shortstat
-        # @return [Array<Hash>] array with hashes that contain commit details including branch
-        def branches(since)
-          SupportEngine::Git::Commits.all(
-            params.build_path,
-            since: since
-          )
         end
       end
     end

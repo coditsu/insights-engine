@@ -15,7 +15,6 @@ module InsightsEngine
           # git commit  -a --allow-empty-message -m '' that's why we don't require
           # it to be filled
           required(:message)
-          required(:branch)
           required(:commit_hash).filled(:str?)
           required(:author).filled(InsightsEngine::Schemas::Author)
           required(:committer).filled(InsightsEngine::Schemas::Author)

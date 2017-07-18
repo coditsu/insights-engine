@@ -14,9 +14,8 @@ module InsightsEngine
         def process
           prepare(
             raw.dig(:stdout, :target),
-            raw.dig(:stdout, :lines_stats).last,
-            raw.dig(:stdout, :branch)
-          )
+            raw.dig(:stdout, :lines_stats).last
+          ).merge!(branch: raw.dig(:stdout, :branch))
         end
       end
     end
