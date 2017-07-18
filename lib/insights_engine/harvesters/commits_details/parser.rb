@@ -54,8 +54,7 @@ module InsightsEngine
             [
               commit[:commit_hash],
               {
-                branch: commit[:branch],
-                external_pull_request: commit[:external_pull_request]
+                branch: commit[:branch]
               }
             ]
           end

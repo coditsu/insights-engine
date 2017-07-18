@@ -78,13 +78,12 @@ module InsightsEngine
           }
         end
 
-        # Extracts branch and external_pull_request flag from branch_stats
+        # Extracts branch from branch_stats
         # @param branch_stats [Hash] has with details about branch
         # @return [Hash] commit branch details
         def prepare_branch_stats(branch_stats)
           {
-            branch: branch_stats[:branch],
-            external_pull_request: branch_stats[:external_pull_request]
+            branch: branch_stats[:branch]
           }
         end
 
