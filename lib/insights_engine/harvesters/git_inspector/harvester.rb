@@ -33,11 +33,9 @@ module InsightsEngine
           options = []
           options << '--format=json'
           options << "-w -f '**'"
-          # Note that hard takes a looot of cpu power to calculate
-          # @see https://github.com/ejwa/gitinspector/wiki/Documentation
-          options << '--hard'
           options << '-l -r'
           options << "--since=\"#{params.snapshotted_at - THRESHOLD}\""
+          options << "--until=\"#{params.snapshotted_at + 1.day}\""
           options.join(' ')
         end
       end
