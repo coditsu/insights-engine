@@ -99,6 +99,9 @@ module InsightsEngine
               # which should not happen for metrics - that's why we set it to
               # 0 if it goes below
               author[metric.to_sym] = 0 if author[metric.to_sym].negative?
+              # The same goes for stability that can't go beyond 100% but sometimes
+              # it does. Then we just go with 100%
+              author[metric.to_sym] = 100 if metric == 'stability' && author[metric.to_sym] > 100
             end
           end
         end
