@@ -1,6 +1,6 @@
 GIT
   remote: git@bitbucket.org:coditsu/support-engine.git
-  revision: b29a9282a585b2f04bef11994fa10ab887419a49
+  revision: 69168f7ad757f854a71873669ec6431359d27988
   branch: master
   specs:
     support_engine (0.1.1)
@@ -62,7 +62,7 @@ GEM
       dry-types (~> 0.11.0)
     escape_utils (1.1.1)
     git (1.3.0)
-    github-linguist (5.0.11)
+    github-linguist (5.1.0)
       charlock_holmes (~> 0.7.3)
       escape_utils (~> 1.1.0)
       mime-types (>= 1.19)
@@ -73,7 +73,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    minitest (5.10.2)
+    minitest (5.10.3)
     multi_json (1.12.1)
     require_all (1.4.0)
     rspec (3.6.0)
@@ -113,4 +113,4 @@ DEPENDENCIES
   timecop
 
 BUNDLED WITH
-   1.15.2
+   1.15.3
