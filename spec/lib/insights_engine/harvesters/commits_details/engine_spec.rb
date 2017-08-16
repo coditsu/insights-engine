@@ -2,7 +2,13 @@
 
 RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Engine do
   let(:scope) { InsightsEngine::Harvesters::CommitsDetails }
-  let(:params) { { build_path: InsightsEngine.gem_root, snapshotted_at: Date.today } }
+  let(:params) do
+    {
+      build_path: InsightsEngine.gem_root,
+      snapshotted_at: Date.today,
+      since: 1.year.ago.to_date
+    }
+  end
   let(:input) do
     described_class.parser.new.call(
       described_class.harvester.new.call(

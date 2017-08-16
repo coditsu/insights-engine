@@ -8,7 +8,8 @@ RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Parser do
   let(:params) do
     InsightsEngine::Engine::Params.new(
       build_path: InsightsEngine.gem_root,
-      snapshotted_at: Date.today
+      snapshotted_at: Date.today,
+      since: 1.year.ago.to_date
     )
   end
   let(:stdout) do
