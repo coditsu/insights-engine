@@ -1,6 +1,6 @@
 GIT
   remote: git@bitbucket.org:coditsu/support-engine.git
-  revision: c6b8b226c0e3bc4929f3b7c749b3c483485d4f1f
+  revision: e3bdc9ed5a7537c70c53eab53fc96dbd2dc9fb4d
   branch: master
   specs:
     support_engine (0.1.1)
@@ -74,7 +74,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     minitest (5.10.3)
-    multi_json (1.12.1)
+    multi_json (1.12.2)
     require_all (1.4.0)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
