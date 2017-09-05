@@ -42,6 +42,8 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Engine do
 
     context 'invalid' do
       it_behaves_like :schemas_spec, :commit_hash, :required, :filled, :str?
+      it_behaves_like :schemas_spec, :diff_hash, :required, :filled, :str?
+      it_behaves_like :schemas_spec, :branch, :required, :filled, :str?
       it_behaves_like :schemas_spec_nested, author: {
         name: %i[optional maybe str?],
         email: %i[required filled str?]
