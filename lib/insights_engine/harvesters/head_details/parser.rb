@@ -15,7 +15,10 @@ module InsightsEngine
           prepare(
             raw.dig(:stdout, :target),
             raw.dig(:stdout, :lines_stats).last
-          ).merge!(branch: raw.dig(:stdout, :branch))
+          ).merge!(
+            branch: raw.dig(:stdout, :branch),
+            diff_hash: raw.dig(:stdout, :diff_hash)
+          )
         end
       end
     end
