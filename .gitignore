@@ -20,3 +20,4 @@
 /coverage
 /.yard
 node_modules
+/run.rb
