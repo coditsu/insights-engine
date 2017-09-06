@@ -52,7 +52,7 @@ RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Parser do
     end
 
     context 'unmatched commit' do
-      let(:commit) { stdout[:stdout][:shortstat].pop(2).first.split.first }
+      let(:commit) { stdout[:stdout][:shortstat].pop(4).first.split.first }
 
       it do
         expect do
