@@ -25,8 +25,8 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Harvester do
     end
 
     it 'expect to run cloc with proper arguments' do
-      expect(SupportEngine::Shell::Utf8).to receive(:call_in_path).with(call_args)
-        .and_return(stdout: '', stderr: '', exit_code: 0)
+      expect(SupportEngine::Shell::Utf8)
+        .to receive(:call_in_path).with(call_args).and_return(stdout: '', stderr: '', exit_code: 0)
       harvester.send(:process)
     end
   end
