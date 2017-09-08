@@ -4,7 +4,7 @@ module InsightsEngine
   # Namespace for validators
   module Harvesters
     module HeadDetails
-      # Harvester used to get commit details of a head (current) commit
+      # Harvester used to get commit details of a checkouted commit
       class Harvester < Engine::Harvester
         private
 

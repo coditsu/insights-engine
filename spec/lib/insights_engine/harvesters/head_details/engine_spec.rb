@@ -11,6 +11,12 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Engine do
     )
   end
 
+  before do
+    # We have to stub this one, because it detach into a given commit and we check against
+    # ourselfs (current repo)
+    allow(SupportEngine::Git::Commits).to receive(:originated_from).and_return(rand.to_s)
+  end
+
   specify { expect(described_class).to be < InsightsEngine::Engine }
   specify { expect(described_class.harvester).to eq scope::Harvester }
   specify { expect(described_class.parser).to eq scope::Parser }

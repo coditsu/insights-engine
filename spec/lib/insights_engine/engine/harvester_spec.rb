@@ -36,15 +36,12 @@ RSpec.describe InsightsEngine::Engine::Harvester do
 
   describe '#run' do
     let(:command_with_options) { rand.to_s }
+    let(:shell_args) { [command_with_options, raise_on_invalid_exit: false] }
 
-    before do
-      harvester.instance_variable_set(:'@params', params)
-      expect(SupportEngine::Shell)
-        .to receive(:call)
-        .with(command_with_options, raise_on_invalid_exit: false)
-    end
+    before { harvester.instance_variable_set(:'@params', params) }
 
     it 'expect tu run shell commands in a sources path context' do
+      expect(SupportEngine::Shell).to receive(:call).with(*shell_args)
       harvester.send(:run, command_with_options)
     end
   end
@@ -52,15 +49,12 @@ RSpec.describe InsightsEngine::Engine::Harvester do
   describe '#yarn_run' do
     let(:command) { rand.to_s }
     let(:options) { rand.to_s }
+    let(:yarn_args) { [InsightsEngine.gem_root, command, options, raise_on_invalid_exit: false] }
 
-    before do
-      harvester.instance_variable_set(:'@params', params)
-      expect(SupportEngine::Shell::Yarn)
-        .to receive(:call_in_path)
-        .with(InsightsEngine.gem_root, command, options, raise_on_invalid_exit: false)
-    end
+    before { harvester.instance_variable_set(:'@params', params) }
 
     it 'expect tu run yarn commands in a sources path context' do
+      expect(SupportEngine::Shell::Yarn).to receive(:call_in_path).with(*yarn_args)
       harvester.send(:yarn_run, command, options)
     end
   end
