@@ -16,6 +16,7 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Harvester do
   specify { expect(described_class).to be < InsightsEngine::Engine::Harvester }
 
   describe '#process' do
+    let(:call_args) { [InsightsEngine.gem_root, command, raise_on_invalid_exit: false] }
     let(:command) do
       cmd = []
       cmd << 'yarn run --silent cloc -- --yaml --quiet --progress-rate=0'
@@ -23,13 +24,9 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Harvester do
       cmd.join(' ')
     end
 
-    before do
-      expect(SupportEngine::Shell::Utf8).to receive(:call_in_path)
-        .with(InsightsEngine.gem_root, command, raise_on_invalid_exit: false)
-        .and_return(stdout: '', stderr: '', exit_code: 0)
-    end
-
     it 'expect to run cloc with proper arguments' do
+      expect(SupportEngine::Shell::Utf8).to receive(:call_in_path).with(call_args)
+        .and_return(stdout: '', stderr: '', exit_code: 0)
       harvester.send(:process)
     end
   end
