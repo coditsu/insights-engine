@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe InsightsEngine::Harvesters::HeadDetails::Parser do
-  specify { expect(described_class).to be < InsightsEngine::Engine::Parser }
-
   subject(:parser) { described_class.new }
 
   let(:params) do
@@ -15,7 +13,14 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Parser do
     InsightsEngine::Harvesters::HeadDetails::Harvester.new.call(params)
   end
 
-  before { parser.instance_variable_set(:'@raw', stdout) }
+  before do
+    # We have to stub this one, because it detach into a given commit and we check against
+    # ourselfs (current repo)
+    allow(SupportEngine::Git::Commits).to receive(:originated_from).and_return(rand.to_s)
+    parser.instance_variable_set(:'@raw', stdout)
+  end
+
+  specify { expect(described_class).to be < InsightsEngine::Engine::Parser }
 
   describe '#process' do
     let(:output) { parser.send(:process) }

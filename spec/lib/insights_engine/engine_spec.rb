@@ -38,18 +38,12 @@ RSpec.describe InsightsEngine::Engine do
 
       context 'std flow' do
         before do
-          expect(described_class::Params)
-            .to receive(:new)
-            .with(valid_params)
-            .and_return(params)
-
-          expect(described_class.harvester).to receive(:new) { harvester }
-          expect(harvester).to receive(:call).with(params)
-
-          expect(described_class.parser).to receive(:new) { parser }
-          expect(parser).to receive(:call) { params }
-
-          expect(described_class.schema).to receive(:call) { true }
+          allow(described_class::Params).to receive(:new).with(valid_params).and_return(params)
+          allow(described_class.harvester).to receive(:new).and_return(harvester)
+          allow(harvester).to receive(:call).with(params)
+          allow(described_class.parser).to receive(:new).and_return(parser)
+          allow(parser).to receive(:call).and_return(params)
+          allow(described_class.schema).to receive(:call).and_return(true)
         end
 
         it 'expect to run without problems' do

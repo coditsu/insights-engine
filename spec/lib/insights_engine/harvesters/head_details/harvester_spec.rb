@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe InsightsEngine::Harvesters::HeadDetails::Harvester do
-  specify { expect(described_class).to be < InsightsEngine::Engine::Harvester }
-
   subject(:harvester) { described_class.new }
 
   let(:diff_hash) { rand.to_s }
@@ -20,6 +18,8 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Harvester do
     allow(SupportEngine::Git::Commits).to receive(:originated_from).and_return(diff_hash)
     harvester.instance_variable_set(:'@params', params)
   end
+
+  specify { expect(described_class).to be < InsightsEngine::Engine::Harvester }
 
   describe '#process' do
     let(:output) { harvester.send(:process) }

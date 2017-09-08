@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe InsightsEngine::Harvesters::Cloc::Parser do
-  specify { expect(described_class).to be < InsightsEngine::Engine::Parser }
-
   subject(:parser) { described_class.new }
 
   let(:stdout) do
@@ -42,6 +40,8 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Parser do
   end
 
   before { parser.instance_variable_set(:'@raw', raw) }
+
+  specify { expect(described_class).to be < InsightsEngine::Engine::Parser }
 
   describe '#process' do
     context 'when exit code is 0' do

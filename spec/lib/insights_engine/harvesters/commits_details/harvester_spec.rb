@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Harvester do
-  specify { expect(described_class).to be < InsightsEngine::Engine::Harvester }
-
   subject(:harvester) { described_class.new }
 
   let(:scope) { InsightsEngine::Harvesters::CommitsDetails }
@@ -15,6 +13,8 @@ RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Harvester do
   end
 
   before { harvester.instance_variable_set(:'@params', params) }
+
+  specify { expect(described_class).to be < InsightsEngine::Engine::Harvester }
 
   describe '#process' do
     let(:output) { harvester.send(:process) }
