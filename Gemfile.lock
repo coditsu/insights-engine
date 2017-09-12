@@ -1,6 +1,6 @@
 GIT
   remote: git@bitbucket.org:coditsu/support-engine.git
-  revision: d5581a09f569743ab51c12d5159ae2504c929fb3
+  revision: f523ee40101bee3d0977830a15146c8787d492e8
   branch: master
   specs:
     support_engine (0.1.2)
@@ -90,7 +90,7 @@ GEM
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
     rugged (0.26.0)
-    simplecov (0.15.0)
+    simplecov (0.15.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
