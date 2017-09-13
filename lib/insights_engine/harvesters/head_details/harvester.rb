@@ -22,8 +22,9 @@ module InsightsEngine
             repo.head.target.oid
           )
 
-          diff_hash = SupportEngine::Git::Commits.originated_from(
-            params.build_path, branch,
+          diff_hash = SupportEngine::Git::Branch.originated_from(
+            params.build_path,
+            branch,
             params.default_branch
           )
 

@@ -14,9 +14,6 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Harvester do
   end
 
   before do
-    # We have to stub this one, because it detach into a given commit and we check against
-    # ourselfs (current repo)
-    allow(SupportEngine::Git::Commits).to receive(:originated_from).and_return(diff_hash)
     harvester.instance_variable_set(:'@params', params)
   end
 
@@ -35,6 +32,6 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Harvester do
     it { expect(output[:stderr]).to be_empty }
     it { expect(output).to have_key(:exit_code) }
     it { expect(output[:exit_code]).to eq(0) }
-    it { expect(output[:stdout][:diff_hash]).to eq diff_hash }
+    it { expect(output[:stdout][:diff_hash].length).to eq 40 }
   end
 end

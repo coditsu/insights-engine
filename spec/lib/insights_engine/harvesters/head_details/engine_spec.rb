@@ -2,19 +2,19 @@
 
 RSpec.describe InsightsEngine::Harvesters::HeadDetails::Engine do
   let(:scope) { InsightsEngine::Harvesters::HeadDetails }
-  let(:params) { { build_path: InsightsEngine.gem_root, snapshotted_at: Date.today } }
+  let(:params) do
+    {
+      build_path: InsightsEngine.gem_root,
+      snapshotted_at: Date.today,
+      default_branch: 'master'
+    }
+  end
   let(:input) do
     described_class.parser.new.call(
       described_class.harvester.new.call(
         InsightsEngine::Engine::Params.new(params)
       )
     )
-  end
-
-  before do
-    # We have to stub this one, because it detach into a given commit and we check against
-    # ourselfs (current repo)
-    allow(SupportEngine::Git::Commits).to receive(:originated_from).and_return(rand.to_s)
   end
 
   specify { expect(described_class).to be < InsightsEngine::Engine }

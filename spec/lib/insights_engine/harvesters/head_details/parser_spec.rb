@@ -6,7 +6,8 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Parser do
   let(:params) do
     InsightsEngine::Engine::Params.new(
       build_path: InsightsEngine.gem_root,
-      snapshotted_at: Date.today
+      snapshotted_at: Date.today,
+      default_branch: 'master'
     )
   end
   let(:stdout) do
