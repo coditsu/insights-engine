@@ -17,6 +17,9 @@ module InsightsEngine
       # Date from which we want to fetch git data. It is optional as it will fallback to
       # snapshotted_at - 2.days but sometimes we want to get an explicit range
       optional(:since).filled(:date?)
+      # Default branch is required only to fetch head details, otherwise we don't need that
+      # information, so it is optional
+      optional(:default_branch).filled(:str?)
     end
   end
 end

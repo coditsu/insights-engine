@@ -11,9 +11,21 @@ module InsightsEngine
         # @return [Hash] hash with raw result data
         def process
           repo = Rugged::Repository.new(params.build_path)
-          lines_stats = SupportEngine::Git::Log.shortstat(params.build_path, limit: 1)
-          branch = SupportEngine::Git::Branch.commit(params.build_path, repo.head.target.oid)
-          diff_hash = SupportEngine::Git::Commits.originated_from(params.build_path, branch)
+
+          lines_stats = SupportEngine::Git::Log.shortstat(
+            params.build_path,
+            limit: 1
+          )
+
+          branch = SupportEngine::Git::Branch.commit(
+            params.build_path,
+            repo.head.target.oid
+          )
+
+          diff_hash = SupportEngine::Git::Commits.originated_from(
+            params.build_path, branch,
+            params.default_branch
+          )
 
           raw(
             target: repo.head.target,
