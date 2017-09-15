@@ -4,7 +4,7 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Parser do
   subject(:parser) { described_class.new }
 
   let(:stdout) do
-    <<~EOS
+    <<~CLOC_OUTPUT
       ---
       # github.com/AlDanial/cloc
       header :
@@ -25,7 +25,7 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Parser do
         comment: 21
         code: 672
         nFiles: 18
-    EOS
+    CLOC_OUTPUT
   end
 
   let(:raw) { { stdout: stdout, exit_code: exit_code, stderr: rand } }

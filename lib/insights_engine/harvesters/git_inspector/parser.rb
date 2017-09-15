@@ -78,7 +78,7 @@ module InsightsEngine
           map_authors('changes', authors)
           map_authors('blame', authors)
 
-          authors.each do |_email, author|
+          authors.each_value do |author|
             (BLAME_STATISTICS + CHANGES_STATISTICS).each do |metric|
               author[metric.to_sym] = 0
             end
