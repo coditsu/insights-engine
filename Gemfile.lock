@@ -1,6 +1,6 @@
 GIT
   remote: git@bitbucket.org:coditsu/support-engine.git
-  revision: 79356bf5dc9e2d9ea4d4380a5c49da5664bbe9df
+  revision: 7ce1f335170a57e73a3dd38e952ea6edb005e3d2
   branch: master
   specs:
     support_engine (0.1.2)
@@ -45,7 +45,7 @@ GEM
       dry-container (~> 0.2, >= 0.2.6)
       dry-core (~> 0.2)
       dry-equalizer (~> 0.2)
-    dry-types (0.12.0)
+    dry-types (0.12.1)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1)
       dry-container (~> 0.3)
