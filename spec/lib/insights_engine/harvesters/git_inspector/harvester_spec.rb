@@ -6,7 +6,7 @@ RSpec.describe InsightsEngine::Harvesters::GitInspector::Harvester do
   let(:scope) { InsightsEngine::Harvesters::GitInspector }
   let(:params) do
     InsightsEngine::Engine::Params.new(
-      build_path: InsightsEngine.gem_root,
+      build_path: SupportEngine::Git::RepoBuilder::Master.location,
       snapshotted_at: Date.today
     )
   end

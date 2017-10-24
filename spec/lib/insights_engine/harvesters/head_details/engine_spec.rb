@@ -4,7 +4,7 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Engine do
   let(:scope) { InsightsEngine::Harvesters::HeadDetails }
   let(:params) do
     {
-      build_path: InsightsEngine.gem_root,
+      build_path: SupportEngine::Git::RepoBuilder::Master.location,
       snapshotted_at: Date.today,
       default_branch: 'master'
     }

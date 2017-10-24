@@ -5,7 +5,7 @@ RSpec.describe InsightsEngine::Schemas::Params do
 
   let(:valid_input) do
     {
-      build_path: InsightsEngine.gem_root,
+      build_path: SupportEngine::Git::RepoBuilder::Master.location,
       snapshotted_at: Date.today
     }
   end

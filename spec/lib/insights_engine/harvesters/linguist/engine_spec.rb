@@ -2,7 +2,12 @@
 
 RSpec.describe InsightsEngine::Harvesters::Linguist::Engine do
   let(:scope) { InsightsEngine::Harvesters::Linguist }
-  let(:params) { { build_path: InsightsEngine.gem_root, snapshotted_at: Date.today } }
+  let(:params) do
+    {
+      build_path: SupportEngine::Git::RepoBuilder::Master.location,
+      snapshotted_at: Date.today
+    }
+  end
   let(:input) do
     described_class.parser.new.call(
       described_class.harvester.new.call(

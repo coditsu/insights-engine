@@ -5,7 +5,7 @@ RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Parser do
 
   let(:params) do
     InsightsEngine::Engine::Params.new(
-      build_path: InsightsEngine.gem_root,
+      build_path: SupportEngine::Git::RepoBuilder::Master.location,
       snapshotted_at: Date.today,
       since: 1.year.ago.to_date
     )

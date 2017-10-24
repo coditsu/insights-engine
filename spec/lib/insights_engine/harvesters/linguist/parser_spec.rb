@@ -6,7 +6,7 @@ RSpec.describe InsightsEngine::Harvesters::Linguist::Parser do
   let(:stdout) do
     InsightsEngine::Harvesters::Linguist::Harvester.new.call(
       InsightsEngine::Engine::Params.new(
-        build_path: InsightsEngine.gem_root,
+        build_path: SupportEngine::Git::RepoBuilder::Master.location,
         snapshotted_at: Date.today
       )
     )

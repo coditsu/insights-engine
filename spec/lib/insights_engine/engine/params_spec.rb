@@ -3,7 +3,7 @@
 RSpec.describe InsightsEngine::Engine::Params do
   let(:args) do
     {
-      build_path: InsightsEngine.gem_root,
+      build_path: SupportEngine::Git::RepoBuilder::Master.location,
       snapshotted_at: Date.today
     }
   end

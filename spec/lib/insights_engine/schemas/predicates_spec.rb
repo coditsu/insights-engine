@@ -13,7 +13,7 @@ RSpec.describe InsightsEngine::Schemas::Predicates do
 
   describe '#absolute_path?' do
     context 'valid sources path' do
-      let(:build_path) { InsightsEngine.gem_root }
+      let(:build_path) { SupportEngine::Git::RepoBuilder::Master.location }
 
       it { expect { schema_result }.not_to raise_error }
     end

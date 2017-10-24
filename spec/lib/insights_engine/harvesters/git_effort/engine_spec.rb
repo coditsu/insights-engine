@@ -4,7 +4,7 @@ RSpec.describe InsightsEngine::Harvesters::GitEffort::Engine do
   let(:scope) { InsightsEngine::Harvesters::GitEffort }
   let(:params) do
     {
-      build_path: InsightsEngine.gem_root,
+      build_path: SupportEngine::Git::RepoBuilder::Master.location,
       snapshotted_at: Date.today
     }
   end

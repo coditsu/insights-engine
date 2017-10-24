@@ -4,7 +4,7 @@ RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Engine do
   let(:scope) { InsightsEngine::Harvesters::CommitsDetails }
   let(:params) do
     {
-      build_path: InsightsEngine.gem_root,
+      build_path: SupportEngine::Git::RepoBuilder::Master.location,
       snapshotted_at: Date.today,
       since: 1.year.ago.to_date
     }
