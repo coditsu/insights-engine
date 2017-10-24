@@ -3,5 +3,5 @@
 
 
 cloc@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/cloc/-/cloc-2.2.0.tgz#ee38e476fd050edc1d2ef8357cbde274b7c7efb4"
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/cloc/-/cloc-2.3.2.tgz#3e6786657fc362b8721480ec90f7ab491e8865a0"
