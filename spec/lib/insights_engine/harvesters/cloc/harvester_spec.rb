@@ -20,7 +20,7 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Harvester do
     let(:call_result) { { stdout: '', stderr: '', exit_code: 0 } }
     let(:command) do
       cmd = []
-      cmd << 'yarn run --silent cloc -- --yaml --quiet --progress-rate=0'
+      cmd << 'yarn run --silent cloc --yaml --quiet --progress-rate=0'
       cmd << params.build_path
       cmd.join(' ')
     end
