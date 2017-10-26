@@ -29,14 +29,14 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler'
 
-  spec.add_dependency 'git'
-  spec.add_dependency 'rugged'
-  spec.add_dependency 'require_all'
-  spec.add_dependency 'multi_json'
-  spec.add_dependency 'i18n'
-  spec.add_dependency 'dry-validation'
   spec.add_dependency 'activesupport'
+  spec.add_dependency 'dry-validation'
+  spec.add_dependency 'git'
   spec.add_dependency 'github-linguist'
+  spec.add_dependency 'i18n'
+  spec.add_dependency 'multi_json'
+  spec.add_dependency 'require_all'
+  spec.add_dependency 'rugged'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(spec)/})
