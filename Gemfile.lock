@@ -1,6 +1,6 @@
 GIT
   remote: git@bitbucket.org:coditsu/support-engine.git
-  revision: e6b47a94930658ba352330b658a6dea7d317c551
+  revision: 115ebee3806d7f9bc6ed3906e1b8520e6254bb14
   branch: master
   specs:
     support_engine (0.1.2)
@@ -114,4 +114,4 @@ DEPENDENCIES
   timecop
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
