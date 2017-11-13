@@ -31,11 +31,11 @@ RSpec.describe InsightsEngine::Harvesters::RepositorySize::Engine do
   end
 
   describe '#schema' do
-    context 'valid' do
+    context 'when we use valid schema' do
       it { expect { described_class.schema.call(input) }.not_to raise_error }
     end
 
-    context 'no data' do
+    context 'when we use schema with no data' do
       let(:input) { {} }
 
       it do
@@ -45,7 +45,7 @@ RSpec.describe InsightsEngine::Harvesters::RepositorySize::Engine do
       end
     end
 
-    context 'invalid' do
+    context 'when we use schema with invalid data' do
       it_behaves_like :schemas_spec, :codebase_size, :required, :filled, :int?
       it_behaves_like :schemas_spec, :total_size, :required, :filled, :int?
     end

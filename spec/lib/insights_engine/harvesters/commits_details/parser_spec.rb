@@ -51,7 +51,7 @@ RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Parser do
       end
     end
 
-    context 'unmatched commit' do
+    context 'when we have unmatched commit' do
       let(:commit) { stdout[:stdout][:shortstat].pop(4).first.split.first }
 
       it do

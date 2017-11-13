@@ -31,11 +31,11 @@ RSpec.describe InsightsEngine::Harvesters::GitInspector::Engine do
   end
 
   describe '#schema' do
-    context 'valid' do
+    context 'when we have valid data' do
       it { expect { described_class.schema.call(input) }.not_to raise_error }
     end
 
-    context 'no data' do
+    context 'when we have no data' do
       let(:input) { {} }
 
       it do
@@ -45,7 +45,7 @@ RSpec.describe InsightsEngine::Harvesters::GitInspector::Engine do
       end
     end
 
-    context 'invalid' do
+    context 'when we have invalid data' do
       it_behaves_like :schemas_spec_nested, metadata: {
         version: %i[required filled],
         repository: %i[required filled],

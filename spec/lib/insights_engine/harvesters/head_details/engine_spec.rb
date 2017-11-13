@@ -32,11 +32,11 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Engine do
   end
 
   describe '#schema' do
-    context 'valid' do
+    context 'when we have valid data' do
       it { expect { described_class.schema.call(input) }.not_to raise_error }
     end
 
-    context 'no data' do
+    context 'when we have no data' do
       let(:input) { {} }
 
       it do
@@ -46,7 +46,7 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Engine do
       end
     end
 
-    context 'invalid' do
+    context 'when we have invalid data' do
       it_behaves_like :schemas_spec, :commit_hash, :required, :filled, :str?
       it_behaves_like :schemas_spec, :diff_hash, :required, :filled, :str?
       it_behaves_like :schemas_spec, :branch, :required, :filled, :str?

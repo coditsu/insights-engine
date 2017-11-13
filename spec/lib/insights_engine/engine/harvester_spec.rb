@@ -69,13 +69,13 @@ RSpec.describe InsightsEngine::Engine::Harvester do
     context 'when there is no exit code provided' do
       let(:exit_code) { false }
 
-      context 'and stderr is empty' do
+      context 'when stderr is empty' do
         it { expect(result[:exit_code]).to eq 0 }
         it { expect(result[:stdout]).to eq stdout }
         it { expect(result[:stderr]).to eq stderr }
       end
 
-      context 'and stderr is not empty' do
+      context 'when stderr is not empty' do
         let(:stderr) { rand.to_s }
 
         it { expect(result[:exit_code]).to eq 1 }

@@ -36,7 +36,7 @@ RSpec.describe InsightsEngine::Engine do
         described_class.schema = InsightsEngine::Schemas::Base
       end
 
-      context 'std flow' do
+      context 'when it is a std flow' do
         before do
           allow(described_class::Params).to receive(:new).with(valid_params).and_return(params)
           allow(described_class.harvester).to receive(:new).and_return(harvester)

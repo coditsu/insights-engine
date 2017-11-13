@@ -37,11 +37,11 @@ RSpec.describe InsightsEngine::Harvesters::GitEffort::Engine do
   end
 
   describe '#schema' do
-    context 'default data' do
+    context 'when we have default data' do
       it { expect { described_class.schema.call(input) }.not_to raise_error }
     end
 
-    context 'no data' do
+    context 'when we have no data' do
       let(:input) { {} }
 
       it do
@@ -51,7 +51,7 @@ RSpec.describe InsightsEngine::Harvesters::GitEffort::Engine do
       end
     end
 
-    context 'validation' do
+    context 'when we have particular validations' do
       it_behaves_like :schemas_spec, :location, :required, :filled, :str?
       it_behaves_like :schemas_spec, :commits, :required, :filled, :int?, gteq?: 5
       it_behaves_like :schemas_spec, :active_days, :required, :filled, :int?, gt?: 0

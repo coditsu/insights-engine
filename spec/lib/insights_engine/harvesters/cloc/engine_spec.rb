@@ -31,17 +31,17 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Engine do
   end
 
   describe '#schema' do
-    context 'default data' do
+    context 'when we have default data' do
       it { expect { described_class.schema.call(input) }.not_to raise_error }
     end
 
-    context 'no data' do
+    context 'when we have no data' do
       let(:input) { {} }
 
       it { expect { described_class.schema.call(input) }.not_to raise_error }
     end
 
-    context 'invalid' do
+    context 'when we have invalid data' do
       it_behaves_like :schemas_spec_first, languages: {
         language: %i[required filled str?],
         files: [:required, :filled, :int?, gteq?: 0],
