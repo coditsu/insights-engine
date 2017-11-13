@@ -12,13 +12,13 @@ RSpec.describe InsightsEngine::Schemas::Predicates do
   end
 
   describe '#absolute_path?' do
-    context 'valid sources path' do
+    context 'when we have valid sources path' do
       let(:build_path) { SupportEngine::Git::RepoBuilder::Master.location }
 
       it { expect { schema_result }.not_to raise_error }
     end
 
-    context 'nil sources path' do
+    context 'when we have nil sources path' do
       let(:build_path) { nil }
 
       it do
@@ -28,7 +28,7 @@ RSpec.describe InsightsEngine::Schemas::Predicates do
       end
     end
 
-    context 'local sources path' do
+    context 'when we have local sources path' do
       let(:build_path) { './' }
 
       it do
@@ -38,7 +38,7 @@ RSpec.describe InsightsEngine::Schemas::Predicates do
       end
     end
 
-    context 'absolute but non existing' do
+    context 'when we have absolute but non existing' do
       let(:build_path) { "/#{rand}" }
 
       it do

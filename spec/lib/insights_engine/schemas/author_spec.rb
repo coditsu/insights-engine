@@ -3,7 +3,7 @@
 RSpec.describe InsightsEngine::Schemas::Author do
   subject(:schema_result) { described_class.call(input) }
 
-  context 'no data' do
+  context 'when we have no data' do
     let(:input) { {} }
 
     it do
@@ -13,7 +13,7 @@ RSpec.describe InsightsEngine::Schemas::Author do
     end
   end
 
-  context 'invalid types' do
+  context 'when we have invalid types' do
     let(:input) { { name: rand, email: rand } }
 
     it do
@@ -23,13 +23,13 @@ RSpec.describe InsightsEngine::Schemas::Author do
     end
   end
 
-  context 'valid types' do
+  context 'when we have valid types' do
     let(:input) { { name: rand.to_s, email: rand.to_s } }
 
     it { expect { schema_result }.not_to raise_error }
   end
 
-  context 'keys missing' do
+  context 'when we have keys missing' do
     describe '#name' do
       let(:input) { { email: rand.to_s } }
 
@@ -47,7 +47,7 @@ RSpec.describe InsightsEngine::Schemas::Author do
     end
   end
 
-  context 'empty missing' do
+  context 'when we have empty missing' do
     describe '#name' do
       let(:input) { { email: rand.to_s, name: '' } }
 
@@ -65,7 +65,7 @@ RSpec.describe InsightsEngine::Schemas::Author do
     end
   end
 
-  context 'invalid key type' do
+  context 'when we have invalid key type' do
     describe '#name' do
       let(:input) { { email: rand.to_s, name: rand } }
 

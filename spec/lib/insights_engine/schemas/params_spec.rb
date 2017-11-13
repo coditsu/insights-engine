@@ -12,7 +12,7 @@ RSpec.describe InsightsEngine::Schemas::Params do
 
   let(:input) { valid_input }
 
-  context 'valid types' do
+  context 'when we have valid types' do
     it { expect { schema_result }.not_to raise_error }
   end
 
