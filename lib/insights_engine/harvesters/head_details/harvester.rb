@@ -28,6 +28,16 @@ module InsightsEngine
             params.default_branch
           )
 
+          format_raw(repo, lines_stats, branch, diff_hash)
+        end
+
+        # Extracts required data and combineds it into a raw result
+        # @return [Hash] hash with raw data
+        # @param repo [Rugged::Repository] rugged repository instance
+        # @param lines_stats [Array<String>] line changes statistics
+        # @param branch [String] branch name
+        # @param diff_hash [String] diff commit hash
+        def format_raw(repo, lines_stats, branch, diff_hash)
           raw(
             target: repo.head.target,
             lines_stats: lines_stats,
