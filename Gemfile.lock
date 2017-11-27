@@ -1,6 +1,6 @@
 GIT
-  remote: git@bitbucket.org:coditsu/support-engine.git
-  revision: 8cc9417ab65e0c8163190494889aee2bf2bed7dc
+  remote: git@github.com:coditsu/support-engine.git
+  revision: ab04781aa6d1b1c5b7c359a7df88d64e784ac667
   branch: master
   specs:
     support_engine (0.1.2)
