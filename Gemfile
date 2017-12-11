@@ -8,9 +8,9 @@ gemspec
   support_engine
 ].each do |gem_name|
   gem gem_name,
-    git: "git@github.com:coditsu/#{gem_name.tr('_', '-')}.git",
-    require: true,
-    branch: :master
+      git: "git@github.com:coditsu/#{gem_name.tr('_', '-')}.git",
+      require: true,
+      branch: :master
 end
 
 group :development, :test do
