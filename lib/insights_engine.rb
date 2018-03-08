@@ -45,6 +45,18 @@ module InsightsEngine
   end
 end
 
+%w[
+  schemas/predicates.rb
+  schemas/base.rb
+  schemas/*.rb
+].each { |path| require_all File.join(File.dirname(__FILE__), 'insights_engine', path) }
+
+%w[
+  parser_helper.rb
+  parser.rb
+  harvester.rb
+].each { |path| require_all File.join(File.dirname(__FILE__), '**', path) }
+
 require_all File.dirname(__FILE__) + '/**/*.rb'
 
 # This is used to provide a nicer "Rails like" translations in this gem
