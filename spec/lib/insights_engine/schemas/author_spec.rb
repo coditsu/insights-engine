@@ -51,6 +51,28 @@ RSpec.describe InsightsEngine::Schemas::Author do
     end
   end
 
+  context 'when we have values missing' do
+    describe '#name' do
+      let(:input) { { email: rand.to_s, name: nil } }
+
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
+    end
+
+    describe '#email' do
+      let(:input) { { name: rand.to_s, email: nil } }
+
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
+    end
+  end
+
   context 'when we have empty missing' do
     describe '#name' do
       let(:input) { { email: rand.to_s, name: '' } }

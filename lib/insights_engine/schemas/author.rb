@@ -7,8 +7,8 @@ module InsightsEngine
     # and email
     # This schema should be used to validate all the authors of all the things
     Author = Dry::Validation.Schema(Base) do
-      required(:name).maybe(:str?)
-      required(:email).maybe(:str?)
+      required(:name).value(:str?)
+      required(:email).value(:str?)
     end
   end
 end
