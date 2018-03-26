@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'insights_engine/version'
@@ -10,7 +10,7 @@ Gem.post_install do
   @post_install_hooks ||= {}
   # This would be executed multiple times if not this check
   unless @post_install_hooks[name]
-    success = system "cd #{File.expand_path('../', __FILE__)} && yarn"
+    success = system "cd #{File.expand_path(__dir__)} && yarn"
     raise Gem::DependencyError, name unless success
     @post_install_hooks[name] = true
   end

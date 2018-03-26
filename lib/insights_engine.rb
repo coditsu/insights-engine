@@ -40,7 +40,7 @@ module InsightsEngine
     # @example
     #   InsightsEngine.gem_root #=> '/home/user/.gems/InsightsEngine'
     def gem_root
-      File.expand_path('../..', __FILE__)
+      File.expand_path('..', __dir__)
     end
   end
 end

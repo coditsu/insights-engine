@@ -30,7 +30,7 @@ RSpec.describe InsightsEngine do
     it 'expect to point to root of the gem' do
       expect(
         insights_engine.gem_root
-      ).to eq File.expand_path('../../..', __FILE__)
+      ).to eq File.expand_path('../..', __dir__)
     end
   end
 end
