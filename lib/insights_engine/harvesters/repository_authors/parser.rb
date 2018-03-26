@@ -26,9 +26,11 @@ module InsightsEngine
         def extract(author_string)
           extracted = author_string.match(MATCH_REGEXP).to_a[1..2]
 
+          # @note We cast to string as there can be an author without a name or without
+          # an email and we don't want to deal with non-string cases
           {
-            name: extracted[0],
-            email: extracted[1]
+            name: extracted[0].to_s,
+            email: extracted[1].to_s
           }
         end
       end

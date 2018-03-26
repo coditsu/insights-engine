@@ -33,7 +33,11 @@ RSpec.describe InsightsEngine::Schemas::Author do
     describe '#name' do
       let(:input) { { email: rand.to_s } }
 
-      it { expect { schema_result }.not_to raise_error }
+      it do
+        expect do
+          schema_result
+        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
+      end
     end
 
     describe '#email' do
@@ -57,11 +61,7 @@ RSpec.describe InsightsEngine::Schemas::Author do
     describe '#email' do
       let(:input) { { name: rand.to_s, email: '' } }
 
-      it do
-        expect do
-          schema_result
-        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
-      end
+      it { expect { schema_result }.not_to raise_error }
     end
   end
 

@@ -51,12 +51,12 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Engine do
       it_behaves_like :schemas_spec, :diff_hash, :required, :filled, :str?
       it_behaves_like :schemas_spec, :branch, :required, :filled, :str?
       it_behaves_like :schemas_spec_nested, author: {
-        name: %i[optional maybe str?],
-        email: %i[required filled str?]
+        name: %i[required maybe str?],
+        email: %i[required maybe str?]
       }
       it_behaves_like :schemas_spec_nested, committer: {
-        name: %i[optional maybe str?],
-        email: %i[required filled str?]
+        name: %i[required maybe str?],
+        email: %i[required maybe str?]
       }
       it_behaves_like :schemas_spec, :authored_at, :required, :filled, :date_time?
       it_behaves_like :schemas_spec, :committed_at, :required, :filled, :date_time?
