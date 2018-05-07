@@ -46,7 +46,7 @@ RSpec.describe InsightsEngine::Harvesters::Linguist::Engine do
     end
 
     context 'when we have invalid data' do
-      it_behaves_like 'schemas spec', :languages, :required
+      it_behaves_like 'when it is a schemas spec', :languages, :required
     end
   end
 end

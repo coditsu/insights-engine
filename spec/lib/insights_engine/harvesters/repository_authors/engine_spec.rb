@@ -46,8 +46,8 @@ RSpec.describe InsightsEngine::Harvesters::RepositoryAuthors::Engine do
     end
 
     context 'when we have invalid data' do
-      it_behaves_like 'schemas spec', :name, :required, :maybe, :str?
-      it_behaves_like 'schemas spec', :email, :required, :maybe, :str?
+      it_behaves_like 'when it is a schemas spec', :name, :required, :maybe, :str?
+      it_behaves_like 'when it is a schemas spec', :email, :required, :maybe, :str?
     end
   end
 end
