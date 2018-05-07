@@ -52,9 +52,9 @@ RSpec.describe InsightsEngine::Harvesters::GitEffort::Engine do
     end
 
     context 'when we have particular validations' do
-      it_behaves_like :schemas_spec, :location, :required, :filled, :str?
-      it_behaves_like :schemas_spec, :commits, :required, :filled, :int?, gteq?: 5
-      it_behaves_like :schemas_spec, :active_days, :required, :filled, :int?, gt?: 0
+      it_behaves_like 'schemas spec', :location, :required, :filled, :str?
+      it_behaves_like 'schemas spec', :commits, :required, :filled, :int?, gteq?: 5
+      it_behaves_like 'schemas spec', :active_days, :required, :filled, :int?, gt?: 0
     end
   end
 end

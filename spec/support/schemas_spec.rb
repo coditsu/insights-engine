@@ -3,42 +3,42 @@
 # Set of helpers to test Dry::Validation::Schema
 module SchemasSpec; end
 
-RSpec.shared_context :schemas_spec_with_scope do |scope, name, *predicates|
-  include_context :schemas_spec_loop, scope, name, predicates
+RSpec.shared_context 'schemas spec with scope' do |scope, name, *predicates|
+  include_context 'schemas spec loop', scope, name, predicates
 end
 
-RSpec.shared_context :schemas_spec_loop do |scope, name, predicates|
+RSpec.shared_context 'schemas spec loop' do |scope, name, predicates|
   context name.to_s do
     predicates.each do |predicate|
       include_context(
-        :schemas_spec_validation,
+        'schemas spec validation',
         SchemasSpec::Options.prepare(name, predicates, predicate, scope)
       )
     end
   end
 end
 
-RSpec.shared_context :schemas_spec do |name, *predicates|
-  include_context :schemas_spec_loop, nil, name, predicates
+RSpec.shared_context 'schemas spec' do |name, *predicates|
+  include_context 'schemas spec loop', nil, name, predicates
 end
 
-RSpec.shared_examples :schemas_spec_nested do |hash|
+RSpec.shared_examples 'schemas spec nested' do |hash|
   hash.each do |scope, fields|
     fields.each do |name, predicates|
-      it_behaves_like :schemas_spec, "#{scope}.#{name}", *predicates
+      it_behaves_like 'schemas spec', "#{scope}.#{name}", *predicates
     end
   end
 end
 
-RSpec.shared_examples :schemas_spec_first do |hash|
+RSpec.shared_examples 'schemas spec first' do |hash|
   hash.each do |scope, fields|
     fields.each do |name, predicates|
-      it_behaves_like :schemas_spec_with_scope, scope, name, *predicates
+      it_behaves_like 'schemas spec with scope', scope, name, *predicates
     end
   end
 end
 
-RSpec.shared_examples :schemas_spec_validation do |options|
+RSpec.shared_examples 'schemas spec validation' do |options|
   predicates = SchemasSpec::Predicate.build(options[:predicates])
   if predicates.key?(options[:predicate])
     predicates[options[:predicate]].each do |key, values|

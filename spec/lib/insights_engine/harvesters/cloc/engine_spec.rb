@@ -42,7 +42,7 @@ RSpec.describe InsightsEngine::Harvesters::Cloc::Engine do
     end
 
     context 'when we have invalid data' do
-      it_behaves_like :schemas_spec_first, languages: {
+      it_behaves_like 'schemas spec first', languages: {
         language: %i[required filled str?],
         files: [:required, :filled, :int?, gteq?: 0],
         blank: [:required, :filled, :int?, gteq?: 0],

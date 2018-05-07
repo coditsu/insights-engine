@@ -46,7 +46,7 @@ RSpec.describe InsightsEngine::Harvesters::FilesExtensions::Engine do
     end
 
     context 'when we have invalid data' do
-      it_behaves_like :schemas_spec_first, files_extensions: {
+      it_behaves_like 'schemas spec first', files_extensions: {
         name: %i[required filled str?],
         count: [:required, :filled, :int?, gt?: 0]
       }

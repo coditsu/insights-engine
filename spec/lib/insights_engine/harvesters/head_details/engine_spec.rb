@@ -47,22 +47,22 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Engine do
     end
 
     context 'when we have invalid data' do
-      it_behaves_like :schemas_spec, :commit_hash, :required, :filled, :str?
-      it_behaves_like :schemas_spec, :diff_hash, :required, :filled, :str?
-      it_behaves_like :schemas_spec, :branch, :required, :filled, :str?
-      it_behaves_like :schemas_spec_nested, author: {
+      it_behaves_like 'schemas spec', :commit_hash, :required, :filled, :str?
+      it_behaves_like 'schemas spec', :diff_hash, :required, :filled, :str?
+      it_behaves_like 'schemas spec', :branch, :required, :filled, :str?
+      it_behaves_like 'schemas spec nested', author: {
         name: %i[required maybe str?],
         email: %i[required maybe str?]
       }
-      it_behaves_like :schemas_spec_nested, committer: {
+      it_behaves_like 'schemas spec nested', committer: {
         name: %i[required maybe str?],
         email: %i[required maybe str?]
       }
-      it_behaves_like :schemas_spec, :authored_at, :required, :filled, :date_time?
-      it_behaves_like :schemas_spec, :committed_at, :required, :filled, :date_time?
-      it_behaves_like :schemas_spec, :files_changed, :required, :filled, :int?, gteq?: 0
-      it_behaves_like :schemas_spec, :insertions, :required, :filled, :int?, gteq?: 0
-      it_behaves_like :schemas_spec, :deletions, :required, :filled, :int?, gteq?: 0
+      it_behaves_like 'schemas spec', :authored_at, :required, :filled, :date_time?
+      it_behaves_like 'schemas spec', :committed_at, :required, :filled, :date_time?
+      it_behaves_like 'schemas spec', :files_changed, :required, :filled, :int?, gteq?: 0
+      it_behaves_like 'schemas spec', :insertions, :required, :filled, :int?, gteq?: 0
+      it_behaves_like 'schemas spec', :deletions, :required, :filled, :int?, gteq?: 0
     end
   end
 end

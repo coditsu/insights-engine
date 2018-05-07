@@ -46,8 +46,8 @@ RSpec.describe InsightsEngine::Harvesters::RepositorySize::Engine do
     end
 
     context 'when we use schema with invalid data' do
-      it_behaves_like :schemas_spec, :codebase_size, :required, :filled, :int?
-      it_behaves_like :schemas_spec, :total_size, :required, :filled, :int?
+      it_behaves_like 'schemas spec', :codebase_size, :required, :filled, :int?
+      it_behaves_like 'schemas spec', :total_size, :required, :filled, :int?
     end
   end
 end

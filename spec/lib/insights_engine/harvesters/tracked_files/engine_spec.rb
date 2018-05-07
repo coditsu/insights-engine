@@ -46,7 +46,7 @@ RSpec.describe InsightsEngine::Harvesters::TrackedFiles::Engine do
     end
 
     context 'when we have invalid data' do
-      it_behaves_like :schemas_spec, :tracked_files, :required, :int?, gteq?: 0
+      it_behaves_like 'schemas spec', :tracked_files, :required, :int?, gteq?: 0
     end
   end
 end
