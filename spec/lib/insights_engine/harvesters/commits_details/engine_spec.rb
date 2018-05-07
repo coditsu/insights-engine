@@ -57,9 +57,11 @@ RSpec.describe InsightsEngine::Harvesters::CommitsDetails::Engine do
       }
       it_behaves_like 'when it is a schemas spec', :authored_at, :required, :filled, :date_time?
       it_behaves_like 'when it is a schemas spec', :committed_at, :required, :filled, :date_time?
-      it_behaves_like 'when it is a schemas spec', :files_changed, :required, :filled, :int?, gteq?: 0
       it_behaves_like 'when it is a schemas spec', :insertions, :required, :filled, :int?, gteq?: 0
       it_behaves_like 'when it is a schemas spec', :deletions, :required, :filled, :int?, gteq?: 0
+      it_behaves_like(
+        'when it is a schemas spec', :files_changed, :required, :filled, :int?, gteq?: 0
+      )
     end
   end
 end
