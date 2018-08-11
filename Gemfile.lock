@@ -61,7 +61,7 @@ GEM
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.13.1)
     escape_utils (1.2.1)
-    git (1.4.0)
+    git (1.5.0)
     github-linguist (6.4.1)
       charlock_holmes (~> 0.7.6)
       escape_utils (~> 1.2.0)
