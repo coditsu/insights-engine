@@ -1,0 +1,7 @@
+# frozen_string_literal: true
+
+require './lib/insights_engine.rb'
+
+pp InsightsEngine::Harvesters::HeadDetails::Engine.new.call(
+  build_path: `pwd`.gsub("\n", '')
+)
