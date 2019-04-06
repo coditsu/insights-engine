@@ -6,6 +6,7 @@
 .byebug_history
 .redcar/
 .sass-cache
+.coditsu/local.yml
 /spec/tmp/*
 /cache
 /gems
