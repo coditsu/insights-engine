@@ -60,6 +60,7 @@ GEM
       dry-types (~> 0.14.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    irb (1.0.0)
     json (2.2.0)
     minitest (5.11.3)
     multi_json (1.13.1)
@@ -95,6 +96,7 @@ DEPENDENCIES
   bundler
   byebug
   insights_engine!
+  irb
   rspec
   simplecov
   support_engine!
