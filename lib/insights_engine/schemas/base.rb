@@ -12,18 +12,14 @@ module InsightsEngine
     #   CustomBaseBasedSchema = Dry::Validation.Schema(Base) do
     #     # Schema definition goes here
     #   end
-    class Base < Dry::Validation::Schema
-      configure do
-        config.messages_file = File.join(
-          InsightsEngine.gem_root,
-          'config',
-          'locales',
-          I18n.locale.to_s,
-          'dry-validations.yml'
-        )
-        config.predicates = Schemas::Predicates
-        config.input_processor = :sanitizer
-      end
+    class Base < Dry::Validation::Contract
+      config.messages.load_paths << File.join(
+        InsightsEngine.gem_root,
+        'config',
+        'locales',
+        I18n.locale.to_s,
+        'dry-validations.yml'
+      )
 
       # @param args [Array] all the arguments that the
       #   Dry::Validation::Schema#call method accepts
@@ -33,7 +29,7 @@ module InsightsEngine
         result = super
         return result if result.success?
 
-        raise Errors::InvalidAttributes, "#{result.messages}: #{result.output}"
+        raise Errors::InvalidAttributes, "#{result.errors.to_h}: #{args}"
       end
     end
   end

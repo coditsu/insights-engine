@@ -33,7 +33,7 @@ RSpec.describe InsightsEngine::Engine do
       before do
         described_class.harvester = InsightsEngine::Engine::Harvester
         described_class.parser = InsightsEngine::Engine::Parser
-        described_class.schema = InsightsEngine::Schemas::Base
+        described_class.schema = InsightsEngine::Harvesters::HeadDetails::Engine.schema
       end
 
       context 'when it is a std flow' do
@@ -43,7 +43,8 @@ RSpec.describe InsightsEngine::Engine do
           allow(harvester).to receive(:call).with(params)
           allow(described_class.parser).to receive(:new).and_return(parser)
           allow(parser).to receive(:call).and_return(params)
-          allow(described_class.schema).to receive(:call).and_return(true)
+          allow(described_class.schema).to receive(:new).and_return(schema)
+          allow(schema).to receive(:call).and_return(true)
         end
 
         it 'expect to run without problems' do

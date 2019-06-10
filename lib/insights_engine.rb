@@ -45,7 +45,6 @@ module InsightsEngine
 end
 
 %w[
-  schemas/predicates.rb
   schemas/base.rb
   schemas/*.rb
 ].each { |path| require_all File.join(File.dirname(__FILE__), 'insights_engine', path) }

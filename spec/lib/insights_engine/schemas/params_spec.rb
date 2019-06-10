@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe InsightsEngine::Schemas::Params do
-  subject(:schema_result) { described_class.call(input) }
+  subject(:schema_result) { described_class.new.call(input) }
 
   let(:valid_input) { { build_path: SupportEngine::Git::RepoBuilder::Master.location } }
 

@@ -31,34 +31,144 @@ RSpec.describe InsightsEngine::Harvesters::HeadDetails::Engine do
   end
 
   describe '#schema' do
+    subject(:validation) { described_class.schema.new.call(input) }
+
+    let(:error) { InsightsEngine::Errors::InvalidAttributes }
+
     context 'when we have valid data' do
-      it { expect { described_class.schema.call(input) }.not_to raise_error }
+      it { expect { validation }.not_to raise_error }
     end
 
     context 'when we have no data' do
       let(:input) { {} }
 
-      it do
-        expect do
-          described_class.schema.call(input)
-        end.to raise_error(InsightsEngine::Errors::InvalidAttributes)
-      end
+      it { expect { validation }.to raise_error error }
     end
 
-    context 'when we have invalid data' do
-      it_behaves_like 'when it is a schemas spec', :commit_hash, :required, :filled, :str?
-      it_behaves_like 'when it is a schemas spec', :diff_hash, :required, :filled, :str?
-      it_behaves_like 'when it is a schemas spec', :branch, :required, :filled, :str?
-      it_behaves_like 'schemas spec nested', author: {
-        name: %i[required maybe str?],
-        email: %i[required maybe str?]
-      }
-      it_behaves_like 'schemas spec nested', committer: {
-        name: %i[required maybe str?],
-        email: %i[required maybe str?]
-      }
-      it_behaves_like 'when it is a schemas spec', :authored_at, :required, :filled, :date_time?
-      it_behaves_like 'when it is a schemas spec', :committed_at, :required, :filled, :date_time?
+    context 'when commit_hash is not a string' do
+      before { input[:commit_hash] = rand }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when commit_hash is an empty string' do
+      before { input[:commit_hash] = '' }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when diff_hash is not a string' do
+      before { input[:diff_hash] = rand }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when diff_hash is an empty string' do
+      before { input[:diff_hash] = '' }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when branch is not a string' do
+      before { input[:branch] = rand }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when branch is an empty string' do
+      before { input[:branch] = '' }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when message is not a string' do
+      before { input[:message] = rand }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when message is an empty string' do
+      before { input[:message] = '' }
+
+      it { expect { validation }.not_to raise_error }
+    end
+
+    context 'when message is nil' do
+      before { input[:message] = nil }
+
+      it { expect { validation }.not_to raise_error }
+    end
+
+    context 'when authored_at is not a date' do
+      before { input[:authored_at] = rand }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when authored_at is an empty string' do
+      before { input[:authored_at] = '' }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when authored_at is nil' do
+      before { input[:authored_at] = nil }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when committed_at is not a date' do
+      before { input[:committed_at] = rand }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when committed_at is an empty string' do
+      before { input[:committed_at] = '' }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when committed_at is nil' do
+      before { input[:committed_at] = nil }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when author is nil' do
+      before { input[:author] = nil }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when author is a random hash' do
+      before { input[:author] = { rand => rand } }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when author is missing a name' do
+      before { input[:author][:name] = nil }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when committer is nil' do
+      before { input[:committer] = nil }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when committer is a random hash' do
+      before { input[:committer] = { rand => rand } }
+
+      it { expect { validation }.to raise_error error }
+    end
+
+    context 'when committer is missing a name' do
+      before { input[:committer][:name] = nil }
+
+      it { expect { validation }.to raise_error error }
     end
   end
 end
