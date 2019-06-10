@@ -9,6 +9,8 @@ module InsightsEngine
       # Absolute path always needs to start with / and cannot end with /
       ABSOLUTE_PATH_REGEXP = %r{\A\/.*[^\/]\z}.freeze
 
+      private_constant :ABSOLUTE_PATH_REGEXP
+
       params do
         required(:build_path).filled(:str?)
         # Location of sources for which we want to build statistics
