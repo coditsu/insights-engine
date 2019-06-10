@@ -7,7 +7,6 @@ module InsightsEngine
     module HeadDetails
       # Engine that extracts head commit details of a given repository
       class Engine < InsightsEngine::Engine
-
         self.parser = HeadDetails::Parser
         self.harvester = HeadDetails::Harvester
         # Schema for final results format validation
