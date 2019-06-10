@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler'
 
   spec.add_dependency 'activesupport'
-  spec.add_dependency 'dry-validation'
+  spec.add_dependency 'dry-validation', '0.13.3'
   spec.add_dependency 'i18n'
   spec.add_dependency 'multi_json'
   spec.add_dependency 'require_all'

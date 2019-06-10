@@ -12,7 +12,7 @@ PATH
   specs:
     insights_engine (0.1.0)
       activesupport
-      dry-validation
+      dry-validation (= 0.13.3)
       i18n
       multi_json
       require_all
