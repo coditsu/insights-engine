@@ -79,7 +79,7 @@ module InsightsEngine
     def validate!(results)
       data = results.is_a?(Array) ? results : [results]
       data.each do |result|
-        self.class.schema.call(result)
+        self.class.schema.new.call(result)
       end
     end
   end

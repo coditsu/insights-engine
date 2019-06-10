@@ -10,15 +10,37 @@ module InsightsEngine
         self.parser = HeadDetails::Parser
         self.harvester = HeadDetails::Harvester
         # Schema for final results format validation
-        self.schema = Dry::Validation.Schema(InsightsEngine::Schemas::Base) do
-          required(:commit_hash).filled(:str?)
-          required(:diff_hash).filled(:str?)
-          required(:branch).filled(:str?)
-          required(:message) { filled? > str? }
-          required(:author).filled(InsightsEngine::Schemas::Author)
-          required(:committer).filled(InsightsEngine::Schemas::Author)
-          required(:authored_at).filled(:date_time?)
-          required(:committed_at).filled(:date_time?)
+        self.schema = Class.new(InsightsEngine::Schemas::Base) do
+          params do
+            required(:commit_hash).filled(:str?)
+            required(:diff_hash).filled(:str?)
+            required(:branch).filled(:str?)
+            required(:message) { filled? > str? }
+            required(:author).filled(:hash?)
+            required(:committer).filled(:hash?)
+            required(:authored_at).filled(:date_time?)
+            required(:committed_at).filled(:date_time?)
+          end
+
+          rule(:author) do
+            InsightsEngine::Schemas::Author
+              .new
+              .call(value)
+              .errors
+              .each do |error|
+                key([:author, error.path[0]]).failure(error.text)
+              end
+          end
+
+          rule(:committer) do
+            InsightsEngine::Schemas::Author
+              .new
+              .call(value)
+              .errors
+              .each do |error|
+                key([:committer, error.path[0]]).failure(error.text)
+              end
+          end
         end
       end
     end
