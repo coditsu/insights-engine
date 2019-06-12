@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:coditsu/support-engine.git
-  revision: 24d657f483f47a9ab2e2d7fc00c4ace3643f471f
+  revision: 35e1570e1a088fff7c7f40320c5ccc50c33e4cc6
   branch: master
   specs:
     support_engine (0.1.3)
@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    insights_engine (0.1.0)
+    insights_engine (0.2.0)
       activesupport
       dry-validation
       i18n
