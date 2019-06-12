@@ -3,7 +3,7 @@
 module InsightsEngine
   # Namespace for validators
   module Harvesters
-    module RepositoryAuthors
+    module Authors
       # Harvester used to get details on repository authors
       class Harvester < Engine::Harvester
         private

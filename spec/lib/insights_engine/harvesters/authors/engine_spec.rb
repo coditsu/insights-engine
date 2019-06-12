@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine::Harvesters::RepositoryAuthors::Engine do
-  let(:scope) { InsightsEngine::Harvesters::RepositoryAuthors }
+RSpec.describe InsightsEngine::Harvesters::Authors::Engine do
+  let(:scope) { InsightsEngine::Harvesters::Authors }
   let(:params) do
     {
       build_path: SupportEngine::Git::RepoBuilder::Master.location,

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine::Harvesters::RepositoryAuthors::Harvester do
+RSpec.describe InsightsEngine::Harvesters::Authors::Harvester do
   subject(:harvester) { described_class.new }
 
-  let(:scope) { InsightsEngine::Harvesters::RepositoryAuthors }
+  let(:scope) { InsightsEngine::Harvesters::Authors }
   let(:params) do
     InsightsEngine::Engine::Params.new(
       build_path: SupportEngine::Git::RepoBuilder::MasterMultipleCommitters.location,

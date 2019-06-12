@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine::Harvesters::RepositoryAuthors::Parser do
+RSpec.describe InsightsEngine::Harvesters::Authors::Parser do
   subject(:parser) { described_class.new }
 
   let(:stdout) do
-    InsightsEngine::Harvesters::RepositoryAuthors::Harvester.new.call(
+    InsightsEngine::Harvesters::Authors::Harvester.new.call(
       InsightsEngine::Engine::Params.new(
         build_path: SupportEngine::Git::RepoBuilder::MasterMultipleCommitters.location,
         snapshotted_at: Date.today

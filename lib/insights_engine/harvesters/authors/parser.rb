@@ -3,7 +3,7 @@
 module InsightsEngine
   # Namespace for validators
   module Harvesters
-    module RepositoryAuthors
+    module Authors
       # Parser for extracting repository authors details out of raw results
       class Parser < Engine::Parser
         # Regexp that matches author name and email from the git shortlog raw
