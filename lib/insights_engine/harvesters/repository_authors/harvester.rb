@@ -6,10 +6,6 @@ module InsightsEngine
     module RepositoryAuthors
       # Harvester used to get details on repository authors
       class Harvester < Engine::Harvester
-        # Regexp that matches author name and email from the git shortlog raw
-        # output
-        MATCH_REGEXP = /\t(.*) <(.*)>/
-
         private
 
         # @return [Array<Hash>] array with details of all people that authored

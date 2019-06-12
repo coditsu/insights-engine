@@ -8,7 +8,9 @@ module InsightsEngine
       class Parser < Engine::Parser
         # Regexp that matches author name and email from the git shortlog raw
         # output
-        MATCH_REGEXP = /\t(.*) <(.*)>/
+        MATCH_REGEXP = /\t(.*) <(.*)>/.freeze
+
+        private_constant :MATCH_REGEXP
 
         private
 
