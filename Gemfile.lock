@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:coditsu/support-engine.git
-  revision: d21f23a39467e1290c16472be7cdb3286f691b94
+  revision: 23df1275e3ccf491577f1d0e0756f3f8a6040fde
   branch: master
   specs:
     support_engine (0.1.3)
@@ -41,7 +41,7 @@ GEM
     dry-equalizer (0.2.2)
     dry-inflector (0.1.2)
     dry-initializer (3.0.1)
-    dry-logic (1.0.0)
+    dry-logic (1.0.2)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.2)
       dry-equalizer (~> 0.2)
