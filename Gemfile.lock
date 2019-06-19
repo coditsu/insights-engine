@@ -87,7 +87,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.2)
-    rugged (0.28.1)
+    rugged (0.28.2)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
