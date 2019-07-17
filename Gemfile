@@ -18,5 +18,4 @@ group :development, :test do
   gem 'irb'
   gem 'rspec'
   gem 'simplecov'
-  gem 'timecop'
 end

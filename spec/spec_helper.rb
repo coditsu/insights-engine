@@ -6,7 +6,6 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 %w[
   rubygems
   simplecov
-  timecop
   byebug
   support_engine
   support_engine/git/repo_builder
@@ -23,7 +22,6 @@ SimpleCov.start do
   merge_timeout 600
 end
 
-Timecop.safe_mode = true
 Time.zone = 'UTC'
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
