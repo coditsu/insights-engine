@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine::Harvesters::HeadDetails::Harvester do
+RSpec.describe_current do
   subject(:harvester) { described_class.new }
 
   let(:diff_hash) { rand.to_s }

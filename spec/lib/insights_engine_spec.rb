@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine do
+RSpec.describe_current do
   subject(:insights_engine) { described_class }
 
   describe '#engines' do

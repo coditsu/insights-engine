@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine::Engine::Populator do
+RSpec.describe_current do
   describe 'class elements' do
     subject(:populator_class) { described_class }
 

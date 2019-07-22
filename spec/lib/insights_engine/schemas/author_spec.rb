@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine::Schemas::Author do
+RSpec.describe_current do
   subject(:schema_result) { described_class.new.call(input) }
 
   context 'when we have no data' do

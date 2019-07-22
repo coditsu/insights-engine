@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine::Errors do
+RSpec.describe_current do
   subject(:errors_module) { described_class }
 
   error_classes = described_class
