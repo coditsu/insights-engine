@@ -4,14 +4,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-%w[
-  support_engine
-].each do |gem_name|
-  gem gem_name,
-      git: "git@github.com:coditsu/#{gem_name.tr('_', '-')}.git",
-      require: true,
-      branch: :master
-end
+gem 'support_engine', git: 'git@github.com:coditsu/support-engine.git'
 
 group :development, :test do
   gem 'byebug'
