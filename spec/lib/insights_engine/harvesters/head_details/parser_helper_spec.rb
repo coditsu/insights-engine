@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine::Harvesters::HeadDetails::ParserHelper do
+RSpec.describe_current do
   pending
 end

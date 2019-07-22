@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine::Engine::Harvester do
+RSpec.describe_current do
   subject(:harvester) { harvester_class.new }
 
   let(:harvester_class) { described_class }

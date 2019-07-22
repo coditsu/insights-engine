@@ -9,6 +9,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
   byebug
   support_engine
   support_engine/git/repo_builder
+  support_engine/rspec_locator
 ].each do |lib|
   require lib
 end
@@ -54,3 +55,5 @@ require 'insights_engine'
 FileUtils.rm_rf(File.join(InsightsEngine.gem_root, 'coverage'))
 FileUtils.rm_rf(File.join(InsightsEngine.gem_root, '.yardoc'))
 FileUtils.rm_rf(File.join(InsightsEngine.gem_root, 'doc'))
+
+RSpec.extend SupportEngine::RSpecLocator.new(__FILE__)

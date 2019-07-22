@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine::Harvesters::Authors::Parser do
+RSpec.describe_current do
   subject(:parser) { described_class.new }
 
   let(:stdout) do

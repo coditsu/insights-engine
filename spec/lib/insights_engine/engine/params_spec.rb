@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine::Engine::Params do
+RSpec.describe_current do
   let(:args) { { build_path: SupportEngine::Git::RepoBuilder::Master.location } }
 
   describe '#initialize' do

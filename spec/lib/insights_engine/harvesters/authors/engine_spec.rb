@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe InsightsEngine::Harvesters::Authors::Engine do
+RSpec.describe_current do
   let(:scope) { InsightsEngine::Harvesters::Authors }
   let(:params) do
     {
