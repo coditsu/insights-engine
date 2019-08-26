@@ -33,9 +33,9 @@ module InsightsEngine
       # Executes a given command in the build path context
       # @param command_with_options [String] shell command that
       #   we want to execute
+      # @return [Hash] InsightsEngine::Shell execution hash
       # @note This method only applies to shell/rake based Harvesters
       # @see InsightsEngine::Shell class documentation
-      # @return [Hash] InsightsEngine::Shell execution hash
       def run(command_with_options)
         SupportEngine::Shell.call(
           command_with_options,

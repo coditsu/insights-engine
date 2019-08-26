@@ -47,12 +47,12 @@ module InsightsEngine
     # Method used to execute engine and validate source code. It will execute
     #   checking and will validate the output to make sure it meets the output
     #   requirements
+    # @param args [Array<Object>] Initial parameters for the validation
+    # @return [Hash] hash with all the validation data
     # @note If you want to review the output hash structure, please review the
     #   InsightsEngine::Schemas::Result validation schema
     # @note Initial parameters are validated using
     #   InsightsEngine::Schemas::Params validation schema
-    # @param args [Array<Object>] Initial parameters for the validation
-    # @return [Hash] hash with all the validation data
     def call(*args)
       @params = Params.new(*args)
       buffer = process
