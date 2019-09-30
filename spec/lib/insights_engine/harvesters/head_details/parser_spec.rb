@@ -43,6 +43,7 @@ RSpec.describe_current do
       if k.instance_of?(Hash)
         k.each do |kk, v|
           it { expect(output).to have_key(kk) }
+
           v.each do |kkk|
             it { expect(output[kk]).to have_key(kkk) }
           end
