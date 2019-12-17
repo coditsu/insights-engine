@@ -30,8 +30,6 @@ jobs:
           git config --global user.email "ci@coditsu.io"
           git config --global user.name "Coditsu CI"
           bundle config github.https true
-          bundle check --path=vendor/bundle || bundle install --path vendor/bundle
-          yes | gem uninstall bundler || true
           rm -rf /usr/local/bin/bundle && gem install bundler
           yes | gem update --system || true
       - save_cache:
