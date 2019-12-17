@@ -28,7 +28,7 @@ jobs:
             - v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{arch}}-gem-lock-
       - run: git config --global user.email "ci@coditsu.io"
       - run: git config --global user.name "Coditsu CI"
-      - run: rm -rf /usr/local/bin/bundle && gem install bundler
+      - run: sudo rm -rf /usr/local/bin/bundle && gem install bundler
       - run: bundle update --bundler
       - run: yes | gem update --system || true
       - run: bundle config github.https true
