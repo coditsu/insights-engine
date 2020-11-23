@@ -6,7 +6,7 @@ plugin 'diffend'
 
 gemspec
 
-gem 'support_engine', git: 'git@github.com:coditsu/support-engine.git'
+gem 'support_engine', github: 'coditsu/support-engine'
 
 group :development, :test do
   gem 'byebug'
