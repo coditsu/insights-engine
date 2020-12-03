@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: 18f1f21b51d2c701f9f4bea192edf4f6a0454f36
+  revision: 11313b66f6ec41a4f57487dc6270c2858d787ff3
   specs:
     support_engine (0.1.4)
       activesupport
@@ -92,14 +92,16 @@ GEM
       rspec-support (~> 3.10.0)
     rspec-support (3.10.0)
     rugged (1.1.0)
-    simplecov (0.19.1)
+    simplecov (0.20.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.2)
     thread_safe (0.3.6)
     tzinfo (1.2.8)
       thread_safe (~> 0.1)
-    zeitwerk (2.4.1)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
