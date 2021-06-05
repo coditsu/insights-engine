@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: 254d2c31d1cf9e024716a2b0d10eaf447ed5cb5d
+  revision: ba8f9710a8aa6995ec07feb31cb2dc5f4c302ab9
   specs:
     support_engine (0.1.4)
       activesupport
@@ -27,7 +27,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     byebug (11.1.3)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.9)
     diff-lcs (1.4.4)
     docile (1.4.0)
     dry-configurable (0.12.1)
@@ -99,6 +99,8 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  x86_64-darwin
+  x86_64-darwin-19
   x86_64-linux
 
 DEPENDENCIES
