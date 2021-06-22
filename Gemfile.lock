@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: 916d4cb99cb66c5144a72695a9544981a8a96dbb
+  revision: 8378fdd728d219de3f26d4b5c1efed3ef51ad9e2
   specs:
     support_engine (0.1.4)
       activesupport
@@ -67,11 +67,11 @@ GEM
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     io-console (0.5.9)
-    irb (1.3.5)
-      reline (>= 0.1.5)
+    irb (1.3.6)
+      reline (>= 0.2.5)
     minitest (5.14.4)
     multi_json (1.15.0)
-    reline (0.2.5)
+    reline (0.2.6)
       io-console (~> 0.5)
     require_all (3.0.0)
     rspec (3.10.0)
@@ -99,6 +99,8 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  x86_64-darwin
+  x86_64-darwin-19
   x86_64-linux
 
 DEPENDENCIES
