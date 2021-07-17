@@ -22,3 +22,4 @@
 /.yard
 node_modules
 /run.rb
+vendor/bundle
