@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: 04595875ff146f377ea1e326954952fcd0aa0395
+  revision: ea06a46d37d3d9d9fa298c244fcfbae5a2ab1cfe
   specs:
     support_engine (0.1.4)
       activesupport (< 7)
@@ -69,7 +69,7 @@ GEM
       reline (>= 0.3.0)
     minitest (5.15.0)
     multi_json (1.15.0)
-    reline (0.3.0)
+    reline (0.3.1)
       io-console (~> 0.5)
     require_all (3.0.0)
     rspec (3.10.0)
@@ -110,4 +110,4 @@ DEPENDENCIES
   support_engine!
 
 BUNDLED WITH
-   2.3.3
+   2.3.5
