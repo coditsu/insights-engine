@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: 7b47790142f69158e6e0bb8aa0fe93e84cecd694
+  revision: d010fd34f67370059abd601cf9f95723fbcf083f
   specs:
     support_engine (0.1.4)
       activesupport (< 7)
@@ -30,7 +30,7 @@ GEM
     concurrent-ruby (1.1.10)
     diff-lcs (1.5.0)
     docile (1.4.0)
-    dry-configurable (0.14.0)
+    dry-configurable (0.15.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.6)
     dry-container (0.9.0)
@@ -85,7 +85,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
     rspec-support (3.11.0)
-    rugged (1.4.2)
+    rugged (1.4.3)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -111,4 +111,4 @@ DEPENDENCIES
   support_engine!
 
 BUNDLED WITH
-   2.3.11
+   2.3.12
