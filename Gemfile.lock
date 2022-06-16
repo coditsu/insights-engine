@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: a1b91edae51e0f92b024bb173b85d96167c546dc
+  revision: bc75d1dd418c1dae2f17c479a69dad1dec7eaa0f
   specs:
     support_engine (0.1.4)
       activesupport (< 7)
@@ -67,7 +67,7 @@ GEM
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
-    minitest (5.15.0)
+    minitest (5.16.0)
     multi_json (1.15.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -94,7 +94,7 @@ GEM
     simplecov_json_formatter (0.1.4)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    zeitwerk (2.5.4)
+    zeitwerk (2.6.0)
 
 PLATFORMS
   arm64-darwin
@@ -111,4 +111,4 @@ DEPENDENCIES
   support_engine!
 
 BUNDLED WITH
-   2.3.15
+   2.3.16
