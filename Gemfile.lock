@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: 6c87ee48e5d7ea64aba0d7650f6b333dfd11c819
+  revision: 146c53e47f1ca2331dc4170af3be479f05e28b04
   specs:
     support_engine (0.1.4)
       activesupport (< 7)
@@ -67,7 +67,7 @@ GEM
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
-    minitest (5.16.1)
+    minitest (5.16.2)
     multi_json (1.15.0)
     reline (0.3.1)
       io-console (~> 0.5)
