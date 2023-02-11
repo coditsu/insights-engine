@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: b4ed30fee93c3555b9cf1a1f866b601fc7e7e1c5
+  revision: 892f0926544591031a24ec3a77992e74e99b9c2e
   specs:
     support_engine (0.1.4)
       activesupport (< 7)
@@ -94,7 +94,7 @@ GEM
     simplecov_json_formatter (0.1.4)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    zeitwerk (2.6.6)
+    zeitwerk (2.6.7)
 
 PLATFORMS
   arm64-darwin
