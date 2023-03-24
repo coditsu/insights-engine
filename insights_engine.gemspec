@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'i18n'
   spec.add_dependency 'multi_json'
   spec.add_dependency 'require_all'
-  spec.add_dependency 'rugged', '~> 1.4.0'
+  spec.add_dependency 'rugged', '>= 1.4', '< 1.7'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(spec)/})
