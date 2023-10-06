@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: b3e36867def94e6695e5af6abc8034b55df915d3
+  revision: 011b702728bdf8740b747d7abf37f44c7ec75914
   specs:
     support_engine (0.1.4)
       activesupport (< 7)
@@ -74,7 +74,7 @@ GEM
       stringio
     rdoc (6.5.0)
       psych (>= 4.0.0)
-    reline (0.3.8)
+    reline (0.3.9)
       io-console (~> 0.5)
     require_all (3.0.0)
     rspec (3.12.0)
