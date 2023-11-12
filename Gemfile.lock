@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: 484b4bb3bcfa753062475b49f769e568c455bbf4
+  revision: 067037ce33c0932f39981ac38b1c41d94a1e954f
   specs:
     support_engine (0.1.4)
       activesupport (< 7)
@@ -65,16 +65,16 @@ GEM
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
-    irb (1.8.3)
+    irb (1.9.0)
       rdoc
       reline (>= 0.3.8)
     minitest (5.20.0)
     multi_json (1.15.0)
     psych (5.1.1.1)
       stringio
-    rdoc (6.5.0)
+    rdoc (6.6.0)
       psych (>= 4.0.0)
-    reline (0.3.9)
+    reline (0.4.0)
       io-console (~> 0.5)
     require_all (3.0.0)
     rspec (3.12.0)
@@ -97,7 +97,7 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    stringio (3.0.8)
+    stringio (3.0.9)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     zeitwerk (2.6.12)
@@ -117,4 +117,4 @@ DEPENDENCIES
   support_engine!
 
 BUNDLED WITH
-   2.4.21
+   2.4.22
