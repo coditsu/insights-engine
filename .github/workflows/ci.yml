@@ -13,7 +13,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: 3.2
+          ruby-version: 3.3
       - name: Run all tests
         env:
           GITHUB_COVERAGE: true
@@ -33,7 +33,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
+          ruby-version: 3.3
       - name: Install Diffend plugin
         run: bundle plugin install diffend
       - name: Bundle Secure
