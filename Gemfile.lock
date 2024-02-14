@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: 4980c5a54c8a0bdc90203519e7341d4bebd9a53c
+  revision: 1582c540f4db4fa2cf5d3a14568f190ad72dca9c
   specs:
     support_engine (0.1.4)
       activesupport (< 7)
@@ -67,10 +67,10 @@ GEM
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
-    irb (1.11.1)
+    irb (1.11.2)
       rdoc
       reline (>= 0.4.2)
-    minitest (5.21.2)
+    minitest (5.22.2)
     multi_json (1.15.0)
     psych (5.1.2)
       stringio
@@ -79,20 +79,20 @@ GEM
     reline (0.4.2)
       io-console (~> 0.5)
     require_all (3.0.0)
-    rspec (3.12.0)
-      rspec-core (~> 3.12.0)
-      rspec-expectations (~> 3.12.0)
-      rspec-mocks (~> 3.12.0)
-    rspec-core (3.12.2)
-      rspec-support (~> 3.12.0)
-    rspec-expectations (3.12.3)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.12.0)
-    rspec-mocks (3.12.6)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.12.0)
-    rspec-support (3.12.1)
-    rugged (1.7.1)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.0)
+    rugged (1.7.2)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -102,7 +102,7 @@ GEM
     stringio (3.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    zeitwerk (2.6.12)
+    zeitwerk (2.6.13)
 
 PLATFORMS
   arm64-darwin
@@ -119,4 +119,4 @@ DEPENDENCIES
   support_engine!
 
 BUNDLED WITH
-   2.5.5
+   2.5.6
