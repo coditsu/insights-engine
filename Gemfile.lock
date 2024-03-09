@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: 82e77ab82a27cd77340387594711454c927e99f2
+  revision: 7d6104aa2e2005d6dec987564d19aba29a2a87fd
   specs:
     support_engine (0.1.4)
       activesupport (< 7)
@@ -64,10 +64,10 @@ GEM
       dry-initializer (~> 3.0)
       dry-schema (>= 1.12, < 2)
       zeitwerk (~> 2.6)
-    i18n (1.14.1)
+    i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
-    irb (1.11.2)
+    irb (1.12.0)
       rdoc
       reline (>= 0.4.2)
     minitest (5.22.2)
