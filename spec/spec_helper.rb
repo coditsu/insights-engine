@@ -6,7 +6,6 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 %w[
   rubygems
   simplecov
-  byebug
   support_engine
   support_engine/git/repo_builder
   support_engine/rspec_locator

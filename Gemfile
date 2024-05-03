@@ -9,7 +9,7 @@ gemspec
 gem 'support_engine', github: 'coditsu/support-engine'
 
 group :development, :test do
-  gem 'byebug'
+  gem 'debug'
   gem 'irb'
   gem 'rspec'
   gem 'simplecov'
