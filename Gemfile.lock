@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/coditsu/support-engine.git
-  revision: 5ca3087589dcb676a830fc71413b49aaa4a56af5
+  revision: 4ac3949e56c4c9894eceeaf7e3b8a1ec1e4a2121
   specs:
     support_engine (0.1.4)
       activesupport (< 7)
@@ -20,14 +20,14 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.7.7)
+    activesupport (6.1.7.8)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     bigdecimal (3.1.8)
-    concurrent-ruby (1.3.1)
+    concurrent-ruby (1.3.3)
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
@@ -78,7 +78,7 @@ GEM
       stringio
     rdoc (6.7.0)
       psych (>= 4.0.0)
-    reline (0.5.8)
+    reline (0.5.9)
       io-console (~> 0.5)
     require_all (3.0.0)
     rspec (3.13.0)
@@ -101,7 +101,7 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    stringio (3.1.0)
+    stringio (3.1.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     zeitwerk (2.6.15)
